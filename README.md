@@ -45,18 +45,23 @@ PDF versions of the figures, can be found in the `reports/figures` directory.
 
 ## Acknowledgements
 
-A. R. M. is grateful to the University of Bath and Diamond Light Source for co-funding a studentship (Studentship Number STU0149). 
+A. R. M. is grateful to the University of Bath and Diamond Light Source for co-funding a studentship (Studentship Number STU0149).
 
 ## Project Organization
 
     .
     ├── AUTHORS.md
-    ├── LICENSE              # CC-BY-SA-4.0
-    ├── README.md            # You are here
-    ├── Snakefile             # Makefile to outline workflow
-    ├── output               # Files and data output by analysis scripts
-    ├── config               # requirements.txt file
-    ├── notebooks            # Notebooks for analysis
-    ├── reports              # Paper and ESI
+    ├── LICENSE         # CC-BY-SA-4.0
+    ├── README.md       # You are here
+    ├── Snakefile       # Makefile to outline workflow
+    ├── bin           # Some python scripts
+    ├── output          # Files and data output by analysis scripts
+    │   ├── simulation
+    │   └── traditional
+    ├── config          # requirements.txt file
+    ├── notebooks       # Notebooks for analysis
+    │   ├── simulation
+    │   └── traditional
+    ├── reports         # Paper and ESI
     │   └── figures
-    └── models		     # mol_vol.py custom model for refnx 
+    └── models          # mol_vol.py custom model for refnx
