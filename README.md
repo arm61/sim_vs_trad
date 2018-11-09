@@ -32,7 +32,7 @@ source activate paper_env
 
 pip install --upgrade pip
 
-pip install snakemake
+pip install -r config/requirements.txt
 
 snakemake clean # this will remove all of the output from previous runs
 
