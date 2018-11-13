@@ -136,7 +136,7 @@ for i in range(n.shape[0]):
 import scipy
 from scipy.stats.mstats import mquantiles
 chi_arr = mquantiles(chi, prob=[0.025, 0.5, 0.975])
-chia = '{:.0f}'.format(chi_arr[1])
+chia = '{:.1f}'.format(chi_arr[1])
 
 chi_out = open('../../output/simulation/{}_{}_{}_chisq.txt'.format(contrast, forcefield, surface_pressure), 'w')
 chi_out.write('$' + str(chia) + '$')

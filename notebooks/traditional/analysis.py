@@ -128,7 +128,7 @@ d13.cos_rad_chain_tilt.setp(vary=True, bounds=(0.01, 0.99))
 d13.phit.setp(vary=False)
 d13.phih.constraint = 1 - (d13.head_mol_vol * d13.tail_length * d13.cos_rad_chain_tilt / 
                            (d13.tail_mol_vol * d13.thick_heads))
-d13.rough_head_tail.setp(vary=True, bounds=(3.3, 8.))
+d13.rough_head_tail.setp(vary=True, bounds=(3.3, 3.6))
 d13.rough_preceding_mono.constraint = d13.rough_head_tail
 d13.head_mol_vol.setp(320.9, vary=True, bounds=(100, 500))
 d13.tail_mol_vol.constraint = d13.cos_rad_chain_tilt * tail_length * apm
@@ -265,7 +265,7 @@ for k, label in enumerate(labels):
 contrasts = ['d13acmw', 'd70acmw', 'd83acmw', 'd13d2o', 'd70d2o', 'd83d2o', 'hd2o']
 for i, a in enumerate(global_objective.objectives):
     file_out = open('../../output/traditional/{}_{}_chisq.txt'.format(contrasts[i], surface_pressure), 'w')
-    file_out.write('${:.2f}$'.format(a.chisqr()))
+    file_out.write('${:.1f}$'.format(a.chisqr()))
     file_out.close()
 
 

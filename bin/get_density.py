@@ -64,8 +64,9 @@ tail_bin = tab / (dimensions[0] * dimensions[1] * bin_width)
 f_out = open('../output/simulation/slipids_nb{}.txt'.format(jsk), 'w')
 
 for i in range(int(np.ceil(dimensions[2] / bin_width))):
-    out = '{} {} {} {} \n'.format(i, water_bin.mean(axis=1)[i], head_bin.mean(axis=1)[i], tail_bin.mean(axis=1)[i])
-    f_out.write(out)
+    for j in range(water_bin.shape[1]):
+        f_out.write('{} {} {} {} '.format(i, water_bin[i, j], head_bin[i, j], tail_bin[i, j]))
+    f_out.write("\n")
 
 f_out.close()
 

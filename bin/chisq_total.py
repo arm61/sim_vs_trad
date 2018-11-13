@@ -10,6 +10,9 @@ def get_value(file, simtrad):
 simt = ['traditional', 'simulation', 'simulation', 'simulation']
 ff = ['', '_martini', '_berger', '_slipids']
 for j in range(0, len(simt)):
+    #if j == 0:
+    #    sps = ['20_mod', '30_mod', '40_mod', '50_mod']
+    #else:
     sps = ['20', '30', '40', '50']
     for sp in sps:
         contrasts = ['d13acmw', 'd13d2o', 'd70acmw', 'd70d2o', 'd83acmw', 'd83d2o', 'hd2o']
@@ -19,4 +22,4 @@ for j in range(0, len(simt)):
         ave = total.mean()
         st = total.std()
         f_out = open('../output/{}/ave{}_{}_chisq.txt'.format(simt[j], ff[j], sp), 'w')
-        f_out.write('${:.2f}\pm{:.2f}$'.format(ave, st))
+        f_out.write('${:.1f}\pm{:.1f}$'.format(ave, st))

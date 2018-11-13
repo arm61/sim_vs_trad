@@ -102,6 +102,7 @@ def set_constraints(lipids, structures, vary_tails=False):
         lipids[i].rough_preceding_mono.constraint = lipids[0].rough_preceding_mono
         lipids[i].tail_mol_vol.constraint = lipids[0].tail_mol_vol
         lipids[i].head_mol_vol.constraint = lipids[0].head_mol_vol
+    for i in range(1, len(structures)):
         structures[i][-1].rough.constraint = structures[0][-1].rough
     return lipids, structures
 
