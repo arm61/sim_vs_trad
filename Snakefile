@@ -14,9 +14,13 @@ SLI_ANAL_SLD = ['output/simulation/'+contrast+'_slipids_'+sp+'_sld.txt' for cont
 SLI_ANAL_CHI = ['output/simulation/'+contrast+'_slipids_'+sp+'_chisq.txt' for contrast in CONTRASTS for sp in SURF_PRES]
 SIM_FIGS = ['reports/figures/sim_'+ff+'_'+sp+'.pdf' for ff in FORCEFIELDS for sp in SURF_PRES]
 TRAD_ANAL_REF = ['output/traditional/'+contrast+'_'+sp+'_ref.txt' for contrast in CONTRASTS for sp in SURF_PRES]
+#MOD_ANAL_REF = ['output/traditional/'+contrast+'_'+sp+'_mod_ref.txt' for contrast in CONTRASTS for sp in SURF_PRES]
 TRAD_ANAL_SLD = ['output/traditional/'+contrast+'_'+sp+'_sld.txt' for contrast in CONTRASTS for sp in SURF_PRES]
+#MOD_ANAL_SLD = ['output/traditional/'+contrast+'_'+sp+'_mod_sld.txt' for contrast in CONTRASTS for sp in SURF_PRES]
 TRAD_ANAL_CHI = ['output/traditional/'+contrast+'_'+sp+'_chisq.txt' for contrast in CONTRASTS for sp in SURF_PRES]
+#MOD_ANAL_CHI = ['output/traditional/'+contrast+'_'+sp+'_mod_chisq.txt' for contrast in CONTRASTS for sp in SURF_PRES]
 TRAD_FIGS = ['reports/figures/trad_'+sp+'.pdf' for sp in SURF_PRES]
+#MOD_FIGS = ['reports/figures/trad_'+sp+'_mod.pdf' for sp in SURF_PRES]
 METHODS = ['traditional', 'simulation', 'simulation', 'simulation']
 FORCEFIELDS2 = ['', '_martini', '_berger', '_slipids']
 TOTAL_CHI = ['output/'+m+'/ave'+FORCEFIELDS2[i]+'_'+sp+'_chisq.txt' for i, m in enumerate(METHODS) for sp in SURF_PRES]
@@ -30,9 +34,10 @@ rule make_pdf:
     input:
         SIM_FIGS,
         TRAD_FIGS,
+#        MOD_FIGS,
         TOTAL_CHI,
-        DENSITY_DATA,
         'reports/figures/apm.pdf',
+        'reports/figures/number_density.pdf',
         'reports/paper.tex',
         'reports/paper.bib'
     output:
@@ -80,11 +85,31 @@ rule trad_gen_analysis:
         jupyter-nbconvert --to script {input}
         """
 
+rule trad_gen_analysis_mod:
+    input:
+        'notebooks/traditional/analysis_mod.ipynb'
+    output:
+        'notebooks/traditional/analysis_mod.py'
+    shell:
+        """
+        jupyter-nbconvert --to script {input}
+        """
+
 rule trad_gen_plot:
     input:
         'notebooks/traditional/plot.ipynb'
     output:
         'notebooks/traditional/plot.py'
+    shell:
+        """
+        jupyter-nbconvert --to script {input}
+        """
+
+rule nd_gen_plot:
+    input:
+        'notebooks/simulation/density_plot.ipynb'
+    output:
+        'notebooks/simulation/density_plot.py'
     shell:
         """
         jupyter-nbconvert --to script {input}
@@ -158,7 +183,8 @@ rule sim_plot:
 rule trad_analysis:
     input:
         EXP_DATA,
-        'notebooks/traditional/analysis.py'
+        'notebooks/traditional/analysis.py',
+        'models/mol_vol.py'
     output:
         TRAD_ANAL_REF,
         TRAD_ANAL_SLD,
@@ -180,12 +206,41 @@ rule trad_plot:
             shell("cd notebooks/traditional && ipython plot.py {sp}")
             shell("cd ../")
 
+#rule trad_analysis_mod:
+#    input:
+#        EXP_DATA,
+#        'notebooks/traditional/analysis_mod.py',
+#        'models/mol_vol_mod.py'
+#    output:
+#        MOD_ANAL_REF,
+#        MOD_ANAL_SLD,
+#        MOD_ANAL_CHI
+#    run:
+#        for sp in SURF_PRES:
+#            shell("cd notebooks/traditional && ipython analysis_mod.py {sp}")
+#            shell("cd ../")
+#
+#rule trad_plot_mod:
+#    input:
+#        MOD_ANAL_REF,
+#        MOD_ANAL_SLD,
+#        'notebooks/traditional/plot.py'
+#    output:
+#        MOD_FIGS
+#    run:
+#        sp = ['20_mod', '30_mod', '40_mod', '50_mod']
+#        for i in sp:
+#            shell("cd notebooks/traditional && ipython plot.py {i}")
+#            shell("cd ../")
+
 rule chisq_av:
     input:
         TRAD_ANAL_CHI,
         MAR_ANAL_CHI,
         BER_ANAL_CHI,
-        SLI_ANAL_CHI
+        SLI_ANAL_CHI,
+#        MOD_ANAL_CHI,
+        'bin/chisq_total.py'
     output:
         TOTAL_CHI
     shell:
@@ -208,10 +263,21 @@ rule apm_plot:
 
 rule get_densities:
     input:
-        SIM_DATA
+        SIM_DATA,
+        'bin/get_density.py'
     output:
         DENSITY_DATA
     run:
         for index in range(1, 11):
             shell("cd bin && ipython get_density.py {index}")
             shell("cd ../")
+
+rule nb_plot:
+    input:
+        DENSITY_DATA,
+        'notebooks/simulation/density_plot.py'
+    output:
+        'reports/figures/number_density.pdf'
+    run:
+        shell("cd notebooks/simulation && ipython density_plot.py")
+        shell("cd ../")
