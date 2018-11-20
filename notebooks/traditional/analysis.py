@@ -243,7 +243,7 @@ for k, label in enumerate(labels):
 # In[ ]:
 
 
-solh = 1 - (copychain[:, 3]) / (apm * copychain[:, 2])
+solh = 1 - (copychain[:, 3]) / (apm * copychain[:, 1])
 solh *= 100
 wph = (solh / 100) * copychain[:, 3] / (29.9 - 29.9 * (solh / 100))
 variables = [solh, wph]
