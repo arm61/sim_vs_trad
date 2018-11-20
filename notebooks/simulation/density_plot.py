@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt
@@ -23,7 +23,7 @@ mpl.rcParams['axes.edgecolor'] = 'k'
 import numpy as np
 
 
-# In[ ]:
+# In[2]:
 
 
 ik = []
@@ -40,7 +40,7 @@ for i in range(1, 11):
         tbb.append(data[j+3])
 
 
-# In[ ]:
+# In[3]:
 
 
 ikc = np.asarray(ik)
@@ -49,13 +49,13 @@ hbc = np.asarray(hbb)
 tbc = np.asarray(tbb)
 
 
-# In[ ]:
+# In[4]:
 
 
 print(ikc.shape)
 
 
-# In[ ]:
+# In[5]:
 
 
 ikd = ikc.mean(axis=0)
@@ -65,13 +65,13 @@ tbc = np.asarray(tbb)
 wph  = wbc / hbc
 
 
-# In[ ]:
+# In[6]:
 
 
 wph.shape
 
 
-# In[ ]:
+# In[27]:
 
 
 dh_tot = np.array([])
@@ -89,7 +89,7 @@ for j in range(0, wbc.shape[0]):
     start = 0
     end = 0
     for i in range(0, wbc.shape[1]):
-        if summing > total_head[j] * 0.025:
+        if summing > total_head[j] * 0.05:
             start = i * bin_width
             break
         else:
@@ -97,7 +97,7 @@ for j in range(0, wbc.shape[0]):
 
     summing = 0
     for i in range(0, wbc.shape[1]):
-        if summing > total_head[j] * 0.975:
+        if summing > total_head[j] * 0.95:
             end = i * bin_width
             break
         else:
@@ -106,15 +106,79 @@ for j in range(0, wbc.shape[0]):
     dh[j] = end-start
     e[j] = end
     s[j] = start
-#print(e, s)
+print(e, s)
+print(len(e))
 en = int(np.round(e.mean()))
 st = int(np.round(s.mean()))
 
 
-# In[ ]:
+# In[39]:
+
+
+wph_tot = np.array([])
+for i in range(0, wph.shape[0]):
+    wph_tot = np.append(wph_tot, wph[i][np.where((ikd < e[i]) & (ikd > s[i]))])
+
+
+# In[40]:
 
 
 wph[np.where(hbc == 0)] = 0
+
+
+# In[48]:
+
+
+from scipy.stats.mstats import mquantiles
+a = mquantiles(wph_tot, [0.025, 0.5, 0.975])
+file_out = open('../../output/simulation/{}_{}.txt'.format('wph', '30'), 'w')
+k = [a[1], a[1] - a[0], a[2] - a[1]]
+q = '{:.2f}'.format(k[0])
+e = '{:.2f}'.format(k[1])
+w = '{:.2f}'.format(k[2])
+file_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
+file_out.close()
+
+
+# In[49]:
+
+
+file_out = open('../../output/simulation/{}_{}.txt'.format('wph', '30'), 'w')
+file_out.write('$' + str(wph_tot.mean()) + '$')
+file_out.close()
+
+
+# In[115]:
+
+
+sad = np.logspace(0, np.log2(wph_tot.max()), 400, base=2)
+
+
+# In[116]:
+
+
+a = np.histogram(wph_tot, bins=sad)
+
+
+# In[119]:
+
+
+y = a[0]
+x = a[1][:-1] + 0.5 * (a[1][1] - a[1][0])
+plt.plot(np.log2(x), y)
+#plt.xscale('log')
+plt.show()
+
+
+# In[93]:
+
+
+from scipy.optimize import curve_fit
+from scipy.stats import lognorm
+shape, loc, scale = lognorm.fit(y)
+plt.plot(y)
+plt.plot(lognorm.pdf(x, shape, loc, scale))
+plt.xscale('log')
 
 
 # In[ ]:

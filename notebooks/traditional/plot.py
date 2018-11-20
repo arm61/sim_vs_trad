@@ -54,6 +54,7 @@ ax.set_yscale('log')
 ax.set_xlim([0, 0.625])
 ax.set_ylabel('$Rq^4$/Å$^{4}$')
 ax.set_xlabel('$q$/Å$^{-1}$')
+ax.text(0.1, 0.95, '(a)', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes)
 ax = plt.subplot(gs[1])
 for k, b in enumerate(constrasts):
     data = np.loadtxt('../../output/traditional/{}_{}_sld.txt'.format(b, surface_pressure), unpack=True)

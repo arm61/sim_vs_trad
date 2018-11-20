@@ -13,7 +13,7 @@ sns.set(palette='colorblind')
 import os.path, sys
 
 
-# In[2]:
+# In[4]:
 
 
 forcefield = sys.argv[1]
@@ -22,7 +22,7 @@ surface_pressure = sys.argv[2]
 contrasts = ['d13acmw', 'd13d2o', 'hd2o', 'd70acmw', 'd70d2o', 'd83acmw', 'd83d2o']
 
 
-# In[ ]:
+# In[10]:
 
 
 mpl.rcParams['xtick.labelsize'] = 8
@@ -57,6 +57,13 @@ ax.set_yscale('log')
 ax.set_xlim([0, 0.625])
 ax.set_ylabel('$Rq^4$/Å$^{4}$')
 ax.set_xlabel('$q$/Å$^{-1}$')
+if forcefield == 'slipids':
+    text = '(b)'
+if forcefield == 'berger':
+    text = '(c)'
+if forcefield == 'martini':
+    text = '(d)'
+ax.text(0.1, 0.95, text, horizontalalignment='center', verticalalignment='center', transform=ax.transAxes)
 ax = plt.subplot(gs[1])
 for k, b in enumerate(contrasts):
     data = np.loadtxt('../../output/simulation/{}_{}_{}_sld.txt'.format(b, forcefield, surface_pressure), unpack=True)
