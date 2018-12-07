@@ -45,9 +45,9 @@ Bath, BA2 7AY, UK}
 \date{\today}
 
 \begin{abstract}
-The use of molecular simulations for the analysis of neutron reflectometry measurements has been frequently suggested, and utilised, as a method for multimodal analysis. 
-This work presents the first, to our knowledge, example of a direct comparison between a simulation derived analysis procedure, and that arising from a traditional layer based model. 
-Furthermore, we compare the traditional method with three simulations at different levels of coarse-graining to determine the maximum computation resource required to perform this multimodal analysis approach.
+The use of molecular simulations for the analysis of neutron reflectometry measurements has been frequently suggested, and utilised, as a method for multimodal analysis.
+This work presents the direct comparison between a simulation derived analysis procedure, and that arising from a traditional layer based model.
+Furthermore, for the first time we compare the traditional method with three simulations at different levels of coarse-graining to determine the maximum computation resource required to perform this multimodal analysis approach.
 \end{abstract}
 
 \maketitle                        % DO NOT DELETE THIS LINE
@@ -56,20 +56,20 @@ Furthermore, we compare the traditional method with three simulations at differe
 Neutron and X-ray reflectometry techniques are popular in the study of nanolayered structures, such as surfactant monolayers \cite{Hazell2016}, lipid bilayer systems \cite{Belicka2015}, nanoparticle films \cite{Velleman2016}, and dye-sensitised solar cell materials \cite{McCreeGrey2015}.
 Unlike other surface-sensitive techniques, such as atomic force microscopy (AFM) or scanning electron microscopy (SEM), reflectometry techniques are able to investigate buried interfaces in addition to the material surface.
 This is due to the fact that neutrons and X-rays can probe more deeply into a material than an AFM tip or the electron.
-Additionally, reflectometry techniques can more easily provide information about the average structure of a material due to the nature of measuring over large regions of space, resulting in significantly improved sampling, compared with microscopy techniques \cite{Renaud2009}.
+Additionally, reflectometry techniques can more easily provide information about the average structure of a material over large regions of space, resulting in significantly improved sampling, compared with microscopy techniques \cite{Renaud2009}.
 
 The growth in popularity of reflectometry techniques can be attributed to the significant development of reflectometry instrumentation, such as FIGARO, the horizontal neutron reflectometer at the ILL \cite{Campbell2011}, and the beam deflection system at the I07 beamline of the Diamond Light Source \cite{Arnold2012}.
-These developments have enabled the study of more complex systems including bacterial membrane \cite{Barker2016}, and polymeric energy materials \cite{Khodakarimi2016}.
-However, the ability to study complex systems poses an important data analysis challange, where traditional methods may not be sufficient.
+These developments have enabled the study of more complex systems including biomimetic bacterial membrane \cite{Barker2016}, and polymeric energy materials \cite{Khodakarimi2016}.
+However, the ability to study complex systems poses an important data analysis challange, where a typical simple layer model approach may not be sufficient.
 
 The Abel\`{e}s matrix formalism for stratified media \cite{Abeles1950}, is the most commonly applied method to analyse reflectometry data from a surfactant monolayer.
 This method involves the construction of a layer model of the system under study, the calculation of the reflectometry from such a system and the refinement of this model with respect to the experimental reflectometry data.
-This has been used to study surfactant self-assembly at the air-liquid interfaces in single and double tailed sulfobetaine lipids \cite{Hazell2016}, showing the monolayer structure of these novel lipids to be simuilar to that observed for traditional lipid molecules.
-It has also being applied to the anlaysis of a supported lipid bilayer by Hellstrand \emph{et al.} \cite{Hellstrand2013} where it allowed for the observation of the adsorption of the protein $\alpha$-synnuclein, which was found to reside in the head-group region of the bilayer.
+Such an approach is discussed in detail in the work of Campbell \emph{et al.} \cite{Campbell2018}, where they investigate the different approaches to the analysis of surfactant monolayers.
+Various structure of number of layers and presense or lack of interfacial roughness are considered.
 
 The Abel\`{e}s matrix formalism is often described as the dynamical approach to reflectometry analysis, in contrast to the Fourier transform-based kinematic approach \cite{Crowley1991,Lu1996}.
 The dynamical approach considers the reflection and refraction of the probing radiation at a series of interfaces, where the refractive index is a function of the scattering length densities (SLDs) for each layer.
-By considering Figure \ref{fig:dyn} it is clear how the reflected radiation could interact coherently and incoherently in analogy with Bragg's law.
+By considering Figure \ref{fig:dyn} it is clear how the reflected radiation could interact coherently and incoherently by analogy with Bragg's law.
 %
 \begin{figure}[h]
 \centering
@@ -331,12 +331,12 @@ This is to be expected though, simply by considering the level of constraint pre
 While the monolayer model constrains the layer model to be chemically-sensible, those from MD simulation have the chemical constraints present in the simulation; e.g. the bonding of atoms, and the non-bonded potentials.
 The quality of the agreement from this multi-modal analysis technique it sufficient for such a method to be applied regularly in the analysis of neutron reflectometry.
 
-Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than for the MARTINI simulation. 
-For the Slipid simulation the tail lenght was found to be \input{../output/simulation/slipids_30_tt.txt}\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/berger_30_tt.txt}\si{\angstrom} was obtained. 
+Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than for the MARTINI simulation.
+For the Slipid simulation the tail lenght was found to be \input{../output/simulation/slipids_30_tt.txt}\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/berger_30_tt.txt}\si{\angstrom} was obtained.
 Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford equation, however it should be noted that this value is considered a maximum for the \emph{fully extended} carbon tail.
-This is a possible indication that the assumption, made in the traditional analyis method, that the tail is fuilly extended may not be completely accurate. 
+This is a possible indication that the assumption, made in the traditional analyis method, that the tail is fuilly extended may not be completely accurate.
 
-Using the molecular dynamics simulations, and the monolayer model it is possible to compare the number of water molecules per head group. 
+Using the molecular dynamics simulations, and the monolayer model it is possible to compare the number of water molecules per head group.
 From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{../output/simulation/slipids_30_wph.txt} and \input{../output/simulation/berger_30_wph.txt} respectively.
 Which are in good agreement with the \input{../output/traditional/wph_30.txt} found from the monolayer model method in conjungtion with Equation \ref{equ:wph}.
 
@@ -346,10 +346,10 @@ However, for the nearly as accurate Berger force-field simulations, only approxi
 
 \subsection{Using the Slipid simulations to improve the monolayer model}
 Despite the monolayer model offering a small improvement in agreement over the Slipid force-field simulation, we believe that it is possible to use these MD simulation to improve the existing monolayer model.
-An example of this has already been mentioned in terms of not applying the assumption that the carbon tail is fully extended. 
+An example of this has already been mentioned in terms of not applying the assumption that the carbon tail is fully extended.
 Another possible improvement can be found by considering Figure \ref{fig:nb}, which shows the water molecules per head group as a function of depth, it is clear that there is a solvent penetration through the head area is not uniform.
-In particular, there is a clear pocket of water formed around the ester group of the lipid. 
-This suggests that perhaps a different model for solvent penetration could be applied to the head layer to better describe the realistic solvent penetration. 
+In particular, there is a clear pocket of water formed around the ester group of the lipid.
+This suggests that perhaps a different model for solvent penetration could be applied to the head layer to better describe the realistic solvent penetration.
 %
 \begin{figure}
 \centering
@@ -359,21 +359,21 @@ This suggests that perhaps a different model for solvent penetration could be ap
 \end{figure}
 %
 
-It is generally suggested that the interfacial roughness between layers should be carried evenly through the monolayer when there is only a single lipid type \cite{Campbell2018}. 
-However, from Figure \ref{fig:nb} it is clear that the overlap between the head-layer and water is much larger than that between the tail and head. 
-Furthermore, there is additionally some solvent present deep within the tail layer, due to the presence of head-group character in that region. 
-While the interfacial roughness can be considered as describing the capillary wave form of the water surface, it also frequently applied to account for structural deformations in the not exactly smooth lipid monlayer, e.g. regions where carbon tails are not full extended adjacent to regions where they are. 
-This suggests that perhaps the constraint that the interfacial roughnesses should be consistant through the monolayer may be relaxed. 
+It is generally suggested that the interfacial roughness between layers should be carried evenly through the monolayer when there is only a single lipid type \cite{Campbell2018}.
+However, from Figure \ref{fig:nb} it is clear that the overlap between the head-layer and water is much larger than that between the tail and head.
+Furthermore, there is additionally some solvent present deep within the tail layer, due to the presence of head-group character in that region.
+While the interfacial roughness can be considered as describing the capillary wave form of the water surface, it also frequently applied to account for structural deformations in the not exactly smooth lipid monlayer, e.g. regions where carbon tails are not full extended adjacent to regions where they are.
+This suggests that perhaps the constraint that the interfacial roughnesses should be consistant through the monolayer may be relaxed.
 
 
 \section{Conclusions}
 This work presented, for the first time, direct comparison between a traditional method for analysis of neutron reflectometry measurement with analysis derived from molecular dynamics simulations.
-The simulations were run using three different force-fields, namely the all-atom Slipid, the united-atom Berger, and the coarse-grained MARTINI. 
-It was found that the MARTINI force-field as not capable of accurately modeling the lipid monolayer system due to the limitations of the 4-to-1 beading system when applied to a carbon tail containing 18 atoms. 
-The Berger and Slipid force-fields both showed good agreement with the experimental data, however the best agreement was obtain by the traditional monolayer model. 
-However, this would be expected given that the monolayer model contains much more degrees of freedom than the simulations which are severely chemically constrained by the force-field. 
-Finally, some points from the highest resolution, Slipid, simulations were noted that could be used to improve the traditional monolayer model. 
-These include the fact that the carbon tails were not always fully extended, and the possible desire for a non-uniform solvation of the head group region. 
+The simulations were run using three different force-fields, namely the all-atom Slipid, the united-atom Berger, and the coarse-grained MARTINI.
+It was found that the MARTINI force-field as not capable of accurately modeling the lipid monolayer system due to the limitations of the 4-to-1 beading system when applied to a carbon tail containing 18 atoms.
+The Berger and Slipid force-fields both showed good agreement with the experimental data, however the best agreement was obtain by the traditional monolayer model.
+However, this would be expected given that the monolayer model contains much more degrees of freedom than the simulations which are severely chemically constrained by the force-field.
+Finally, some points from the highest resolution, Slipid, simulations were noted that could be used to improve the traditional monolayer model.
+These include the fact that the carbon tails were not always fully extended, and the possible desire for a non-uniform solvation of the head group region.
 
 \begin{acknowledgements}
 ARM is grateful to the University of Bath and Diamond Light Source for co-funding a studentship (Studentship Number STU0149). This work benefited from the computing resources provided by STFC Scientific Computing Department's SCARF cluster. We thank Robert D. Barker for insightful discussion.
