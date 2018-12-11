@@ -27,27 +27,35 @@ DENSITY_DATA = ['output/simulation/slipids_nb'+str(index)+'.txt' for index in ra
 
 rule all:
     input:
-        'reports/preprint.pdf'
+        'reports/preprint.pdf',
+        'reports/si.pdf'
+
 
 rule make_preprint:
     input:
-        SIM_FIGS,
-        TRAD_FIGS,
-        TOTAL_CHI,
-        CHAIN_TILT_FIG,
-        CHAIN_TILT_OUT,
-        'reports/figures/apm.pdf',
-        'reports/figures/number_density.pdf',
+        #SIM_FIGS,
+        #TRAD_FIGS,
+        #TOTAL_CHI,
+        #CHAIN_TILT_FIG,
+        #CHAIN_TILT_OUT,
+        #'reports/figures/apm.pdf',
+        #'reports/figures/number_density.pdf',
         'reports/preprint.tex',
+        'reports/si.tex',
         'reports/paper.bib'
     output:
-        'reports/preprint.pdf'
+        'reports/preprint.pdf',
+        'reports/si.pdf'
     shell:
         """
         cd reports && xelatex preprint.tex
         bibtex preprint.aux
         xelatex preprint.tex
         xelatex preprint.tex
+        xelatex si.tex
+        bibtex si.aux
+        xelatex si.tex
+        xelatex si.tex
         cd ../
         """
 

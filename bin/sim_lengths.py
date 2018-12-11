@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '../src/models')
+sys.path.insert(0, '../models')
 import mol_vol as mv
 
 def get_lgts(head, tail, sol, forcefield):
