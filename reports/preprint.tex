@@ -64,7 +64,7 @@ Additionally, reflectometry techniques can more easily provide information about
 
 The growth in popularity of reflectometry techniques can be attributed to the significant development of reflectometry instrumentation, such as FIGARO, the horizontal neutron reflectometer at the ILL \cite{Campbell2011}, and the beam deflection system at the I07 beamline of the Diamond Light Source \cite{Arnold2012}.
 These have enabled the study of more complex systems including biomimetic bacterial membrane \cite{Barker2016}, and polymeric energy materials \cite{Khodakarimi2016}.
-However, the ability to study complex systems poses an important data analysis challange, where a typical layer model approach may not be sufficient.
+However, the ability to study complex systems poses an important data analysis challenge, where a typical layer model approach may not be sufficient.
 
 The Abel\`{e}s matrix formalism for stratified media \cite{Abeles1950}, is the most commonly applied method to analyse reflectometry data from a surfactant monolayer.
 This model-dependent approach involves the construction of some layer model to describe the system under study.
@@ -104,7 +104,7 @@ The work of Hughes \emph{et al.} studied again a DPPC lipid bilayer system \cite
 The SLD profile found from MD was varied to better fit the experimental measurement, resulting in good agreement.
 Additionally, the variation of the SLD profile was used to remove artifacts that arose from poor splicing between the MD simulations that the layer model used in regions such as the gold and magnetic permalloy layers not present in the simulation.
 
-In all of the examples discussed so farthere is no direct comparison between the reflectometry profile determined from simulation and that from the application of a traditional analysis method.
+In all of the examples discussed so far there is no direct comparison between the reflectometry profile determined from simulation and that from the application of a traditional analysis method.
 Indeed, the only example, to the authors knowledge where direct comparison was drawn is the work of Dabkowska \emph{et al.} \cite{Dabkowska2014}.
 This work compares the reflectometry profile from a DPPC monolayer at the air-water interface containing dimethyl sulfoxide molecules with a similar molecular dynamics simulation parameterised with the CHARMM potential model.
 The use of multimodal analysis allowed the determination of the position of a concentration of DMSO molecules at a particle region within a monolayer and the orientation of such molecules.
@@ -329,7 +329,7 @@ Furthermore, it is noted that the agreement with the contrasts containing \ce{D2
 This is most likely an artefact of the structuring effect from the wall at the bottom of the simulation cell on the polarisable MARTINI water.
 It is noted that this may be reduced through the use of a less-ordered wall structure \cite{Koutsioubas2016}.
 Another outstanding artefact present in the MARTINI potential model simulations is that the calculated length of the hydrocarbon tail from the simulation was found to be \input{../output/simulation/martini_30_tt.txt}\si{\angstrom}, which is significantly less than the \SI{24.3}{\angstrom} estimated by the Tanford equation.
-This is due to the nature of the MARTINI's 4-to-1 beading process, as DSPC has a hydrocarbon tail consisting of 18 carbon atoms, it is not possible accurately bead such a chain into the MARTINI potential model.
+This is due to the nature of the MARTINI's 4-to-1 beading process, as DSPC has a hydrocarbon tail consisting of 18 carbon atoms, not possible to bead such a chain accurately with the MARTINI potential model..
 In this work, a MARTINI lipid molecule was used with 4 MARTINI beads making up the chain; corresponding to an all-atom hydrocarbon chain of 16 atoms.
 Applying the Tanford equation to a hydrocarbon chain of such a length results in an anticipated length of \SI{18.7}{\angstrom}, which agress better with that found from simulation.
 
@@ -357,12 +357,12 @@ Which are in good agreement with the \input{../output/traditional/wph_30.txt} fo
 It should be noted that to obtain the \SI{50}{\nano\second} production run for the Slipids potential model simulation required over 13 days of using 32 cores of the SCARF computing resource.
 This is non-trivial and therefore not necessarily applicable to all neutron reflectometry measurements.
 However, for the nearly as accurate Berger potential model simulations (which are only marginally less accurate), only approximately 2 days, of the same compute resource, were required.
-This suggests that given the quality of agreement with the experimental data achieved from the Berger potential model simulations it may be feasible to suggest simulations of such resolution may be run alongside experimental measurements are large facilities such as ISIS Neutron and Muon Source.
+This suggests that given the quality of agreement with the experimental data achieved from the Berger potential model simulations it may be feasible to suggest simulations of such resolution may be run alongside experimental measurements at large facilities such as ISIS Neutron and Muon Source.
 
 \subsection{Using the Slipid simulations to improve the monolayer model}
-Despite the monolayer model offering a small improvement in agreement over the Slipid potential model simulation, we believe that it is possible to use these MD simulation to improve the existing monolayer model.
+Despite the monolayer model offering a small improvement in agreement over the Slipid potential model simulation, we believe that it is possible to use these MD simulations to improve the existing monolayer model.
 An example of this has already been mentioned in terms of not applying the assumption that the carbon tail is fully extended.
-Another possible improvement can be found by considering Figure \ref{fig:nb}, which shows the water molecules per head group as a function of depth, it is clear that solvent penetration into the lipid head group area is not uniform.
+Another possible improvement can be found by considering Figure \ref{fig:nb}, which shows the water molecules per head group as a function of depth; it is clear that solvent penetration into the lipid head group area is not uniform.
 In particular, there is a clear pocket of water formed around the ester group of the lipid.
 This suggests that perhaps a different model for solvent penetration could be applied to the head layer to better describe the realistic solvent penetration.
 %
@@ -377,12 +377,12 @@ This suggests that perhaps a different model for solvent penetration could be ap
 It is generally suggested that the conformal roughness between layers should be carried evenly through the monolayer when there is only a single lipid type \cite{Campbell2018}.
 However, from Figure \ref{fig:nb} it is clear that the overlap between the head-layer and water is much larger than that between the tail and head.
 Furthermore, there is additionally some solvent present deep within the tail layer, due to the presence of head-group character in that region.
-While the interfacial roughness can be considered as describing the capillary wave form of the water surface, it also frequently applied to account for structural deformations in the not exactly smooth lipid monlayer, e.g. regions where carbon tails are not full extended adjacent to regions where they are.
+While the interfacial roughness can be considered as describing the capillary wave form of the water surface, it also frequently applied to account for the intrinsic/structural roughness in the monolayer that exists because of the fact that the lipid ensemble comprises molecules with different conformations and thus different chain lengths.
 This suggests that perhaps the constraint that the interfacial roughnesses should be constant through the monolayer might be relaxed.
 
 
 \section{Conclusions}
-This work presented, for the first time, direct comparison between a traditional method for analysis of neutron reflectometry measurement with analysis derived from a range of all-atom and corase-grained molecular dynamics simulations; using the all-atom Slipid, the united-atom Berger, and the coarse-grained MARTINI potential models.
+This work presented, for the first time, direct comparison between a traditional method for analysis of neutron reflectometry measurement with analysis derived from a range of all-atom and coarse-grained molecular dynamics simulations; using the all-atom Slipid, the united-atom Berger, and the coarse-grained MARTINI potential models.
 It was found that the MARTINI potential model is not capable of accurately modeling the lipid monolayer system due to the limitations of the 4-to-1 beading system when applied to a carbon tail containing 18 atoms.
 The Berger and Slipid potential models both showed good agreement with the experimental data, however the best agreement was obtained by the traditional monolayer model.
 This would be expected given that the monolayer model contains many more degrees of freedom than the simulations which are severely chemically constrained by the potential model.
