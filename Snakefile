@@ -54,7 +54,7 @@ rule make_preprint:
         FIGS_MAIN,
         ANAL_CHI,
         TRAD_ANAL_CHI,
-        #TOTAL_CHI,
+        TOTAL_CHI,
         #OUTS_MAIN,
         'reports/preprint.tex',
         'reports/paper.bib'
@@ -213,6 +213,17 @@ rule nb_plot:
         shell("cd notebooks/simulation && ipython density_plot.py")
         shell("cd ../")
 
+rule chisq_av:
+    input:
+        ANAL_CHI,
+        'bin/chisq_total.py'
+    output:
+        TOTAL_CHI
+    shell:
+        """
+        cd bin && ipython chisq_total.py
+        cd ../
+        """
 
 rule pdfclean:
     shell:
@@ -238,19 +249,7 @@ rule chain_tilt_gen:
         jupyter-nbconvert --to script {input}
 
 
-rule chisq_av:
-    input:
-        TRAD_ANAL_CHI,
-        MAR_ANAL_CHI,
-        BER_ANAL_CHI,
-        SLI_ANAL_CHI,
-        'bin/chisq_total.py'
-    output:
-        TOTAL_CHI
-    shell:
 
-        cd bin && ipython chisq_total.py
-        cd ../
 
 rule get_densities:
     input:
@@ -262,16 +261,6 @@ rule get_densities:
         for index in range(1, 11):
             shell("cd bin && ipython get_density.py {index}")
             shell("cd ../")
-
-rule nb_plot:
-    input:
-        DENSITY_DATA,
-        'notebooks/simulation/density_plot.py'
-    output:
-        'reports/figures/number_density.pdf'
-    run:
-        shell("cd notebooks/simulation && ipython density_plot.py")
-        shell("cd ../")
 
 rule chain_tilt:
     input:
