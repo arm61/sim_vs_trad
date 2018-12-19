@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[1]:
@@ -167,7 +167,6 @@ y = a[0]
 x = a[1][:-1] + 0.5 * (a[1][1] - a[1][0])
 plt.plot(np.log2(x), y)
 #plt.xscale('log')
-plt.show()
 
 
 # In[93]:
@@ -206,4 +205,10 @@ ax.set_ylabel(r'Number Density Lipid/$\times 10 ^{-4}$Å$^{-3}$'
               r'wph')
 ax1.set_ylabel(r'Number Density Water/$5\times 10 ^{-2}$Å$^{-3}$')
 plt.savefig('../../reports/figures/number_density.pdf')
+
+
+# In[ ]:
+
+
+
 
