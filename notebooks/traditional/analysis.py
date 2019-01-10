@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[ ]:
@@ -73,20 +73,19 @@ d_tail = {'C': 34, 'D': 70}
 # In[ ]:
 
 
-d70h = mv.get_scattering_length(d70_head)
-d13h = mv.get_scattering_length(d13_head)
-hh = mv.get_scattering_length(h_head)
-d83h = mv.get_scattering_length(d83_head)
-ht = mv.get_scattering_length(h_tail)
-dt = mv.get_scattering_length(d_tail)
+d70h = mv.get_scattering_length(d70_head, neutron=True)
+d13h = mv.get_scattering_length(d13_head, neutron=True)
+hh = mv.get_scattering_length(h_head, neutron=True)
+d83h = mv.get_scattering_length(d83_head, neutron=True)
+ht = mv.get_scattering_length(h_tail, neutron=True)
+dt = mv.get_scattering_length(d_tail, neutron=True)
 
 
 # In[ ]:
 
 
-tail_length = 1.54 + 1.265 * 17
+tail_length = 1.54 + 1.265 * 18
 head_thick = 14.
-chain_tilt = 0.82
 head_mol_vol = 340
 tail_mol_vol = 900
 
@@ -94,10 +93,10 @@ tail_mol_vol = 900
 # In[ ]:
 
 
-d13 = mv.VolMono(d13h, head_thick, ht, tail_length, chain_tilt, [head_mol_vol, tail_mol_vol], name='d13-lipid')
-d70 = mv.VolMono(d70h, head_thick, dt, tail_length, chain_tilt, [head_mol_vol, tail_mol_vol], name='d70-lipid')
-d83 = mv.VolMono(d83h, head_thick, dt, tail_length, chain_tilt, [head_mol_vol, tail_mol_vol], name='d83-lipid')
-h = mv.VolMono(hh, head_thick, ht, tail_length, chain_tilt, [head_mol_vol, tail_mol_vol], name='h-lipid')
+d13 = mv.VolMono(d13h, head_thick, ht, tail_length, [head_mol_vol, tail_mol_vol], name='d13-lipid')
+d70 = mv.VolMono(d70h, head_thick, dt, tail_length, [head_mol_vol, tail_mol_vol], name='d70-lipid')
+d83 = mv.VolMono(d83h, head_thick, dt, tail_length, [head_mol_vol, tail_mol_vol], name='d83-lipid')
+h = mv.VolMono(hh, head_thick, ht, tail_length, [head_mol_vol, tail_mol_vol], name='h-lipid')
 
 
 # In[ ]:
@@ -123,15 +122,15 @@ hd2o = air(0, 0) | h | d2o(0, 3.3)
 # In[ ]:
 
 
-d13.thick_heads.setp(vary=True, bounds=(6, 20))
-d13.cos_rad_chain_tilt.setp(vary=True, bounds=(0.01, 0.99))
+d13.thick_heads.setp(12., vary=True, bounds=(6, 20))
+d13.thick_tails.setp(18.,vary=True, bounds=(6, tail_length))
 d13.phit.setp(vary=False)
-d13.phih.constraint = 1 - (d13.head_mol_vol * d13.tail_length * d13.cos_rad_chain_tilt / 
+d13.phih.constraint = 1 - (d13.head_mol_vol * d13.thick_tails / 
                            (d13.tail_mol_vol * d13.thick_heads))
-d13.rough_head_tail.setp(vary=True, bounds=(3.3, 3.6))
+d13.rough_head_tail.setp(vary=True, bounds=(3.3, 5.6))
 d13.rough_preceding_mono.constraint = d13.rough_head_tail
-d13.head_mol_vol.setp(320.9, vary=True, bounds=(100, 500))
-d13.tail_mol_vol.constraint = d13.cos_rad_chain_tilt * tail_length * apm
+d13.head_mol_vol.setp(320.9, vary=True, bounds=(200, 400))
+d13.tail_mol_vol.constraint = d13.thick_tails * apm
 d13acmw[-1].rough.constraint = d13.rough_head_tail
 
 
@@ -213,7 +212,12 @@ flatchain = fitter.sampler.flatchain
 # In[ ]:
 
 
+import matplotlib.pyplot as plt
 print(global_objective)
+global_objective.plot()
+plt.yscale('log')
+plt.savefig('help.pdf')
+plt.close()
 
 
 # In[ ]:
@@ -221,13 +225,11 @@ print(global_objective)
 
 copychain = np.array(flatchain)
 
-copychain[:, 2] = np.rad2deg(np.arccos(copychain[:, 2]))
-
 
 # In[ ]:
 
 
-labels = ['scale1', 'dh', 'angle', 'vh', 'roughness', 'scale2', 'scale3', 
+labels = ['scale1', 'dh', 'dt', 'vh', 'roughness', 'scale2', 'scale3', 
           'scale4', 'scale5', 'scale6', 'scale7']
 for k, label in enumerate(labels):
     file_out = open('../../output/traditional/{}_{}.txt'.format(label, surface_pressure), 'w')
@@ -328,4 +330,10 @@ for i, struct in enumerate(structures):
             sld_out.write('{} '.format(struct.sld_profile()[1][j]))
         sld_out.write('\n')
     sld_out.close()
+
+
+# In[ ]:
+
+
+
 

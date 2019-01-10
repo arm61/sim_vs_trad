@@ -23,7 +23,7 @@ def get_lgts(head, tail, sol, forcefield):
         types = [nc3, po4, gl1, gl2, c1a, c2a, c3a, c4a, c1b, c2b, c3b, c4b]
         types_strings = ['NC3', 'PO4', 'GL1', 'GL2', 'C1A', 'C2A', 'C3A', 'C4A', 'C1B', 'C2B', 'C3B', 'C4B', 'W', 'WP', 'WM']
         for atom in types:
-            comp = (mv.get_scattering_length(atom) * 1e5)
+            comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
             scat_lens.append([comp.real, comp.imag])
         if sol == 'acmw':
             scat_lens.append([0, 0])
@@ -32,7 +32,7 @@ def get_lgts(head, tail, sol, forcefield):
         else:
             types = [w, wp, wm]
             for atom in types:
-                comp = (mv.get_scattering_length(atom) * 1e5)
+                comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
                 scat_lens.append([comp.real, comp.imag])
     elif forcefield == 'berger':
         c1 = {'C': 1, head: 3}
@@ -102,7 +102,7 @@ def get_lgts(head, tail, sol, forcefield):
                          'C36', 'O37', 'C38', 'C39', 'C40', 'C41', 'C42', 'C43', 'C44', 'C45', 'C46',
                          'C47', 'C48', 'C49', 'C50', 'C51', 'C52', 'C53', 'C54', 'OW', 'HW1', 'HW2']
         for atom in types:
-            comp = (mv.get_scattering_length(atom) * 1e5)
+            comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
             scat_lens.append([comp.real, comp.imag])
         if sol == 'acmw':
             scat_lens.append([0, 0])
@@ -111,7 +111,7 @@ def get_lgts(head, tail, sol, forcefield):
         else:
             types = [ow, hw1, hw2]
             for atom in types:
-                comp = (mv.get_scattering_length(atom) * 1e5)
+                comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
                 scat_lens.append([comp.real, comp.imag])
     elif forcefield == 'slipids':
         n = {'N': 1}
@@ -284,7 +284,7 @@ def get_lgts(head, tail, sol, forcefield):
                          'H15Y', '6C31', 'H16X', 'H16Y', '7C31', 'H17X', 'H17Y', '8C31', 'H18X', 'H18Y', 'H18Z',
                          'OW', 'HW1', 'HW2']
         for i, atom in enumerate(types):
-            comp = (mv.get_scattering_length(atom) * 1e5)
+            comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
             scat_lens.append([comp.real, comp.imag])
         if sol == 'acmw':
             scat_lens.append([0, 0])
@@ -293,6 +293,6 @@ def get_lgts(head, tail, sol, forcefield):
         else:
             types = [ow, hw1, hw2]
             for atom in types:
-                comp = (mv.get_scattering_length(atom) * 1e5)
+                comp = (mv.get_scattering_length(atom, neutron=True) * 1e5)
                 scat_lens.append([comp.real, comp.imag])
     return [types_strings, scat_lens]

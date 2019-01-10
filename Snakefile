@@ -5,7 +5,7 @@ METHODS = ['traditional', 'simulation', 'simulation', 'simulation']
 FIGS_MAIN = ['reports/figures/reflrefr.pdf', 'reports/figures/dspcdrywet.png', 'reports/figures/apm.pdf', 'reports/figures/trad_30.pdf', 'reports/figures/sim_slipids_30.pdf', 'reports/figures/sim_berger_30.pdf', 'reports/figures/sim_martini_30.pdf', 'reports/figures/number_density.pdf']
 ANAL_REF = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_ref.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
 ANAL_SLD = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_sld.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
-ANAL_CHI = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_chisq.txt' for contrast in CONTRASTS for sp in SURF_PRES for ff in FORCEFIELDS]
+ANAL_CHI = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_chisq.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
 FORCEFIELDS2 = ['', '_martini', '_berger', '_slipids']
 TOTAL_CHI = ['output/'+m+'/ave'+FORCEFIELDS2[i]+'_'+sp+'_chisq.txt' for i, m in enumerate(METHODS) for sp in SURF_PRES]
 OUTS_MAIN = ['output/simulation/martini_30_tt.txt', 'output/simulation/slipids_30_tt.txt', 'output/simulation/berger_30_tt.txt', 'output/simulation/slipids_30_wph.txt', 'output/simulation/berger_30_wph.txt', 'output/traditional/berger_30_wph.txt']
@@ -16,6 +16,7 @@ REFL_PLOTS_SI = ['reports/figures/sim_' + ff + '_' + sp + '.pdf' for sp in SURF_
 REFL_PLOTS_SI2 = ['reports/figures/trad_' + sp + '.pdf' for sp in SURF_PRES2]
 PARAS = ['angle', 'dh', 'tt', 'wph']
 PARA_PLOTS_SI = ['reports/figures/' + ff + '_'+sp+'_' + p + '.pdf' for ff in FORCEFIELDS for sp in SURF_PRES for p in PARAS]
+PARA_TXT_SI = ['output/simulation/' + ff + '_'+sp+'_' + p + '.txt' for ff in FORCEFIELDS for sp in SURF_PRES for p in PARAS]
 
 SIM_FIGS = ['reports/figures/sim_' + ff + '_' + sp + '.pdf' for sp in SURF_PRES for ff in FORCEFIELDS]
 TRAD_ANAL_REF = ['output/traditional/'+contrast+'_'+sp+'_ref.txt' for contrast in CONTRASTS for sp in SURF_PRES]
@@ -39,6 +40,7 @@ rule make_preprint:
         ANAL_CHI,
         TRAD_ANAL_CHI,
         TOTAL_CHI,
+        PARA_TXT_SI,
         'reports/preprint.tex',
         'reports/paper.bib'
     output:
@@ -99,12 +101,12 @@ rule sim_analysis:
     input:
         EXP_DATA,
         SIM_DATA,
-        'notebooks/simulation/analysis.py'
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
     output:
         ANAL_CHI,
         ANAL_REF,
         ANAL_SLD,
-        PARA_PLOTS_SI
     run:
         for ff in FORCEFIELDS:
             for sp in SURF_PRES:
@@ -210,31 +212,28 @@ rule chisq_av:
         cd ../
         """
 
-rule pdfclean:
-    shell:
-        "rm reports/paper.pdf"
-
-rule clean:
-    shell:
-        "rm reports/paper.pdf"
-
-"""
-
-
-
-
-
 rule chain_tilt_gen:
     input:
         'notebooks/simulation/chain_tilt.ipynb'
     output:
         'notebooks/simulation/chain_tilt.py'
     shell:
-
+        """
         jupyter-nbconvert --to script {input}
+        """
 
-
-
+rule chain_tilt:
+    input:
+        'notebooks/simulation/chain_tilt.py'
+    output:
+        PARA_PLOTS_SI,
+        PARA_TXT_SI
+    run:
+        for ff in FORCEFIELDS:
+            for sp in SURF_PRES:
+                sp = '_' + sp
+                shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
+                shell("cd ../")
 
 rule get_densities:
     input:
@@ -247,15 +246,10 @@ rule get_densities:
             shell("cd bin && ipython get_density.py {index}")
             shell("cd ../")
 
-rule chain_tilt:
-    input:
-        'notebooks/simulation/chain_tilt.py'
-    output:
-        CHAIN_TILT_FIG,
-        CHAIN_TILT_OUT
-    run:
-        for ff in FORCEFIELDS:
-            for sp in SURF_PRES:
-                sp = '_' + sp
-                shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
-                shell("cd ../")"""
+rule pdfclean:
+    shell:
+        "rm reports/paper.pdf"
+
+rule clean:
+    shell:
+        "rm reports/paper.pdf"
