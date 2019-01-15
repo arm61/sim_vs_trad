@@ -26,13 +26,9 @@ The supplied Snakemake file, will reproduce all of the analysis, plot the figure
 If you **still** want to re-run all of the analysis, please download the [experimental data](), place it in a directory named `data` before running the following commands:
 
 ```
-conda create --name paper_env python
+conda env create -f config/environment.yml
 
-source activate paper_env
-
-pip install --upgrade pip
-
-pip install -r config/requirements.txt
+source activate sim_vs_trad
 
 snakemake clean # this will remove all of the output from previous runs
 
@@ -51,7 +47,7 @@ A. R. M. is grateful to the University of Bath and Diamond Light Source for co-f
 
     .
     ├── AUTHORS.md
-    ├── LICENSE         # CC-BY-SA-4.0
+    ├── LICENSE         # CC BY-SA-4.0
     ├── README.md       # You are here
     ├── Snakefile       # Makefile to outline workflow
     ├── bin             # Some python scripts
@@ -64,4 +60,4 @@ A. R. M. is grateful to the University of Bath and Diamond Light Source for co-f
     │   └── traditional
     ├── reports         # Paper and ESI
     │   └── figures
-    └── models          # mol_vol.py custom model for refnx
+    └── models          # mol_vol.py and mdsimulation.py custom models for refnx

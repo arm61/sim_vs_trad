@@ -7,6 +7,8 @@
 \usepackage{hyperref}% add hypertext capabilities
 \usepackage{xr}
 \usepackage{mhchem}
+\graphicspath{{./figures/}}
+
 
 \begin{document}                  % DO NOT DELETE THIS LINE
 
@@ -77,7 +79,7 @@ By considering Figure \ref{fig:dyn} it is clear how the reflected radiation coul
 %
 \begin{figure}[h]
 \centering
-  \includegraphics[width=0.48\textwidth]{figures/reflrefr}
+  \includegraphics[width=0.48\textwidth]{reflrefr}
   \caption{A schematic of a reflectometry experiment, where $i$ is the incident radiation, $r$ is the reflected radiation, $t$ is the transmitted radiation, and $d$ is the layer thickness, for each layer $n$, and the angles of incidence, reflection, and transmittence all depend on Snell's law.}
   \label{fig:dyn}
 \end{figure}
@@ -163,7 +165,7 @@ The equilibration period was \SI{1}{\nano\second}, following which the \SI{50}{\
 %
 \begin{figure}[h]
 \centering
-  \includegraphics[width=0.4\textwidth]{figures/dspcdrywet}
+  \includegraphics[width=0.4\textwidth]{dspcdrywet}
   \caption{The DSPC monolayer (a) without water layer and (b) with water layer, visuallised using VMD\cite{Humphrey1996}.}
   \label{fig:drywet}
 \end{figure}
@@ -171,7 +173,7 @@ The equilibration period was \SI{1}{\nano\second}, following which the \SI{50}{\
 %
 \begin{figure}[h]
 \centering
-  \includegraphics[width=0.48\textwidth]{figures/apm}
+  \includegraphics[width=0.48\textwidth]{apm}
   \caption{The experimental surface pressure isotherm for DSPC, taken from the work of Kubo \emph{et al.}\cite{Kubo2001}.}
   \label{fig:iso}
 \end{figure}
@@ -201,20 +203,14 @@ The model is made up of two layers; the head-layer at the interface with the sol
 The head components have a calculated scattering length, $b_h$, (found as a summation of the neutron scattering lengths of the individual atoms, see Table S1) and a component volume, $V_h$.
 These make up a head-layer with a given thickness, $d_h$, and interfacial roughness, $\sigma_h$, and within this layer some volume fraction of solvent may intercalate, $\phi_h$.
 The tail components also have a similarly calculated scattering length, $b_t$, and component volume, $V_t$.
-In this work, the fully extended length of the hydrocarbon tail, $t_t$, as defined by the Tanford Equation \cite{Tanford1980},
+This tail-layer also has a given thickness, $d_t$, and interfacial roughness, $\sigma_t$.
+A maximum value for the thickness of the tail-layer was imposed, this value was taken from the Tanford Equation \cite{Tanford1980},
 %
 \begin{equation}
   t_t = 1.54 + 1.265n,
 \end{equation}
 %
 where $n$ is the number of carbon atoms in the chain, and so for DSPC $t_t = \SI{24.3}{\angstrom}$.
-The tail-layer thickness is then found by considering $t_t$ and the angle that the chain is tilted by with respect to the interface normal, $\theta_t$,
-%
-\begin{equation}
-  d_t = t_t\cos{\theta_t}.
-\end{equation}
-%
-This was used to impose a chemically-consistent maximum on the thickenss of the tail-layer, e.g. it cannot be thicker than the maximum extended tail length of the lipid.
 The SLD of the tail and head layers used in the Abel\`{e}s matrix formalism can therefore be found as,
 %
 \begin{equation}
@@ -238,10 +234,8 @@ The only modification made to this monolayer model used previously was that the 
 %
 The result of this is that both the monolayer model and the simulation-derived models were constrained equally by this calculated surface coverage.
 
-In this work, the experimental data from all seven contrasts were co-refined to a single monolayer model, where the head thickness, chain tilt angle, head component volume, and interfacial roughness were allowed to vary.
+In this work, the experimental data from all seven contrasts were co-refined to a single monolayer model, where the head thickness, tail thickness, head component volume, and interfacial roughness were allowed to vary.
 The values of the head and tail scattering lengths, along with the super and subphase SLDs are given in Table S1.
-The length of the tail chain was kept constant at \SI{24.3}{\angstrom}, as defined by the Tanford equation \cite{Tanford1980}.
-This is due to the monolayer being investigated at relatively high surface pressures, where the extended, all-trans conformations are likely to be present.
 For each co-refinement of seven neutron reflectometry measurements, there were in total five degrees of freedom in the fitting process.
 The Abel\`{e}s matrix formalism was used to calculate the reflectometry profiles as described in the ESI.
 
@@ -281,18 +275,14 @@ From the molecular dynamics simulation, the number densities for each component 
 The ratio of the integrals of the lipid heads and the water then gave the wph.
 The range for this integral was taken as between the \SI{20}{\percent} and \SI{80}{\percent} quantiles of the lipid head-layers.
 
-It was also possible to compare the tilt of the lipid tails with respect to the surface normal.
-This angle was used as a fitting parameter in the monolayer model, and can be obtained directly from the MD simulation.
-For this, a vector was defined between the first and last carbon atoms of each chain and the angle with respect to the surface normal was found trigonometrically.
-
 \section{Results \& Discussion}
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{figures/trad_30}
- \includegraphics[width=0.49\textwidth]{figures/sim_slipids_30} \\
- \includegraphics[width=0.49\textwidth]{figures/sim_berger_30}
- \includegraphics[width=0.49\textwidth]{figures/sim_martini_30}
+ \includegraphics[width=0.49\textwidth]{trad_30}
+ \includegraphics[width=0.49\textwidth]{sim_slipids_30} \\
+ \includegraphics[width=0.49\textwidth]{sim_berger_30}
+ \includegraphics[width=0.49\textwidth]{sim_martini_30}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{30}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:ref}
 \end{figure*}
@@ -348,7 +338,6 @@ The quality of the agreement from this multi-modal analysis technique it suffici
 Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than the MARTINI simulation.
 For the Slipid simulation the tail length was found to be \input{../output/simulation/slipids_30_tt.txt}\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/berger_30_tt.txt}\si{\angstrom} was obtained.
 Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford equation, however it should be noted that this value is considered a maximum for the \emph{fully extended} carbon tail.
-This is a possible indication that the assumption, made in the traditional analyis method, that the tail is fully extended may not be completely accurate.
 
 Using the molecular dynamics simulations, and the monolayer model it is possible to compare the number of water molecules per head group.
 From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{../output/simulation/slipids_30_wph.txt} and \input{../output/simulation/berger_30_wph.txt} respectively.
@@ -368,7 +357,7 @@ This suggests that perhaps a different model for solvent penetration could be ap
 %
 \begin{figure}
 \centering
-  \includegraphics[width=0.48\textwidth]{figures/number_density}
+  \includegraphics[width=0.48\textwidth]{number_density}
   \caption{The number density of each component; tails (orange), heads (green), water (yellow), and the number of water molecules per head group (blue dots, with the time-average shown as a solid blue line).}
   \label{fig:nb}
 \end{figure}

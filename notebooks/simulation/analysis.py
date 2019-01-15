@@ -13,7 +13,7 @@ import refnx, scipy
 from refnx.dataset import ReflectDataset
 
 # the reflect module contains functionality relevant to reflectometry
-from refnx.reflect import ReflectModel, MDSimulation
+from refnx.reflect import ReflectModel
 
 # the analysis module contains the curvefitting engine
 from refnx.analysis import Objective, Transform, CurveFitter
@@ -22,6 +22,7 @@ import sys
 sys.path.insert(0, '../../bin')
 sys.path.insert(0, '../../models')
 import sim_lengths as sl
+import mdsimulation as md
 
 
 # In[ ]:
@@ -82,7 +83,7 @@ for i in range(1, 11):
         lt = 1
         rough = 0.
         co = 15
-    sim = MDSimulation(os.path.join(traj_dir, 'frame{}.pdb'.format(i)), flip=True, 
+    sim = md.MDSimulation(os.path.join(traj_dir, 'frame{}.pdb'.format(i)), flip=True, 
                        verbose=True, layer_thickness=lt, roughness=rough)
 
     sim.assign_scattering_lengths('neutron', atom_types=lgts[0], scattering_lengths=lgts[1])

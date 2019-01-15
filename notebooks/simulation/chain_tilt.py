@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[1]:
@@ -216,19 +216,15 @@ w = '{:.2f}'.format(k[2])
 f_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
 f_out.close()
 
-weightat = np.ones_like(at)/float(len(at))
-plt.hist(at, bins=25, histtype='stepfilled', weights=weightat)
-plt.xlabel(r'$\theta_t$/$^\circ$')
-plt.ylabel(r'PDF($\theta_t$)')
-plt.tight_layout()
-plt.savefig('../../reports/figures/{}{}_angle.pdf'.format(ff, sp))
-plt.close()
-f_out = open('../../output/simulation/{}{}_angle.txt'.format(ff, sp), 'w')
-a = mquantiles(at, prob=[0.025, 0.5, 0.975])
-k = [a[1], a[1] - a[0], a[2] - a[1]]
-q = '{:.2f}'.format(k[0])
-e = '{:.2f}'.format(k[1])
-w = '{:.2f}'.format(k[2])
-f_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
-f_out.close()
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 

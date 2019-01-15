@@ -1,32 +1,175 @@
-SURF_PRES = ['20', '30', '40', '50']
+CONTRASTS = ['hd2o', 'd13acmw', 'd13d2o', 'd70acmw', 'd70d2o', 'd83acmw',
+             'd83d2o']
+
 FORCEFIELDS = ['martini', 'berger', 'slipids']
-CONTRASTS = ['d13acmw', 'd13d2o', 'hd2o', 'd70acmw', 'd70d2o', 'd83acmw', 'd83d2o']
-METHODS = ['traditional', 'simulation', 'simulation', 'simulation']
-FIGS_MAIN = ['reports/figures/reflrefr.pdf', 'reports/figures/dspcdrywet.png', 'reports/figures/apm.pdf', 'reports/figures/trad_30.pdf', 'reports/figures/sim_slipids_30.pdf', 'reports/figures/sim_berger_30.pdf', 'reports/figures/sim_martini_30.pdf', 'reports/figures/number_density.pdf']
-ANAL_REF = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_ref.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
-ANAL_SLD = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_sld.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
-ANAL_CHI = ['output/simulation/'+contrast+'_' + ff + '_'+sp+'_chisq.txt' for contrast in CONTRASTS for ff in FORCEFIELDS for sp in SURF_PRES]
-FORCEFIELDS2 = ['', '_martini', '_berger', '_slipids']
-TOTAL_CHI = ['output/'+m+'/ave'+FORCEFIELDS2[i]+'_'+sp+'_chisq.txt' for i, m in enumerate(METHODS) for sp in SURF_PRES]
-OUTS_MAIN = ['output/simulation/martini_30_tt.txt', 'output/simulation/slipids_30_tt.txt', 'output/simulation/berger_30_tt.txt', 'output/simulation/slipids_30_wph.txt', 'output/simulation/berger_30_wph.txt', 'output/traditional/berger_30_wph.txt']
+SURF_PRES = ['20', '30', '40', '50']
 
-SURF_PRES2 = ['20', '40', '50']
-FIGS_SI = ['reports/figures/martiniorder.pdf']
-REFL_PLOTS_SI = ['reports/figures/sim_' + ff + '_' + sp + '.pdf' for sp in SURF_PRES2 for ff in FORCEFIELDS]
-REFL_PLOTS_SI2 = ['reports/figures/trad_' + sp + '.pdf' for sp in SURF_PRES2]
-PARAS = ['angle', 'dh', 'tt', 'wph']
-PARA_PLOTS_SI = ['reports/figures/' + ff + '_'+sp+'_' + p + '.pdf' for ff in FORCEFIELDS for sp in SURF_PRES for p in PARAS]
-PARA_TXT_SI = ['output/simulation/' + ff + '_'+sp+'_' + p + '.txt' for ff in FORCEFIELDS for sp in SURF_PRES for p in PARAS]
+FIGURES_MAIN_TEXT = ['reports/figures/reflrefr.pdf',
+                     'reports/figures/dspcdrywet.pdf',
+                     'reports/figures/apm.pdf', 'reports/figures/trad_30.pdf',
+                     'reports/figures/sim_slipids_30.pdf',
+                     'reports/figures/sim_berger_30.pdf',
+                     'reports/figures/sim_martini_30.pdf',
+                     'reports/figures/number_density.pdf']
 
-SIM_FIGS = ['reports/figures/sim_' + ff + '_' + sp + '.pdf' for sp in SURF_PRES for ff in FORCEFIELDS]
-TRAD_ANAL_REF = ['output/traditional/'+contrast+'_'+sp+'_ref.txt' for contrast in CONTRASTS for sp in SURF_PRES]
-TRAD_ANAL_SLD = ['output/traditional/'+contrast+'_'+sp+'_sld.txt' for contrast in CONTRASTS for sp in SURF_PRES]
-TRAD_ANAL_CHI = ['output/traditional/'+contrast+'_'+sp+'_chisq.txt' for contrast in CONTRASTS for sp in SURF_PRES]
-TRAD_FIGS = ['reports/figures/trad_'+sp+'.pdf' for sp in SURF_PRES]
-DENSITY_DATA = ['output/simulation/slipids_nb'+str(index)+'.txt' for index in range(1, 11)]
+INPUTS_MAIN_TEXT = ['output/traditional/{}_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+INPUTS_MAIN_TEXT.append('output/simulation/{}_slipids_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS)
+INPUTS_MAIN_TEXT.append('output/simulation/{}_berger_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS)
+INPUTS_MAIN_TEXT.append('output/simulation/{}_martini_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS)
+INPUTS_MAIN_TEXT.append('output/simulation/martini_30_tt.txt')
+INPUTS_MAIN_TEXT.append('output/simulation/slipids_30_tt.txt')
+INPUTS_MAIN_TEXT.append('output/simulation/berger_30_tt.txt')
+INPUTS_MAIN_TEXT.append('output/simulation/slipids_30_wph.txt')
+INPUTS_MAIN_TEXT.append('output/simulation/berger_30_wph.txt')
+INPUTS_MAIN_TEXT.append('output/traditional/wph_30.txt')
+INPUTS_MAIN_TEXT.append('output/traditional/ave_30_chisq.txt')
 
-EXP_DATA = ['data/experimental/surf_pres_'+sp+'/'+contrast+sp+'.dat' for sp in SURF_PRES for contrast in CONTRASTS]
-SIM_DATA = ['data/simulation/'+ff+'/surf_pres_'+sp+'/frame'+str(num)+'.pdb' for ff in FORCEFIELDS for sp in SURF_PRES for num in range(1, 11)]
+TRAD_REF_20 = ['output/traditional/{}_20_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_SLD_20 = ['output/traditional/{}_20_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_CHI_20 = ['output/traditional/{}_20_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+EXP_DATA_20 = ['data/experimental/surf_pres_20/{}20.dat'.format(
+    contrast) for contrast in CONTRASTS]
+
+TRAD_REF_30 = ['output/traditional/{}_30_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_SLD_30 = ['output/traditional/{}_30_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_CHI_30 = ['output/traditional/{}_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+EXP_DATA_30 = ['data/experimental/surf_pres_30/{}30.dat'.format(
+    contrast) for contrast in CONTRASTS]
+
+TRAD_REF_40 = ['output/traditional/{}_40_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_SLD_40 = ['output/traditional/{}_40_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_CHI_40 = ['output/traditional/{}_40_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+EXP_DATA_40 = ['data/experimental/surf_pres_40/{}40.dat'.format(
+    contrast) for contrast in CONTRASTS]
+
+TRAD_REF_50 = ['output/traditional/{}_50_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_SLD_50 = ['output/traditional/{}_50_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+TRAD_CHI_50 = ['output/traditional/{}_50_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+EXP_DATA_50 = ['data/experimental/surf_pres_50/{}50.dat'.format(
+    contrast) for contrast in CONTRASTS]
+
+DENSITY_DATA = ['output/simulation/slipids_nb{}.txt'.format(
+    index) for index in range(1, 11)]
+
+SLI_DATA_20 = ['data/simulation/slipids/surf_pres_20/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+SLI_DATA_30 = ['data/simulation/slipids/surf_pres_30/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+SLI_DATA_40 = ['data/simulation/slipids/surf_pres_40/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+SLI_DATA_50 = ['data/simulation/slipids/surf_pres_50/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+
+BER_DATA_20 = ['data/simulation/berger/surf_pres_20/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+BER_DATA_30 = ['data/simulation/berger/surf_pres_30/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+BER_DATA_40 = ['data/simulation/berger/surf_pres_40/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+BER_DATA_50 = ['data/simulation/berger/surf_pres_50/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+
+MAR_DATA_20 = ['data/simulation/martini/surf_pres_20/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+MAR_DATA_30 = ['data/simulation/martini/surf_pres_30/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+MAR_DATA_40 = ['data/simulation/martini/surf_pres_40/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+MAR_DATA_50 = ['data/simulation/martini/surf_pres_50/frame{}.pdb'.format(
+    num) for num in range(1, 11)]
+
+SLI_REF_20 = ['output/simulation/{}_slipids_20_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_SLD_20 = ['output/simulation/{}_slipids_20_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_CHI_20 = ['output/simulation/{}_slipids_20_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_REF_30 = ['output/simulation/{}_slipids_30_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_SLD_30 = ['output/simulation/{}_slipids_30_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_CHI_30 = ['output/simulation/{}_slipids_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_REF_40 = ['output/simulation/{}_slipids_40_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_SLD_40 = ['output/simulation/{}_slipids_40_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_CHI_40 = ['output/simulation/{}_slipids_40_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_REF_50 = ['output/simulation/{}_slipids_50_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_SLD_50 = ['output/simulation/{}_slipids_50_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+SLI_CHI_50 = ['output/simulation/{}_slipids_50_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+
+BER_REF_20 = ['output/simulation/{}_berger_20_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_SLD_20 = ['output/simulation/{}_berger_20_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_CHI_20 = ['output/simulation/{}_berger_20_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_REF_30 = ['output/simulation/{}_berger_30_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_SLD_30 = ['output/simulation/{}_berger_30_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_CHI_30 = ['output/simulation/{}_berger_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_REF_40 = ['output/simulation/{}_berger_40_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_SLD_40 = ['output/simulation/{}_berger_40_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_CHI_40 = ['output/simulation/{}_berger_40_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_REF_50 = ['output/simulation/{}_berger_50_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_SLD_50 = ['output/simulation/{}_berger_50_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+BER_CHI_50 = ['output/simulation/{}_berger_50_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+
+MAR_REF_20 = ['output/simulation/{}_martini_20_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_SLD_20 = ['output/simulation/{}_martini_20_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_CHI_20 = ['output/simulation/{}_martini_20_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_REF_30 = ['output/simulation/{}_martini_30_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_SLD_30 = ['output/simulation/{}_martini_30_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_CHI_30 = ['output/simulation/{}_martini_30_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_REF_40 = ['output/simulation/{}_martini_40_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_SLD_40 = ['output/simulation/{}_martini_40_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_CHI_40 = ['output/simulation/{}_martini_40_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_REF_50 = ['output/simulation/{}_martini_50_ref.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_SLD_50 = ['output/simulation/{}_martini_50_sld.txt'.format(
+    contrast) for contrast in CONTRASTS]
+MAR_CHI_50 = ['output/simulation/{}_martini_50_chisq.txt'.format(
+    contrast) for contrast in CONTRASTS]
+
+
 
 rule all:
     input:
@@ -35,12 +178,8 @@ rule all:
 
 rule make_preprint:
     input:
-        'reports/figures/apm.pdf',
-        FIGS_MAIN,
-        ANAL_CHI,
-        TRAD_ANAL_CHI,
-        TOTAL_CHI,
-        PARA_TXT_SI,
+        FIGURES_MAIN_TEXT,
+        INPUTS_MAIN_TEXT,
         'reports/preprint.tex',
         'reports/paper.bib'
     output:
@@ -53,23 +192,41 @@ rule make_preprint:
         xelatex preprint.tex
         """
 
-rule makesi:
+rule make_si:
     input:
-        FIGS_SI,
-        REFL_PLOTS_SI,
-        REFL_PLOTS_SI2,
-        PARA_PLOTS_SI,
+        'reports/figures/trad_20.pdf',
+        'reports/figures/trad_40.pdf',
+        'reports/figures/trad_50.pdf',
+        'reports/figures/sim_slipids_20.pdf',
+        'reports/figures/sim_slipids_40.pdf',
+        'reports/figures/sim_slipids_50.pdf',
+        'output/simulation/ave_slipids_20_chisq.txt',
+        'output/simulation/ave_slipids_40_chisq.txt',
+        'output/simulation/ave_slipids_50_chisq.txt',
+        'reports/figures/sim_berger_20.pdf',
+        'reports/figures/sim_berger_40.pdf',
+        'reports/figures/sim_berger_50.pdf',
+        'output/simulation/ave_berger_20_chisq.txt',
+        'output/simulation/ave_berger_40_chisq.txt',
+        'output/simulation/ave_berger_50_chisq.txt',
+        'output/simulation/slipids_30_tt.txt',
+        'output/simulation/slipids_30_wph.txt',
+        'output/simulation/martini_30_tt.txt',
+        'output/simulation/martini_30_wph.txt',
+        'reports/figures/sim_martini_20.pdf',
+        'reports/figures/sim_martini_40.pdf',
+        'reports/figures/sim_martini_50.pdf',
+        'reports/figures/martiniorder.pdf',
         'reports/si.tex',
         'reports/paper.bib'
     output:
-        'reports/si.pdf'
+        'reports/si.pdf',
     shell:
         """
         cd reports && xelatex si.tex
         bibtex si.aux
         xelatex si.tex
         xelatex si.tex
-        cd ../
         """
 
 rule plot_apm:
@@ -84,61 +241,110 @@ rule plot_apm:
         cd ../
         """
 
-rule sim_plot:
+rule trad_plot_20:
     input:
-        ANAL_REF,
-        ANAL_SLD,
-        'notebooks/simulation/plot.py'
+        TRAD_REF_20,
+        TRAD_SLD_20,
+        'notebooks/traditional/plot.py'
     output:
-        SIM_FIGS
+        'reports/figures/trad_20.pdf'
     run:
-        for ff in FORCEFIELDS:
-            for sp in SURF_PRES:
-                shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
-                shell("cd ../")
+        sp = 20
+        shell("cd notebooks/traditional && ipython plot.py {sp}")
+        shell("cd ../")
 
-rule sim_analysis:
+rule trad_analysis_20:
     input:
-        EXP_DATA,
-        SIM_DATA,
-        'notebooks/simulation/analysis.py',
-        'bin/sim_lengths.py'
-    output:
-        ANAL_CHI,
-        ANAL_REF,
-        ANAL_SLD,
-    run:
-        for ff in FORCEFIELDS:
-            for sp in SURF_PRES:
-                for contrast in CONTRASTS:
-                    shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
-                    shell("cd ../")
-
-rule trad_analysis:
-    input:
-        EXP_DATA,
+        EXP_DATA_20,
         'notebooks/traditional/analysis.py',
         'models/mol_vol.py'
     output:
-        TRAD_ANAL_REF,
-        TRAD_ANAL_SLD,
-        TRAD_ANAL_CHI
+        TRAD_REF_20,
+        TRAD_SLD_20,
+        TRAD_CHI_20
     run:
-        for sp in SURF_PRES:
-            shell("cd notebooks/traditional && ipython analysis.py {sp}")
-            shell("cd ../")
+        sp = 20
+        shell("cd notebooks/traditional && ipython analysis.py {sp}")
+        shell("cd ../")
 
-rule trad_plot:
+rule trad_plot_30:
     input:
-        TRAD_ANAL_REF,
-        TRAD_ANAL_SLD,
+        TRAD_REF_30,
+        TRAD_SLD_30,
         'notebooks/traditional/plot.py'
     output:
-        TRAD_FIGS
+        'reports/figures/trad_30.pdf'
     run:
-        for sp in SURF_PRES:
-            shell("cd notebooks/traditional && ipython plot.py {sp}")
-            shell("cd ../")
+        sp = 30
+        shell("cd notebooks/traditional && ipython plot.py {sp}")
+        shell("cd ../")
+
+rule trad_analysis_30:
+    input:
+        EXP_DATA_30,
+        'notebooks/traditional/analysis.py',
+        'models/mol_vol.py'
+    output:
+        TRAD_REF_30,
+        TRAD_SLD_30,
+        TRAD_CHI_30,
+        'output/traditional/wph_30.txt'
+    run:
+        sp = 30
+        shell("cd notebooks/traditional && ipython analysis.py {sp}")
+        shell("cd ../")
+
+rule trad_plot_40:
+    input:
+        TRAD_REF_40,
+        TRAD_SLD_40,
+        'notebooks/traditional/plot.py'
+    output:
+        'reports/figures/trad_40.pdf'
+    run:
+        sp = 40
+        shell("cd notebooks/traditional && ipython plot.py {sp}")
+        shell("cd ../")
+
+rule trad_analysis_40:
+    input:
+        EXP_DATA_40,
+        'notebooks/traditional/analysis.py',
+        'models/mol_vol.py'
+    output:
+        TRAD_REF_40,
+        TRAD_SLD_40,
+        TRAD_CHI_40
+    run:
+        sp = 40
+        shell("cd notebooks/traditional && ipython analysis.py {sp}")
+        shell("cd ../")
+
+rule trad_plot_50:
+    input:
+        TRAD_REF_50,
+        TRAD_SLD_50,
+        'notebooks/traditional/plot.py'
+    output:
+        'reports/figures/trad_50.pdf'
+    run:
+        sp = 50
+        shell("cd notebooks/traditional && ipython plot.py {sp}")
+        shell("cd ../")
+
+rule trad_analysis_50:
+    input:
+        EXP_DATA_50,
+        'notebooks/traditional/analysis.py',
+        'models/mol_vol.py'
+    output:
+        TRAD_REF_50,
+        TRAD_SLD_50,
+        TRAD_CHI_50
+    run:
+        sp = 50
+        shell("cd notebooks/traditional && ipython analysis.py {sp}")
+        shell("cd ../")
 
 rule trad_gen_analysis:
     input:
@@ -160,24 +366,42 @@ rule trad_gen_plot:
         jupyter-nbconvert --to script {input}
         """
 
-rule sim_gen_analysis:
+rule chisq_av:
     input:
-        'notebooks/simulation/analysis.ipynb'
+        TRAD_CHI_20,
+        TRAD_CHI_30,
+        SLI_CHI_20,
+        SLI_CHI_30,
+        SLI_CHI_40,
+        SLI_CHI_50,
+        BER_CHI_20,
+        BER_CHI_30,
+        BER_CHI_40,
+        BER_CHI_50,
+        MAR_CHI_20,
+        MAR_CHI_30,
+        MAR_CHI_40,
+        MAR_CHI_50,
+        TRAD_CHI_40,
+        TRAD_CHI_50,
+        'bin/chisq_total.py'
     output:
-        'notebooks/simulation/analysis.py'
+        'output/traditional/ave_20_chisq.txt',
+        'output/traditional/ave_30_chisq.txt',
+        'output/traditional/ave_40_chisq.txt',
+        'output/traditional/ave_50_chisq.txt',
+        'output/simulation/ave_slipids_20_chisq.txt',
+        'output/simulation/ave_slipids_30_chisq.txt',
+        'output/simulation/ave_slipids_40_chisq.txt',
+        'output/simulation/ave_slipids_50_chisq.txt',
+        'output/simulation/ave_berger_20_chisq.txt',
+        'output/simulation/ave_berger_30_chisq.txt',
+        'output/simulation/ave_berger_40_chisq.txt',
+        'output/simulation/ave_berger_50_chisq.txt'
     shell:
         """
-        jupyter-nbconvert --to script {input}
-        """
-
-rule sim_gen_plot:
-    input:
-        'notebooks/simulation/plot.ipynb'
-    output:
-        'notebooks/simulation/plot.py'
-    shell:
-        """
-        jupyter-nbconvert --to script {input}
+        cd bin && ipython chisq_total.py
+        cd ../
         """
 
 rule nd_gen_plot:
@@ -200,17 +424,279 @@ rule nb_plot:
         shell("cd notebooks/simulation && ipython density_plot.py")
         shell("cd ../")
 
-rule chisq_av:
+rule get_densities:
     input:
-        ANAL_CHI,
-        'bin/chisq_total.py'
+        SLI_DATA_30,
+        'bin/get_density.py'
     output:
-        TOTAL_CHI
+        DENSITY_DATA
+    run:
+        for index in range(1, 11):
+            shell("cd bin && ipython get_density.py {index}")
+            shell("cd ../")
+
+
+rule sim_gen_analysis:
+    input:
+        'notebooks/simulation/analysis.ipynb'
+    output:
+        'notebooks/simulation/analysis.py'
     shell:
         """
-        cd bin && ipython chisq_total.py
-        cd ../
+        jupyter-nbconvert --to script {input}
         """
+
+rule sim_gen_plot:
+    input:
+        'notebooks/simulation/plot.ipynb'
+    output:
+        'notebooks/simulation/plot.py'
+    shell:
+        """
+        jupyter-nbconvert --to script {input}
+        """
+
+rule sli_plot_30:
+    input:
+        SLI_REF_30,
+        SLI_SLD_30,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_slipids_30.pdf'
+    run:
+        ff = 'slipids'
+        sp = '30'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule sli_analysis_30:
+    input:
+        EXP_DATA_30,
+        SLI_DATA_30,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        SLI_REF_30,
+        SLI_SLD_30,
+        SLI_CHI_30
+    run:
+        ff = 'slipids'
+        sp = '30'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule sli_plot_20:
+    input:
+        SLI_REF_20,
+        SLI_SLD_20,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_slipids_20.pdf'
+    run:
+        ff = 'slipids'
+        sp = '20'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule sli_analysis_20:
+    input:
+        EXP_DATA_20,
+        SLI_DATA_20,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        SLI_REF_20,
+        SLI_SLD_20,
+        SLI_CHI_20
+    run:
+        ff = 'slipids'
+        sp = '20'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule sli_plot_40:
+    input:
+        SLI_REF_40,
+        SLI_SLD_40,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_slipids_40.pdf'
+    run:
+        ff = 'slipids'
+        sp = '40'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule sli_analysis_40:
+    input:
+        EXP_DATA_40,
+        SLI_DATA_40,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        SLI_REF_40,
+        SLI_SLD_40,
+        SLI_CHI_40
+    run:
+        ff = 'slipids'
+        sp = '40'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+
+rule sli_plot_50:
+    input:
+        SLI_REF_50,
+        SLI_SLD_50,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_slipids_50.pdf'
+    run:
+        ff = 'slipids'
+        sp = '50'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule sli_analysis_50:
+    input:
+        EXP_DATA_50,
+        SLI_DATA_50,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        SLI_REF_50,
+        SLI_SLD_50,
+        SLI_CHI_50
+    run:
+        ff = 'slipids'
+        sp = '50'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule ber_plot_30:
+    input:
+        BER_REF_30,
+        BER_SLD_30,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_berger_30.pdf'
+    run:
+        ff = 'berger'
+        sp = '30'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule ber_analysis_30:
+    input:
+        EXP_DATA_30,
+        BER_DATA_30,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        BER_REF_30,
+        BER_SLD_30,
+        BER_CHI_30
+    run:
+        ff = 'berger'
+        sp = '30'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule ber_plot_20:
+    input:
+        BER_REF_20,
+        BER_SLD_20,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_berger_20.pdf'
+    run:
+        ff = 'berger'
+        sp = '20'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule ber_analysis_20:
+    input:
+        EXP_DATA_20,
+        BER_DATA_20,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        BER_REF_20,
+        BER_SLD_20,
+        BER_CHI_20
+    run:
+        ff = 'berger'
+        sp = '20'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule ber_plot_40:
+    input:
+        BER_REF_40,
+        BER_SLD_40,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_berger_40.pdf'
+    run:
+        ff = 'berger'
+        sp = '40'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule ber_analysis_40:
+    input:
+        EXP_DATA_40,
+        BER_DATA_40,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        BER_REF_40,
+        BER_SLD_40,
+        BER_CHI_40
+    run:
+        ff = 'berger'
+        sp = '40'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+
+rule ber_plot_50:
+    input:
+        BER_REF_50,
+        BER_SLD_50,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_berger_50.pdf'
+    run:
+        ff = 'berger'
+        sp = '50'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule ber_analysis_50:
+    input:
+        EXP_DATA_50,
+        BER_DATA_50,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        BER_REF_50,
+        BER_SLD_50,
+        BER_CHI_50
+    run:
+        ff = 'berger'
+        sp = '50'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
 
 rule chain_tilt_gen:
     input:
@@ -222,34 +708,181 @@ rule chain_tilt_gen:
         jupyter-nbconvert --to script {input}
         """
 
-rule chain_tilt:
+rule martini_order_gen:
+    input:
+        'notebooks/simulation/martiniorder.ipynb'
+    output:
+        'notebooks/simulation/martiniorder.py'
+    shell:
+        """
+        jupyter-nbconvert --to script {input}
+        """
+
+rule martini_order:
+    input:
+        'notebooks/simulation/martiniorder.py'
+    output:
+        'reports/figures/martiniorder.pdf'
+    run:
+        shell("cd notebooks/simulation && ipython martiniorder.py")
+
+
+rule chain_tilt_berger:
     input:
         'notebooks/simulation/chain_tilt.py'
     output:
-        PARA_PLOTS_SI,
-        PARA_TXT_SI
+        'output/simulation/berger_30_tt.txt',
+        'output/simulation/berger_30_wph.txt'
     run:
-        for ff in FORCEFIELDS:
-            for sp in SURF_PRES:
-                sp = '_' + sp
-                shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
-                shell("cd ../")
-
-rule get_densities:
-    input:
-        SIM_DATA,
-        'bin/get_density.py'
-    output:
-        DENSITY_DATA
-    run:
-        for index in range(1, 11):
-            shell("cd bin && ipython get_density.py {index}")
+        ff = 'berger'
+        for sp in SURF_PRES:
+            sp = '_' + sp
+            shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
             shell("cd ../")
 
-rule pdfclean:
-    shell:
-        "rm reports/paper.pdf"
+rule chain_tilt_slipids:
+    input:
+        'notebooks/simulation/chain_tilt.py'
+    output:
+        'output/simulation/slipids_30_tt.txt',
+        'output/simulation/slipids_30_wph.txt'
+    run:
+        ff = 'slipids'
+        for sp in SURF_PRES:
+            sp = '_' + sp
+            shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
+            shell("cd ../")
 
-rule clean:
-    shell:
-        "rm reports/paper.pdf"
+rule chain_tilt_martini:
+    input:
+        'notebooks/simulation/chain_tilt.py'
+    output:
+        'output/simulation/martini_30_tt.txt',
+        'output/simulation/martini_30_wph.txt'
+    run:
+        ff = 'martini'
+        for sp in SURF_PRES:
+            sp = '_' + sp
+            shell("cd notebooks/simulation && ipython chain_tilt.py {ff} {sp}")
+            shell("cd ../")
+
+rule mar_plot_30:
+    input:
+        MAR_REF_30,
+        MAR_SLD_30,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_martini_30.pdf'
+    run:
+        ff = 'martini'
+        sp = '30'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule mar_analysis_30:
+    input:
+        EXP_DATA_30,
+        MAR_DATA_30,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        MAR_REF_30,
+        MAR_SLD_30,
+        MAR_CHI_30
+    run:
+        ff = 'martini'
+        sp = '30'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule mar_plot_20:
+    input:
+        MAR_REF_20,
+        MAR_SLD_20,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_martini_20.pdf'
+    run:
+        ff = 'martini'
+        sp = '20'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule mar_analysis_20:
+    input:
+        EXP_DATA_20,
+        MAR_DATA_20,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        MAR_REF_20,
+        MAR_SLD_20,
+        MAR_CHI_20
+    run:
+        ff = 'martini'
+        sp = '20'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+rule mar_plot_40:
+    input:
+        MAR_REF_40,
+        MAR_SLD_40,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_martini_40.pdf'
+    run:
+        ff = 'martini'
+        sp = '40'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule mar_analysis_40:
+    input:
+        EXP_DATA_40,
+        MAR_DATA_40,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        MAR_REF_40,
+        MAR_SLD_40,
+        MAR_CHI_40
+    run:
+        ff = 'martini'
+        sp = '40'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")
+
+
+rule mar_plot_50:
+    input:
+        MAR_REF_50,
+        MAR_SLD_50,
+        'notebooks/simulation/plot.py'
+    output:
+        'reports/figures/sim_martini_50.pdf'
+    run:
+        ff = 'martini'
+        sp = '50'
+        shell("cd notebooks/simulation && ipython plot.py {ff} {sp}")
+        shell("cd ../")
+
+rule mar_analysis_50:
+    input:
+        EXP_DATA_50,
+        MAR_DATA_50,
+        'notebooks/simulation/analysis.py',
+        'bin/sim_lengths.py'
+    output:
+        MAR_REF_50,
+        MAR_SLD_50,
+        MAR_CHI_50
+    run:
+        ff = 'martini'
+        sp = '50'
+        for contrast in CONTRASTS:
+            shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
+            shell("cd ../")

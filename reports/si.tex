@@ -12,6 +12,8 @@
 \renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thetable}{S\Roman{table}}
 
+\graphicspath{{./figures/}}
+
 \begin{document}                  % DO NOT DELETE THIS LINE
 
 \title{Electronic Supplementary Information for ``Applying molecular simulation to the analysis of lipid monolayer reflectometry''}
@@ -125,7 +127,7 @@ In an effort to reduce this effect, a larger layer thickness, or \SI{4}{\angstro
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{figures/martiniorder}
+ \includegraphics[width=0.49\textwidth]{martiniorder}
  \caption{The scattering length density profile from the MARTINI simulation, at an effective surface pressure of \SI{30}{\milli\newton\per\meter} with a layer thickness of \SI{1}{\angstrom} (blue) and \SI{4}{\angstrom} (orange). }
  \label{fig:mart}
 \end{figure*}
@@ -142,10 +144,10 @@ The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{figures/trad_20}
- \includegraphics[width=0.49\textwidth]{figures/sim_slipids_20} \\
- \includegraphics[width=0.49\textwidth]{figures/sim_berger_20}
- \includegraphics[width=0.49\textwidth]{figures/sim_martini_20}
+ \includegraphics[width=0.49\textwidth]{trad_20}
+ \includegraphics[width=0.49\textwidth]{sim_slipids_20} \\
+ \includegraphics[width=0.49\textwidth]{sim_berger_20}
+ \includegraphics[width=0.49\textwidth]{sim_martini_20}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{20}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp20}
 \end{figure*}
@@ -153,10 +155,10 @@ The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{figures/trad_40}
- \includegraphics[width=0.49\textwidth]{figures/sim_slipids_40} \\
- \includegraphics[width=0.49\textwidth]{figures/sim_berger_40}
- \includegraphics[width=0.49\textwidth]{figures/sim_martini_40}
+ \includegraphics[width=0.49\textwidth]{trad_40}
+ \includegraphics[width=0.49\textwidth]{sim_slipids_40} \\
+ \includegraphics[width=0.49\textwidth]{sim_berger_40}
+ \includegraphics[width=0.49\textwidth]{sim_martini_40}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{40}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp40}
 \end{figure*}
@@ -164,10 +166,10 @@ The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{figures/trad_50}
- \includegraphics[width=0.49\textwidth]{figures/sim_slipids_50} \\
- \includegraphics[width=0.49\textwidth]{figures/sim_berger_50}
- \includegraphics[width=0.49\textwidth]{figures/sim_martini_50}
+ \includegraphics[width=0.49\textwidth]{trad_50}
+ \includegraphics[width=0.49\textwidth]{sim_slipids_50} \\
+ \includegraphics[width=0.49\textwidth]{sim_berger_50}
+ \includegraphics[width=0.49\textwidth]{sim_martini_50}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{50}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp50}
 \end{figure*}
@@ -178,10 +180,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/slipids_20_angle}
- \includegraphics[width=0.245\textwidth]{figures/slipids_20_dh}
- \includegraphics[width=0.245\textwidth]{figures/slipids_20_tt}
- \includegraphics[width=0.245\textwidth]{figures/slipids_20_wph}
+ \includegraphics[width=0.32\textwidth]{slipids_20_dh}
+ \includegraphics[width=0.32\textwidth]{slipids_20_tt}
+ \includegraphics[width=0.32\textwidth]{slipids_20_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
  \label{fig:sl20}
 \end{figure*}
@@ -189,10 +190,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/slipids_30_angle}
- \includegraphics[width=0.245\textwidth]{figures/slipids_30_dh}
- \includegraphics[width=0.245\textwidth]{figures/slipids_30_tt}
- \includegraphics[width=0.245\textwidth]{figures/slipids_30_wph}
+ \includegraphics[width=0.32\textwidth]{slipids_30_dh}
+ \includegraphics[width=0.32\textwidth]{slipids_30_tt}
+ \includegraphics[width=0.32\textwidth]{slipids_30_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
  \label{fig:sl30}
 \end{figure*}
@@ -200,10 +200,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/slipids_40_angle}
- \includegraphics[width=0.245\textwidth]{figures/slipids_40_dh}
- \includegraphics[width=0.245\textwidth]{figures/slipids_40_tt}
- \includegraphics[width=0.245\textwidth]{figures/slipids_40_wph}
+ \includegraphics[width=0.32\textwidth]{slipids_40_dh}
+ \includegraphics[width=0.32\textwidth]{slipids_40_tt}
+ \includegraphics[width=0.32\textwidth]{slipids_40_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
  \label{fig:sl40}
 \end{figure*}
@@ -211,10 +210,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/slipids_50_angle}
- \includegraphics[width=0.245\textwidth]{figures/slipids_50_dh}
- \includegraphics[width=0.245\textwidth]{figures/slipids_50_tt}
- \includegraphics[width=0.245\textwidth]{figures/slipids_50_wph}
+ \includegraphics[width=0.32\textwidth]{slipids_50_dh}
+ \includegraphics[width=0.32\textwidth]{slipids_50_tt}
+ \includegraphics[width=0.32\textwidth]{slipids_50_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
  \label{fig:sl50}
 \end{figure*}
@@ -222,10 +220,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/berger_20_angle}
- \includegraphics[width=0.245\textwidth]{figures/berger_20_dh}
- \includegraphics[width=0.245\textwidth]{figures/berger_20_tt}
- \includegraphics[width=0.245\textwidth]{figures/berger_20_wph}
+ \includegraphics[width=0.32\textwidth]{berger_20_dh}
+ \includegraphics[width=0.32\textwidth]{berger_20_tt}
+ \includegraphics[width=0.32\textwidth]{berger_20_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
  \label{fig:be20}
 \end{figure*}
@@ -233,10 +230,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/berger_30_angle}
- \includegraphics[width=0.245\textwidth]{figures/berger_30_dh}
- \includegraphics[width=0.245\textwidth]{figures/berger_30_tt}
- \includegraphics[width=0.245\textwidth]{figures/berger_30_wph}
+ \includegraphics[width=0.32\textwidth]{berger_30_dh}
+ \includegraphics[width=0.32\textwidth]{berger_30_tt}
+ \includegraphics[width=0.32\textwidth]{berger_30_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
  \label{fig:be30}
 \end{figure*}
@@ -244,10 +240,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/berger_40_angle}
- \includegraphics[width=0.245\textwidth]{figures/berger_40_dh}
- \includegraphics[width=0.245\textwidth]{figures/berger_40_tt}
- \includegraphics[width=0.245\textwidth]{figures/berger_40_wph}
+ \includegraphics[width=0.32\textwidth]{berger_40_dh}
+ \includegraphics[width=0.32\textwidth]{berger_40_tt}
+ \includegraphics[width=0.32\textwidth]{berger_40_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
  \label{fig:be40}
 \end{figure*}
@@ -255,21 +250,19 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/berger_50_angle}
- \includegraphics[width=0.245\textwidth]{figures/berger_50_dh}
- \includegraphics[width=0.245\textwidth]{figures/berger_50_tt}
- \includegraphics[width=0.245\textwidth]{figures/berger_50_wph}
+ \includegraphics[width=0.32\textwidth]{berger_50_dh}
+ \includegraphics[width=0.32\textwidth]{berger_50_tt}
+ \includegraphics[width=0.32\textwidth]{berger_50_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
- \label{fig:be20}
+ \label{fig:be50}
 \end{figure*}
 %
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/martini_20_angle}
- \includegraphics[width=0.245\textwidth]{figures/martini_20_dh}
- \includegraphics[width=0.245\textwidth]{figures/martini_20_tt}
- \includegraphics[width=0.245\textwidth]{figures/martini_20_wph}
+ \includegraphics[width=0.32\textwidth]{martini_20_dh}
+ \includegraphics[width=0.32\textwidth]{martini_20_tt}
+ \includegraphics[width=0.32\textwidth]{martini_20_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
  \label{fig:ma20}
 \end{figure*}
@@ -277,10 +270,10 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/martini_30_angle}
- \includegraphics[width=0.245\textwidth]{figures/martini_30_dh}
- \includegraphics[width=0.245\textwidth]{figures/martini_30_tt}
- \includegraphics[width=0.245\textwidth]{figures/martini_30_wph}
+ \includegraphics[width=0.32\textwidth]{martini_30_angle}
+ \includegraphics[width=0.32\textwidth]{martini_30_dh}
+ \includegraphics[width=0.32\textwidth]{martini_30_tt}
+ \includegraphics[width=0.32\textwidth]{martini_30_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
  \label{fig:ma30}
 \end{figure*}
@@ -288,10 +281,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/martini_40_angle}
- \includegraphics[width=0.245\textwidth]{figures/martini_40_dh}
- \includegraphics[width=0.245\textwidth]{figures/martini_40_tt}
- \includegraphics[width=0.245\textwidth]{figures/martini_40_wph}
+ \includegraphics[width=0.32\textwidth]{martini_40_dh}
+ \includegraphics[width=0.32\textwidth]{martini_40_tt}
+ \includegraphics[width=0.32\textwidth]{martini_40_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
  \label{fig:ma40}
 \end{figure*}
@@ -299,10 +291,9 @@ Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution funct
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.245\textwidth]{figures/martini_50_angle}
- \includegraphics[width=0.245\textwidth]{figures/martini_50_dh}
- \includegraphics[width=0.245\textwidth]{figures/martini_50_tt}
- \includegraphics[width=0.245\textwidth]{figures/martini_50_wph}
+ \includegraphics[width=0.32\textwidth]{martini_50_dh}
+ \includegraphics[width=0.32\textwidth]{martini_50_tt}
+ \includegraphics[width=0.32\textwidth]{martini_50_wph}
  \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
  \label{fig:ma50}
 \end{figure*}
