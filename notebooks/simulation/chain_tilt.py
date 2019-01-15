@@ -10,9 +10,20 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns; sns.set(palette='colorblind')
 import corner
-mpl.rcParams['axes.labelsize']=28
-mpl.rcParams['xtick.labelsize']=18
-mpl.rcParams['ytick.labelsize']=18
+mpl.rcParams['xtick.labelsize'] = 8
+mpl.rcParams['ytick.labelsize'] = 8
+mpl.rcParams['axes.facecolor'] = 'w'
+mpl.rcParams['lines.linewidth'] = 2
+mpl.rcParams['xtick.top'] = False
+mpl.rcParams['xtick.bottom'] = True
+mpl.rcParams['ytick.left'] = True
+mpl.rcParams['grid.linestyle'] = '--'
+mpl.rcParams['legend.fontsize'] = 8
+mpl.rcParams['legend.facecolor'] = [1,1,1]
+mpl.rcParams['legend.framealpha'] = 0.75
+mpl.rcParams['axes.labelsize'] = 8
+mpl.rcParams['axes.linewidth'] = 1
+mpl.rcParams['axes.edgecolor'] = 'k'
 
 
 # In[2]:
