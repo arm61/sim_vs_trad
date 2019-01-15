@@ -583,63 +583,131 @@ However, we are not aware of an off-the-shelf 2-to-1 coarse-grained
 potential model that is commonly applied to lipid molecules.
 
 \subsection{Comparison of other simulations}
-Table \ref{tbl:chi} shows that both the Slipid and Berger potential models agree well with the experimental data, with the Slipid potential model offering a slight improvement over the Berger.
-The quality of agreement between these higher-resolution potential models and the monolayer model is relatively similar.
-However, the monolayer model is still better than those determined from MD simulation.
-This is to be expected though, simply by considering the level of constraint present implicitly when determining the reflecometry profile directly from simulation.
-While the monolayer model constrains the layer model to be chemically-consistent, those from MD simulation have real chemical constraints present in the simulation; e.g. the bonding of atoms, and the non-bonded potentials.
-The quality of the agreement from this multi-modal analysis technique it sufficient for such a method to be applied regularly in the analysis of neutron reflectometry.
+Table \ref{tbl:chi} shows that both the Slipid and Berger potential models
+agree well with the experimental data, with the Slipid potential model
+offering a slight improvement over the Berger.
+The quality of agreement between these higher-resolution potential models
+and the monolayer model is relatively similar.
+However, the monolayer model is still better than those determined from MD
+simulation.
+This is to be expected though, simply by considering the level of
+constraint present implicitly when determining the reflecometry profile
+directly from simulation.
+While the monolayer model constrains the layer model to be
+chemically-consistent, those from MD simulation have real chemical
+constraints present in the simulation; e.g. the bonding of atoms, and
+the non-bonded potentials.
+The quality of the agreement from this multi-modal analysis technique
+it sufficient for such a method to be applied regularly in the analysis
+of neutron reflectometry.
 
-Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than the MARTINI simulation.
-For the Slipid simulation the tail length was found to be \input{../output/simulation/slipids_30_tt.txt}\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/berger_30_tt.txt}\si{\angstrom} was obtained.
-Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford equation, however it should be noted that this value is considered a maximum for the \emph{fully extended} carbon tail.
+Both the Slipid and Berger simulations produced values for the tail length
+that were in better agreement with the Tanford equation than the
+MARTINI simulation.
+For the Slipid simulation the tail length was found to be
+\input{../output/simulation/slipids_30_tt.txt}\si{\angstrom}, while for the
+Berger simulations a value of
+\input{../output/simulation/berger_30_tt.txt}\si{\angstrom} was obtained.
+Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford
+equation, however it should be noted that this value is considered a
+maximum for the \emph{fully extended} carbon tail.
 
-Using the molecular dynamics simulations, and the monolayer model it is possible to compare the number of water molecules per head group.
-From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{../output/simulation/slipids_30_wph.txt} and \input{../output/simulation/berger_30_wph.txt} respectively.
-These are in good agreement with the \input{../output/traditional/wph_30.txt} found from the monolayer model method in conjungtion with Equation \ref{equ:wph}.
+Using the molecular dynamics simulations, and the monolayer model it is
+possible to compare the number of water molecules per head group.
+From the Slipids and Berger simulations, the number of water molecules per
+head group was found to be \input{../output/simulation/slipids_30_wph.txt}
+and \input{../output/simulation/berger_30_wph.txt} respectively.
+These are in good agreement with the
+\input{../output/traditional/wph_30.txt} found from the monolayer model
+method in conjungtion with Equation \ref{equ:wph}.
 
-It should be noted that to obtain the \SI{50}{\nano\second} production run for the Slipids potential model simulation required over 13 days of using 32 cores of the SCARF computing resource.
-This is non-trivial and therefore not necessarily applicable to all neutron reflectometry measurements.
-However, for the nearly as accurate Berger potential model simulations (which are only marginally less accurate), only approximately 2 days, of the same compute resource, were required.
-This suggests that given the quality of agreement with the experimental data achieved from the Berger potential model simulations it may be feasible to suggest simulations of such resolution may be run alongside experimental measurements at large facilities such as ISIS Neutron and Muon Source.
+It should be noted that to obtain the \SI{50}{\nano\second} production run
+for the Slipids potential model simulation required over 13 days of using 32
+cores of the SCARF computing resource.
+This is non-trivial and therefore not necessarily applicable to all neutron
+reflectometry measurements.
+However, for the nearly as accurate Berger potential model simulations
+(which are only marginally less accurate), only approximately 2 days, of the
+same compute resource, were required.
+This suggests that given the quality of agreement with the experimental data
+achieved from the Berger potential model simulations it may be feasible to
+suggest simulations of such resolution may be run alongside experimental
+measurements at large facilities such as ISIS Neutron and Muon Source.
 
 \subsection{Using the Slipid simulations to improve the monolayer model}
-Despite the monolayer model offering a small improvement in agreement over the Slipid potential model simulation, we believe that it is possible to use these MD simulations to improve the existing monolayer model.
-An example of this has already been mentioned in terms of not applying the assumption that the carbon tail is fully extended.
-Another possible improvement can be found by considering Figure \ref{fig:nb}, which shows the water molecules per head group as a function of depth; it is clear that solvent penetration into the lipid head group area is not uniform.
-In particular, there is a clear pocket of water formed around the ester group of the lipid.
-This suggests that perhaps a different model for solvent penetration could be applied to the head layer to better describe the realistic solvent penetration.
+Despite the monolayer model offering a small improvement in agreement over
+the Slipid potential model simulation, we believe that it is possible to use
+these MD simulations to improve the existing monolayer model.
+An example of this has already been mentioned in terms of not applying the
+assumption that the carbon tail is fully extended.
+Another possible improvement can be found by considering Figure
+\ref{fig:nb}, which shows the water molecules per head group as a function
+of depth; it is clear that solvent penetration into the lipid head group
+area is not uniform.
+In particular, there is a clear pocket of water formed around the ester
+group of the lipid.
+This suggests that perhaps a different model for solvent penetration could
+be applied to the head layer to better describe the realistic solvent
+penetration.
 %
 \begin{figure}
 \centering
   \includegraphics[width=0.48\textwidth]{number_density}
-  \caption{The number density of each component; tails (orange), heads (green), water (yellow), and the number of water molecules per head group (blue dots, with the time-average shown as a solid blue line).}
+  \caption{The number density of each component; tails (orange), heads
+  (green), water (yellow), and the number of water molecules per head
+  group (blue dots, with the time-average shown as a solid blue line).}
   \label{fig:nb}
 \end{figure}
 %
 
-It is generally suggested that the conformal roughness between layers should be carried evenly through the monolayer when there is only a single lipid type \cite{Campbell2018}.
-However, from Figure \ref{fig:nb} it is clear that the overlap between the head-layer and water is much larger than that between the tail and head.
-Furthermore, there is additionally some solvent present deep within the tail layer, due to the presence of head-group character in that region.
-While the interfacial roughness can be considered as describing the capillary wave form of the water surface, it is also frequently applied to account for the intrinsic/structural roughness in the monolayer that exists because of the fact that the lipid ensemble comprises molecules with different conformations and thus different chain lengths.
-This suggests that perhaps the constraint that the interfacial roughnesses should be constant through the monolayer might be relaxed.
+It is generally suggested that the conformal roughness between layers
+should be carried evenly through the monolayer when there is only a single
+lipid type \cite{Campbell2018}.
+However, from Figure \ref{fig:nb} it is clear that the overlap between the
+head-layer and water is much larger than that between the tail and head.
+Furthermore, there is additionally some solvent present deep within the tail
+layer, due to the presence of head-group character in that region.
+While the interfacial roughness can be considered as describing the capillary
+wave form of the water surface, it is also frequently applied to account
+for the intrinsic/structural roughness in the monolayer that exists because
+of the fact that the lipid ensemble comprises molecules with different
+conformations and thus different chain lengths.
+This suggests that perhaps the constraint that the interfacial roughnesses
+should be constant through the monolayer might be relaxed.
 
 
 \section{Conclusions}
-This work presented, for the first time, direct comparison between a traditional method for analysis of neutron reflectometry measurement with analysis derived from a range of all-atom and coarse-grained molecular dynamics simulations; using the all-atom Slipid, the united-atom Berger, and the coarse-grained MARTINI potential models.
-It was found that the MARTINI potential model is not capable of accurately modelling the lipid monolayer system due to the limitations of the 4-to-1 beading system when applied to a carbon tail containing 18 atoms.
-The Berger and Slipid potential models both showed good agreement with the experimental data, however the best agreement was obtained by the traditional monolayer model.
-This would be expected given that the monolayer model contains many more degrees of freedom than the simulations which are severely chemically constrained by the potential model.
-Finally, some points from the highest resolution, Slipid, simulations were noted that may be used to improve the traditional monolayer model.
-These include the fact that the carbon tails were not always fully extended, and the possible desire for a non-uniform solvation of the head group region.
+This work presented, for the first time, direct comparison between a
+traditional method for analysis of neutron reflectometry measurement with
+analysis derived from a range of all-atom and coarse-grained molecular
+dynamics simulations; using the all-atom Slipid, the united-atom Berger,
+and the coarse-grained MARTINI potential models.
+It was found that the MARTINI potential model is not capable of accurately
+modelling the lipid monolayer system due to the limitations of the 4-to-1
+beading system when applied to a carbon tail containing 18 atoms.
+The Berger and Slipid potential models both showed good agreement with the
+experimental data, however the best agreement was obtained by the
+traditional monolayer model.
+This would be expected given that the monolayer model contains many more
+degrees of freedom than the simulations which are severely chemically
+constrained by the potential model.
+Finally, some points from the highest resolution, Slipid, simulations were
+noted that may be used to improve the traditional monolayer model.
+These include the fact that the carbon tails were not always fully
+extended, and the possible desire for a non-uniform solvation of the head
+group region.
 
 \section{Author Contributions}
 The initial experiments were conducted by D.J.B. and M.J.L..
-The analysis methodology was developed by A.R.M. with input from J.G., A.J.S., J.L.R., S.C.P. and K.J.E..
+The analysis methodology was developed by A.R.M. with input from J.G.,
+A.J.S., J.L.R., S.C.P. and K.J.E..
 A.R.M. wrote the manuscript, with input from all authors.
 
 \acknowledgements{
-ARM is grateful to the University of Bath and Diamond Light Source for co-funding a studentship (Studentship Number STU0149). This work benefited from the computing resources provided by STFC Scientific Computing Department's SCARF cluster.
+ARM is grateful to the University of Bath and Diamond Light Source for
+co-funding a studentship (Studentship Number STU0149).
+This work benefited from the computing resources provided by STFC
+Scientific Computing Department's SCARF cluster.
 We thank Robert D. Barker for insightful discussion.}
 
 \bibliography{paper.bib}
