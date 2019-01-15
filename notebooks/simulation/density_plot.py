@@ -131,21 +131,10 @@ wph[np.where(hbc == 0)] = 0
 
 from scipy.stats.mstats import mquantiles
 a = mquantiles(wph_tot, [0.025, 0.5, 0.975])
-file_out = open('../../output/simulation/{}_{}.txt'.format('wph', '30'), 'w')
 k = [a[1], a[1] - a[0], a[2] - a[1]]
 q = '{:.2f}'.format(k[0])
 e = '{:.2f}'.format(k[1])
 w = '{:.2f}'.format(k[2])
-file_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
-file_out.close()
-
-
-# In[49]:
-
-
-file_out = open('../../output/simulation/{}_{}.txt'.format('wph', '30'), 'w')
-file_out.write('$' + str(wph_tot.mean()) + '$')
-file_out.close()
 
 
 # In[115]:

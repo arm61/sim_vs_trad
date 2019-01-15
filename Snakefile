@@ -886,3 +886,24 @@ rule mar_analysis_50:
         for contrast in CONTRASTS:
             shell("cd notebooks/simulation && ipython analysis.py {ff} {sp} {contrast}")
             shell("cd ../")
+
+rule clean:
+    shell:
+        """
+        rm reports/preprint.pdf
+        rm reports/si.pdf
+        rm reports/figures/apm.pdf
+        rm reports/figures/berger_*.pdf
+        rm reports/figures/martini_*.pdf
+        rm reports/figures/slipids_*.pdf
+        rm reports/figures/martiniorder.pdf
+        rm reports/figures/number_density.pdf
+        rm reports/figures/sim_berger*.pdf
+        rm reports/figures/sim_martini*.pdf
+        rm reports/figures/trad*.pdf
+        rm reports/figures/sim_slipids*.pdf
+        rm output/simulation/*
+        rm output/traditional/*
+        rm notebooks/simulation/*.py
+        rm notebooks/traditional/*.py
+        """
