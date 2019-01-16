@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[1]:
@@ -86,4 +86,10 @@ ax.set_xlabel(r'$z$/Å')
 ax.set_xlim([-20, 70])
 plt.tight_layout()
 plt.savefig('../../reports/figures/sim_{}_{}.pdf'.format(forcefield, surface_pressure))
+
+
+# In[ ]:
+
+
+
 
