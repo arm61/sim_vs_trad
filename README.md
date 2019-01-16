@@ -11,7 +11,11 @@ This ESI provides full details of the analyses performed in the work and access 
 The [Supplementary Information document](reports/si.pdf) can be found in the [reports](/reports) folder, alongside a preprint copy of the publication.
 For more information about reproducible workflows in Python, check out [Tania Allard's talk from Pycon2018](http://bitsandchips.me/Talks/PyCon.html#/title).
 
-## [Data]()
+## [Data](https://researchdata.bath.ac.uk/id/eprint/586)
+
+The reduced neutron reflectometry data and simulation inputs and trajectories can be obtained from the University of Bath Research Data Archive.
+
+[https://researchdata.bath.ac.uk/id/eprint/586](https://researchdata.bath.ac.uk/id/eprint/586)
 
 ## Analysis
 
@@ -23,7 +27,14 @@ Requirements:
 
 The supplied Snakemake file, will reproduce all of the analysis, plot the figures, and build a preprint version of the paper (`reports/paper.pdf`) when run. Be aware that the analyses within this work are non-trivial and take many hours to run so **use caution** before re-running.
 
-If you **still** want to re-run all of the analysis, please download the [experimental data](), place it in a directory named `data` before running the following commands:
+If you **still** want to re-run all of the analysis, please download the [experimental data zip file](https://researchdata.bath.ac.uk/id/eprint/586), and unzip it (in the `sim_vs_trad` directory) using the following command:
+
+```
+unzip sim_vs_trad_data.zip
+```
+
+Then run the following commands:
+
 
 ```
 conda env create -f config/environment.yml
