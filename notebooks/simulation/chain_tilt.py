@@ -10,20 +10,12 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns; sns.set(palette='colorblind')
 import corner
-mpl.rcParams['xtick.labelsize'] = 8
-mpl.rcParams['ytick.labelsize'] = 8
-mpl.rcParams['axes.facecolor'] = 'w'
-mpl.rcParams['lines.linewidth'] = 2
-mpl.rcParams['xtick.top'] = False
-mpl.rcParams['xtick.bottom'] = True
-mpl.rcParams['ytick.left'] = True
-mpl.rcParams['grid.linestyle'] = '--'
-mpl.rcParams['legend.fontsize'] = 8
-mpl.rcParams['legend.facecolor'] = [1,1,1]
-mpl.rcParams['legend.framealpha'] = 0.75
-mpl.rcParams['axes.labelsize'] = 8
-mpl.rcParams['axes.linewidth'] = 1
-mpl.rcParams['axes.edgecolor'] = 'k'
+import sys
+sys.path.insert(0, '../../models')
+import mdsimulation as md
+mpl.rcParams['axes.labelsize']=28
+mpl.rcParams['xtick.labelsize']=18
+mpl.rcParams['ytick.labelsize']=18
 
 
 # In[2]:
@@ -181,7 +173,6 @@ for i in range(1, 2):
     wph_tot = np.append(wph_tot, wph)
 
 weightal = np.ones_like(wph_tot)/float(len(wph_tot))
-plt.figure(figsize=(3, 25/14))
 plt.hist(wph_tot, bins=15, histtype='stepfilled', weights=weightal)
 plt.xlabel(r'wph')
 plt.ylabel(r'PDF(wph)')
@@ -197,7 +188,6 @@ w = '{:.2f}'.format(k[2])
 f_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
 f_out.close()
 weightal = np.ones_like(dh_tot)/float(len(dh_tot))
-plt.figure(figsize=(3, 25/14))
 plt.hist(dh_tot, bins=15, histtype='stepfilled', weights=weightal)
 plt.xlabel(r'$d_h$/Å')
 plt.ylabel(r'PDF($d_h$)')
@@ -214,7 +204,6 @@ f_out.write('$' + str(q) + '^{+' + str(w) + '}_{-' + str(e) + '}$')
 f_out.close()
 
 weightal = np.ones_like(al)/float(len(al))
-plt.figure(figsize=(3, 25/14))
 plt.hist(al, bins=25, histtype='stepfilled', weights=weightal)
 plt.xlabel(r'$t_t$/Å')
 plt.ylabel(r'PDF($t_t$)')
