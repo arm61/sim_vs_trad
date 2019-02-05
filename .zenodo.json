@@ -1,0 +1,43 @@
+{
+  "title": "sim_vs_trad",
+  "creators": [{
+    "name": "McCluskey, Andrew R.", 
+    "affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.; Diamond Light Source, Harwell Campus,. Didcot, OX11 0DE, UK.",
+    "orcid": "0000-0003-3381-5911"},
+  {
+    "name": "Grant, James", 
+    "affiliation": "Computing Services, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
+    "orcid": "0000-0003-1362-2055"},
+  {
+    "name": "Smith, Andrew J.", 
+    "affiliation": "Diamond Light Source, Harwell Campus,. Didcot, OX11 0DE, UK.",
+    "orcid": "0000-0003-3745-7082"},
+  {
+    "name": "Rawle, Jonathan L.", 
+    "affiliation": "Diamond Light Source, Harwell Campus,. Didcot, OX11 0DE, UK.",
+    "orcid": "0000-0001-8767-4443"},
+  {
+    "name": "Barlow, David J.", 
+    "affiliation": "Institute of Pharmaceutical Science, King's College London, London, SE1 9NH, UK.",
+    "orcid": "0000-0002-0094-5122"},
+  { 
+    "name": "Lawrence, M. Jayne", 
+    "affiliation": "Division of Pharmacy and Optometry, University of Manchester, Manchester, M13 9PT, UK.",
+    "orcid": "0000-0003-4738-4841"},
+  {
+    "name": "Parker, Stephen C.", 
+    "affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
+    "orcid": "0000-0003-3804-0975"},
+  {
+    "name": "Edler, Karen J.", 
+    "affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
+    "orcid": "0000-0001-5822-0127"
+  }],
+  "description": "ESI for "Applying molecular simulation to the analysis of lipid monolayer reflectometry",
+  "access_rights": "open",
+  "license": "CC BY-SA 4.0"
+  "grants": [{
+    "funder": "University of Bath & Diamond Light Source",
+    "code": "STU0149"
+  }]
+}
