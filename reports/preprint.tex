@@ -6,6 +6,7 @@
 \usepackage[detect-all]{siunitx}
 \usepackage{hyperref}% add hypertext capabilities
 \usepackage{xr}
+\usepackage{color}
 \usepackage{mhchem}
 \graphicspath{{./figures/}}
 
@@ -55,7 +56,7 @@ Using molecular simulation to aid in the analysis of neutron reflectometry
 measurements is commonplace.
 However, reflectometry is a tool to probe large-scale structures, and
 therefore the use of all-atom simulation may be irrelevant.
-This work presents the first direct comparision between the reflectometry
+This work presents the first direct comparison between the reflectometry
 profiles obtained from different all-atom and coarse-grained molecular
 dynamics simulations.
 These are compared with a traditional layer model analysis method to
@@ -260,16 +261,20 @@ pressures; \SIrange{20}{50}{\milli\newton\per\meter}.
 \subsection{Molecular dynamics simulations}
 The DSPC monolayer simulations were made up of lipid molecules modelled with
 three potential models, each of a different particle grain-size.
-The Slipids potential model is an all-atom representation of the lipid
+\textcolor{red}{The Slipids potential model is an all-atom representation of the lipid
 molecules \cite{jambeck_derivation_2012}, which was used alongside the single
 point charge (SPC) water model \cite{berendsen_missing_1987}, with a timestep
-of \SI{0.5}{\femto\second}.
+of \SI{0.5}{\femto\second}, the SHAKE, RATTLE, and PLINCS methods were used
+to constrain the \ce{C-H} bonds \cite{miyamoto_settle_1992,hess_p-lincs_2008}.
 The Berger potential model is obtained by the integration of the hydrogen
 atoms into the heavy atoms to which they are bound, producing a united atom
 potential model \cite{berger_molecular_1997};
 again the SPC water molecules were used.
-The removal of the high frequency \ce{C-H} bonds allows for the timestep to
-be increased to \SI{1}{\femto\second}.
+These systems were simulated with an increased timestep of
+\SI{1}{\femto\second}.
+It is noted that these timesteps are shorter than those typically used for
+both forcefields, and timesteps of upto \SI{2}{\femto\second} have been
+applied previously \cite{berger_molecular_1997,jambeck_derivation_2012}.}
 Finally, the lowest resolution potential model used was the
 MARTINI \cite{marrink_martini_2007} alongside the polarisable MARTINI water
 model \cite{yesylevskyy_polarizable_2010}, to avoid the freezing issues
@@ -304,6 +309,10 @@ compressibility of \SI{4.5E-5}{\per\bar} of the Slipids and Berger
 simulations and \SI{3.0E-4}{\per\bar} for the MARTINI simulations.
 The pressure in the \emph{z}-dimension was kept constant at \SI{1}{\bar},
 while it was increased in the \emph{x}- and \emph{y}-dimensions isotropically.
+\textcolor{red}{This allowed for the surface area of the interface to reduce, as the lipid
+molecules have a preference to stay at the interface, while the total volume
+of the system stayed constant, as the water molecules moved down to achieve
+the pressure in the \emph{z}-dimension.}
 When the \emph{xy}-surface area is reached that is associated with the area
 per molecule (APM) for each surface pressure, described by the experimental
 surface pressure-isotherm (Figure \ref{fig:iso}), given in
@@ -312,6 +321,9 @@ structure for the equilibration simulation.
 This involved continuing the use of the semi-isotropic barostat, with
 the \emph{xy}-area of the box fixed, allowing the system to relax at a
 pressure of \SI{1}{\bar} in the \emph{z}-dimension.
+\textcolor{red}{Following the application of the pair of semi-isotropic
+barostats, the thickness of the water layer was typically in the region
+of \SI{30}{\angstrom}.}
 The equilibration period was \SI{1}{\nano\second}, following which
 the \SI{50}{\nano\second} NVT ensemble production simulations were run, on
 which all analyses were conducted.
@@ -429,10 +441,11 @@ The Abel\`{e}s matrix formalism was used to calculate the reflectometry
 profiles as described in the ESI.
 
 \subsection{Simulation-derived analysis}
-Version 1.0.1 of refnx \cite{nelson_refnx_2019,nelson_refnx_2018} includes
-the ability to obtain simulation-derived reflectometry profiles, using a
-similar method to that employed in previous work, such as
-Dabkowska \emph{et al.} \cite{dabkowska_modulation_2014}.
+\textcolor{red}{The ESI includes a Python class that is compatible with
+\texttt{refnx} \cite{nelson_refnx_2019,nelson_refnx_2018} allowing for
+simulation-derived reflectometry profiles to be obtained, using a similar
+method to that employed in previous work, such as
+Dabkowska \emph{et al.} \cite{dabkowska_modulation_2014}.}
 The Abel\`{e}s matrix formalism is applied to layers (see ESI), the SLD of
 which is drawn directly from the simulation, and the thickness of which is
 defined.
@@ -486,11 +499,14 @@ and taking the volume of a single water molecule to be
   \label{equ:wph}
 \end{equation}
 %
-In MD simulations the number densities for each component in the system are obtained directly from the trajectory.
-The ratio of the lipid heads and the water then gave the
-wph.
-The range for this was taken as between the \SI{20}{\percent} and
-\SI{80}{\percent} quantiles of the lipid head-layers.
+\textcolor{red}{In MD simulations the number densities, in the \emph{z}-dimension, for each
+component (lipid heads, lipid tails, and water) in the system are obtained
+directly from the simulation trajectory.
+The ratio of the lipid heads and the number of water molecules then gave the
+number of water molecules per head group.
+The range used for this calculation was the values in the \emph{z}-dimension
+that corresponded to the \SI{20}{\percent} and \SI{80}{\percent} quantiles
+of the total lipid heads.}
 
 \section{Results \& Discussion}
 %
@@ -579,6 +595,13 @@ This is most likely an artefact of the structuring effect from the wall at
 the bottom of the simulation cell on the polarisable MARTINI water.
 It is noted that this may be reduced through the use of a less-ordered wall
 structure \cite{koutsioubas_combined_2016}.
+\textcolor{red}{Alternatively, it may be possible to completely remove the presense of this
+structuring through the inclusion of \SI{\sim10}{\percent} of antifreeze
+MARTINI beads alongside the normal MARTINI water.
+However, this method has also been noted to give structuring effects with
+the presense of ordered walls such as that present in this
+work \cite{marrink_comment_2010}.}
+
 Another artefact present in the MARTINI potential model
 simulations is that the calculated length of the hydrocarbon tail from the
 simulation was found to be
@@ -642,18 +665,22 @@ These are in good agreement with the
 \input{../output/traditional/wph_30.txt} found from the monolayer model
 method in conjungtion with Equation \ref{equ:wph}.
 
-It should be noted that to obtain the \SI{50}{\nano\second} production run
-for the Slipids potential model simulation required over 13 days of using 32
-cores of the SCARF computing resource.
+\textcolor{red}{In this work, the \SI{50}{\nano\second} production run for the Slipids
+potential model simulation required 13 days of using 32 cores of the SCARF
+computing resource.
 This is non-trivial and therefore not necessarily applicable to all neutron
-reflectometry measurements.
-However, for the nearly as accurate Berger potential model simulations
-(which are only marginally less accurate), only approximately 2 days, of the
-same compute resource, were required.
-This suggests that given the quality of agreement with the experimental data
-achieved from and computing requirement for the Berger potential model
-simulations, such simulations could be run alongside experiments at large
-facilities to aid interpretation and analysis.
+reflectometry experiments.
+However, we not that the use of a \SI{2}{\femto\second} simulation timestep
+could reduce this time significantly.
+Furthermore, recent developments of molecular dynamics simulations on
+graphical processing units (GPUs) may allow for significant speed up of the
+simulations.
+The nearly as accurate Berger potential model simulations (which are only
+marginally less accurate) took approximately 2 days, on the same compute
+resource.
+This suggests that by using a larger timestep and the power of GPU-based
+simulations it may be possible to run this simulations alongside experiments
+at large facilities to aid interpretation and analysis.}
 
 \subsection{Using the Slipid simulations to improve the monolayer model}
 Despite the monolayer model offering a small improvement in agreement over
@@ -663,11 +690,12 @@ A possible improvement can be found by considering Figure \ref{fig:nb},
 which shows the water molecules per head group as a function
 of depth; it is clear that solvent penetration into the lipid head group
 area is not uniform.
-In particular, there is a clear pocket of water formed around the ester
+\textcolor{red}{In particular, there is a clear increase in water density near the ester
 group of the lipid.
-This suggests that perhaps a different model for solvent penetration could
-be applied to the head layer to better describe the realistic solvent
-penetration.
+Alternatively, this may be pockets of water forming at the air-water interface.
+Regardless of the mechanism, it suggests that perhaps a different model
+for solvent penetration could be applied to the head layer to better
+describe the realistic solvent penetration.}
 %
 \begin{figure}
 \centering
@@ -679,9 +707,10 @@ penetration.
 \end{figure}
 %
 
-It is generally suggested that the conformal roughness between layers
-should be carried evenly through the monolayer when there is only a single
-lipid type \cite{campbell_structure_2018}.
+\textcolor{red}{It is generally suggested that the roughness between the layers is conformal
+(depth-periodic) \cite{kozhevnikov_general_2012} when there this only a
+single lipid type \cite{campbell_structure_2018}, and therefore it should
+be kept constant across all of the interfaces.}
 However, from Figure \ref{fig:nb} it is clear that the overlap between the
 head-layer and water is much larger than that between the tail and head.
 Furthermore, there is additionally some solvent present deep within the tail
