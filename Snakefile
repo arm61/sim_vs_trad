@@ -13,25 +13,36 @@ FIGURES_MAIN_TEXT = ['reports/figures/dspcdrywet.pdf',
                      'reports/figures/dspc_slipids_30_ref_sld_short.pdf',
                      'reports/figures/water_30.pdf']
 
-CHIS_MAIN_TEXT = ['output/traditional/dspc_30_30_{}_chi.txt'.format(
+CHIS_MAIN_TEXT_TRAD = ['output/traditional/dspc_30_30_{}_chi.txt'.format(
     contrast) for contrast in CONTRASTS]
-for contrast in CONTRASTS:
-    for ff in FORCEFIELDS:
-        CHIS_MAIN_TEXT.append('output/simulation/dspc_{}_30_{}_chi.txt'.format(ff, contrast))
-for ff in FORCEFIELDS:
-    CHIS_MAIN_TEXT.append('output/simulation/dspc_{}_30_all_chi.txt'.format(ff))
+CHIS_MAIN_TEXT_SLI = ['output/simulation/dspc_slipids_30_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_MAIN_TEXT_BER = ['output/simulation/dspc_berger_30_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_MAIN_TEXT_MAR = ['output/simulation/dspc_martini_30_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
 
-VARIABLES = ['-d_h', '-d_t', '_rough', '-phih', '-V_t']
+VARIABLES = ['-d_h', '-d_t', '_rough', '-phih', '-V_t', '-wph']
 
-TRAD_MAIN_TEXT = ['output/traditional/dspc_{}{}_{}.tex'.format(sp, var, sp) for sp in SURF_PRES for var in VARIABLES]
+TRAD_MAIN_TEXT_20 = ['output/traditional/dspc_{}{}_{}.tex'.format('20', var, '20') for var in VARIABLES]
+TRAD_MAIN_TEXT_30 = ['output/traditional/dspc_{}{}_{}.tex'.format('30', var, '30') for var in VARIABLES]
+TRAD_MAIN_TEXT_40 = ['output/traditional/dspc_{}{}_{}.tex'.format('40', var, '40') for var in VARIABLES]
+TRAD_MAIN_TEXT_50 = ['output/traditional/dspc_{}{}_{}.tex'.format('50', var, '50') for var in VARIABLES]
 
 ATOMS = ['N', 'P', 'C2', 'C21', 'C31', 'C29', 'C39', '8C21', '8C31']
 WHAT = ['mean', 'uq', 'position']
 
 SPREAD_MAIN_TEXT = ['output/simulation/slipids_{}_{}_30.txt'.format(where, atom) for atom in ATOMS for where in WHAT]
 
-INPUT_MAIN_TEXT = [CHIS_MAIN_TEXT,
-                   TRAD_MAIN_TEXT, 'output/simulation/dspc_martini_30_dt.txt',
+INPUT_MAIN_TEXT = [CHIS_MAIN_TEXT_TRAD,
+                   CHIS_MAIN_TEXT_SLI,
+                   CHIS_MAIN_TEXT_BER,
+                   CHIS_MAIN_TEXT_MAR,
+                   TRAD_MAIN_TEXT_20,
+                   TRAD_MAIN_TEXT_30,
+                   TRAD_MAIN_TEXT_40,
+                   TRAD_MAIN_TEXT_50,
+                   'output/simulation/dspc_martini_30_dt.txt',
                    'output/simulation/dspc_slipids_30_dt.txt',
                    'output/simulation/dspc_berger_30_dt.txt',
                    'output/simulation/dspc_30_slipids_wph.txt',
@@ -40,7 +51,7 @@ INPUT_MAIN_TEXT = [CHIS_MAIN_TEXT,
                    'output/simulation/slipids_position_C2_30.txt',
                    SPREAD_MAIN_TEXT]
 
-FIGURES_SI_TEXT = ['reports/figures/martiniorder.pdf',
+FIGURES_SI_TEXT = ['reports/figures/martini_order.pdf',
                    'reports/figures/dspc_20_ref_sld.pdf',
                    'reports/figures/dspc_slipids_20_ref_sld.pdf',
                    'reports/figures/dspc_berger_20_ref_sld.pdf',
@@ -59,19 +70,39 @@ FIGURES_SI_TEXT = ['reports/figures/martiniorder.pdf',
 
 SI_SURF_PRES = ['20', '30', '40', '50']
 
-SPREAD_SI_TEXT = ['output/simulation/slipids_{}_{}_{}.txt'.format(where, atom,sp) for atom in ATOMS for where in WHAT for sp in SI_SURF_PRES]
+SPREAD_SI_TEXT_20 = ['output/simulation/slipids_{}_{}_{}.txt'.format(where, atom, '20') for atom in ATOMS for where in WHAT]
+SPREAD_SI_TEXT_40 = ['output/simulation/slipids_{}_{}_{}.txt'.format(where, atom, '40') for atom in ATOMS for where in WHAT]
+SPREAD_SI_TEXT_50 = ['output/simulation/slipids_{}_{}_{}.txt'.format(where, atom, '50') for atom in ATOMS for where in WHAT]
 
-CHIS_SI_TEXT = ['output/traditional/dspc_{}_{}_{}_chi.txt'.format(sp, sp,
-    contrast) for sp in SI_SURF_PRES for contrast in CONTRASTS]
-for contrast in CONTRASTS:
-    for ff in FORCEFIELDS:
-        for sp in SI_SURF_PRES:
-            CHIS_SI_TEXT.append('output/simulation/dspc_{}_{}_{}_chi.txt'.format(ff, sp, contrast))
-for ff in FORCEFIELDS:
-    for sp in SI_SURF_PRES:
-        CHIS_SI_TEXT.append('output/simulation/dspc_{}_{}_all_chi.txt'.format(ff, sp))
+CHIS_SI_TEXT_TRAD_20 = ['output/traditional/dspc_20_20_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_SLI_20 = ['output/simulation/dspc_slipids_20_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_BER_20 = ['output/simulation/dspc_berger_20_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_MAR_20 = ['output/simulation/dspc_martini_20_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_TRAD_40 = ['output/traditional/dspc_40_40_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_SLI_40 = ['output/simulation/dspc_slipids_40_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_BER_40 = ['output/simulation/dspc_berger_40_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_MAR_40 = ['output/simulation/dspc_martini_40_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_TRAD_50 = ['output/traditional/dspc_50_50_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_SLI_50 = ['output/simulation/dspc_slipids_50_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_BER_50 = ['output/simulation/dspc_berger_50_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
+CHIS_SI_TEXT_MAR_50 = ['output/simulation/dspc_martini_50_{}_chi.txt'.format(
+    contrast) for contrast in CONTRASTS]
 
-INPUT_SI_TEXT = [SPREAD_SI_TEXT, CHIS_SI_TEXT]
+INPUT_SI_TEXT = [SPREAD_SI_TEXT_20, SPREAD_SI_TEXT_40, SPREAD_SI_TEXT_50,
+                 CHIS_SI_TEXT_TRAD_20, CHIS_SI_TEXT_SLI_20, CHIS_SI_TEXT_BER_20, CHIS_SI_TEXT_MAR_20,
+                 CHIS_SI_TEXT_TRAD_40, CHIS_SI_TEXT_SLI_40, CHIS_SI_TEXT_BER_40, CHIS_SI_TEXT_MAR_40,
+                 CHIS_SI_TEXT_TRAD_50, CHIS_SI_TEXT_SLI_50, CHIS_SI_TEXT_BER_50, CHIS_SI_TEXT_MAR_50]
 
 EXP_DATA_20 = ['data/experimental/surf_pres_20/{}20.dat'.format(
     contrast) for contrast in CONTRASTS]
@@ -156,7 +187,8 @@ rule sli_analysis_30:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_slipids_30_ref_sld.pdf'
+        'reports/figures/dspc_slipids_30_ref_sld.pdf',
+        CHIS_MAIN_TEXT_SLI
     run:
         ff = 'slipids'
         sp = '30'
@@ -184,7 +216,8 @@ rule sli_analysis_20:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_slipids_20_ref_sld.pdf'
+        'reports/figures/dspc_slipids_20_ref_sld.pdf',
+        CHIS_SI_TEXT_SLI_20
     run:
         ff = 'slipids'
         sp = '20'
@@ -212,7 +245,8 @@ rule sli_analysis_40:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_slipids_40_ref_sld.pdf'
+        'reports/figures/dspc_slipids_40_ref_sld.pdf',
+        CHIS_SI_TEXT_SLI_40
     run:
         ff = 'slipids'
         sp = '40'
@@ -240,7 +274,8 @@ rule sli_analysis_50:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_slipids_50_ref_sld.pdf'
+        'reports/figures/dspc_slipids_50_ref_sld.pdf',
+        CHIS_SI_TEXT_SLI_50
     run:
         ff = 'slipids'
         sp = '50'
@@ -268,7 +303,8 @@ rule ber_analysis_30:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_berger_30_ref_sld.pdf'
+        'reports/figures/dspc_berger_30_ref_sld.pdf',
+        CHIS_MAIN_TEXT_BER
     run:
         ff = 'berger'
         sp = '30'
@@ -296,7 +332,8 @@ rule ber_analysis_20:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_berger_20_ref_sld.pdf'
+        'reports/figures/dspc_berger_20_ref_sld.pdf',
+        CHIS_SI_TEXT_BER_20
     run:
         ff = 'berger'
         sp = '20'
@@ -324,7 +361,8 @@ rule ber_analysis_40:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_berger_40_ref_sld.pdf'
+        'reports/figures/dspc_berger_40_ref_sld.pdf',
+        CHIS_SI_TEXT_BER_40
     run:
         ff = 'berger'
         sp = '40'
@@ -352,7 +390,8 @@ rule ber_analysis_50:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_berger_50_ref_sld.pdf'
+        'reports/figures/dspc_berger_50_ref_sld.pdf',
+        CHIS_SI_TEXT_BER_50
     run:
         ff = 'berger'
         sp = '50'
@@ -380,7 +419,8 @@ rule mar_analysis_30:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_martini_30_ref_sld.pdf'
+        'reports/figures/dspc_martini_30_ref_sld.pdf',
+        CHIS_MAIN_TEXT_MAR
     run:
         ff = 'martini'
         sp = '30'
@@ -408,7 +448,8 @@ rule mar_analysis_20:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_martini_20_ref_sld.pdf'
+        'reports/figures/dspc_martini_20_ref_sld.pdf',
+        CHIS_SI_TEXT_MAR_20
     run:
         ff = 'martini'
         sp = '20'
@@ -436,7 +477,8 @@ rule mar_analysis_40:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_martini_40_ref_sld.pdf'
+        'reports/figures/dspc_martini_40_ref_sld.pdf',
+        CHIS_SI_TEXT_MAR_40
     run:
         ff = 'martini'
         sp = '40'
@@ -464,7 +506,8 @@ rule mar_analysis_50:
         'scripts/simulation/sim_lengths.py',
         'scripts/simulation/sim_analysis.py'
     output:
-        'reports/figures/dspc_martini_50_ref_sld.pdf'
+        'reports/figures/dspc_martini_50_ref_sld.pdf',
+        CHIS_SI_TEXT_MAR_50
     run:
         ff = 'martini'
         sp = '50'
@@ -539,7 +582,9 @@ rule trad_plot_20:
         'scripts/traditional/mol_vol.py'
     output:
         'reports/figures/dspc_20_pdf.pdf',
-        'reports/figures/dspc_20_ref_sld.pdf'
+        'reports/figures/dspc_20_ref_sld.pdf',
+        TRAD_MAIN_TEXT_20,
+        CHIS_SI_TEXT_TRAD_20
     run:
         shell("cd scripts/traditional && ipython cc_plot.py 20 47.9")
         shell("cd ../")
@@ -552,7 +597,9 @@ rule trad_plot_30:
         'scripts/traditional/mol_vol.py'
     output:
         'reports/figures/dspc_30_pdf.pdf',
-        'reports/figures/dspc_30_ref_sld.pdf'
+        'reports/figures/dspc_30_ref_sld.pdf',
+        TRAD_MAIN_TEXT_30,
+        CHIS_MAIN_TEXT_TRAD
     run:
         shell("cd scripts/traditional && ipython cc_plot.py 30 46.4")
         shell("cd ../")
@@ -565,7 +612,9 @@ rule trad_plot_40:
         'scripts/traditional/mol_vol.py'
     output:
         'reports/figures/dspc_40_pdf.pdf',
-        'reports/figures/dspc_40_ref_sld.pdf'
+        'reports/figures/dspc_40_ref_sld.pdf',
+        TRAD_MAIN_TEXT_40,
+        CHIS_SI_TEXT_TRAD_40
     run:
         shell("cd scripts/traditional && ipython cc_plot.py 40 45.0")
         shell("cd ../")
@@ -578,7 +627,9 @@ rule trad_plot_50:
         'scripts/traditional/mol_vol.py'
     output:
         'reports/figures/dspc_50_pdf.pdf',
-        'reports/figures/dspc_50_ref_sld.pdf'
+        'reports/figures/dspc_50_ref_sld.pdf',
+        TRAD_MAIN_TEXT_50,
+        CHIS_SI_TEXT_TRAD_50
     run:
         shell("cd scripts/traditional && ipython cc_plot.py 50 44.6")
         shell("cd ../")
@@ -677,26 +728,100 @@ rule waters_plot_50:
 
 rule spread_30:
     input:
-        SLI_DATA_30
+        SLI_DATA_30,
+        'scripts/simulation/roughness.py'
     output:
         SPREAD_MAIN_TEXT
     run:
         shell("cd scripts/simulation && ipython roughness.py 30")
         shell("cd ../../")
 
+
+rule spread_20:
+    input:
+        SLI_DATA_20,
+        'scripts/simulation/roughness.py'
+    output:
+        SPREAD_SI_TEXT_20
+    run:
+        shell("cd scripts/simulation && ipython roughness.py 20")
+        shell("cd ../../")
+
+
+rule spread_40:
+    input:
+        SLI_DATA_40,
+        'scripts/simulation/roughness.py'
+    output:
+        SPREAD_SI_TEXT_40
+    run:
+        shell("cd scripts/simulation && ipython roughness.py 40")
+        shell("cd ../../")
+
+
+rule spread_50:
+    input:
+        SLI_DATA_50,
+        'scripts/simulation/roughness.py'
+    output:
+        SPREAD_SI_TEXT_50
+    run:
+        shell("cd scripts/simulation && ipython roughness.py 50")
+        shell("cd ../../")
+
 rule martiniorder:
     input:
-        MAR_DATA_30
+        MAR_DATA_30,
+        'scripts/simulation/martini_order.py'
     output:
-        'reports/figures/martiniorder.pdf'
+        'reports/figures/martini_order.pdf'
     run:
         shell("cd scripts/simulation && ipython martini_order.py")
+
+rule tail_length_sli:
+    input:
+        SLI_DATA_30,
+        'scripts/simulation/tail_length.py'
+    output:
+        'output/simulation/dspc_slipids_30_dt.txt'
+    run:
+        shell("cd scripts/simulation && ipython tail_length.py slipids 30")
+
+rule tail_length_ber:
+    input:
+        BER_DATA_30,
+        'scripts/simulation/tail_length.py'
+    output:
+        'output/simulation/dspc_berger_30_dt.txt'
+    run:
+        shell("cd scripts/simulation && ipython tail_length.py berger 30")
+
+rule tail_length_mar:
+    input:
+        MAR_DATA_30,
+        'scripts/simulation/tail_length.py'
+    output:
+        'output/simulation/dspc_martini_30_dt.txt'
+    run:
+        shell("cd scripts/simulation && ipython tail_length.py martini 30")
+
+rule short_sli:
+    input:
+        SLI_DATA_30,
+        'scripts/simulation/short_sim_analysis.py'
+    output:
+        'reports/figures/dspc_slipids_30_ref_sld_short.pdf'
+    run:
+        ff = 'slipids'
+        sp = '30'
+        shell("cd scripts/simulation && ipython short_sim_analysis.py {ff} {sp} 1 0")
+        shell("cd ../")
 
 rule clean:
     shell:
         """
         rm reports/si.pdf
-        rm reports/paper.pdf
+        rm reports/preprint.pdf
         rm reports/figures/dspc_*.pdf
         rm reports/figures/water_*.pdf
         rm reports/figures/martini_order.pdf
