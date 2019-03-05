@@ -130,27 +130,29 @@ In an effort to reduce this effect, a larger layer thickness, or \SI{4}{\angstro
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{martiniorder}
+ \includegraphics[width=0.49\textwidth]{martini_order}
  \caption{The scattering length density profile from the MARTINI simulation, at an effective surface pressure of \SI{30}{\milli\newton\per\meter} with a layer thickness of \SI{1}{\angstrom} (blue) and \SI{4}{\angstrom} (orange). }
  \label{fig:mart}
 \end{figure*}
 %
 
 A negative effect of this large layer thickness, was that the smoothness associated with the \SI{1}{\angstrom} layer was lost.
-In an effort to reproduce this, an interfacial roughness of \SI{0.8}{\angstrom} (\SI{20}{\percent} of the layer thickness) was included in the model.
+In an effort to reproduce this, an interfacial roughness of \SI{0.4}{\angstrom} was included in the model.
 We believe that this gave the MARTINI potential model a fair chance to reproduce the experimental data.
 However, as is noted in the main text of the paper, the systematic beading problem lead to more severe issues.
 
 \section{Reflectometry profiles}
 Figures \ref{fig:sp20} through \ref{fig:sp50} show the reflectometry profiles for each of the analysis methods that correspond to surface pressures of \SI{20}{\milli\newton\per\meter}, \SI{40}{\milli\newton\per\meter}, and \SI{50}{\milli\newton\per\meter}.
 The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\meter} is given in Figure 4.
+Tables~\ref{tab:chi20} through \ref{tab:chi50} give the $\chi^2$ for each contrast, average $\chi^2$, and standard deviation for each method at each surface pressure not covered in the main paper.
+
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{trad_20}
- \includegraphics[width=0.49\textwidth]{sim_slipids_20} \\
- \includegraphics[width=0.49\textwidth]{sim_berger_20}
- \includegraphics[width=0.49\textwidth]{sim_martini_20}
+ \includegraphics[width=0.49\textwidth]{dspc_20_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_slipids_20_ref_sld} \\
+ \includegraphics[width=0.49\textwidth]{dspc_berger_20_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_martini_20_ref_sld}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{20}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp20}
 \end{figure*}
@@ -158,10 +160,10 @@ The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{trad_40}
- \includegraphics[width=0.49\textwidth]{sim_slipids_40} \\
- \includegraphics[width=0.49\textwidth]{sim_berger_40}
- \includegraphics[width=0.49\textwidth]{sim_martini_40}
+ \includegraphics[width=0.49\textwidth]{dspc_40_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_slipids_40_ref_sld} \\
+ \includegraphics[width=0.49\textwidth]{dspc_berger_40_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_martini_40_ref_sld}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{40}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp40}
 \end{figure*}
@@ -169,136 +171,261 @@ The profile that corresponds to a surface pressure of \SI{30}{\milli\newton\per\
 %
 \begin{figure*}
  \centering
- \includegraphics[width=0.49\textwidth]{trad_50}
- \includegraphics[width=0.49\textwidth]{sim_slipids_50} \\
- \includegraphics[width=0.49\textwidth]{sim_berger_50}
- \includegraphics[width=0.49\textwidth]{sim_martini_50}
+ \includegraphics[width=0.49\textwidth]{dspc_50_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_slipids_50_ref_sld} \\
+ \includegraphics[width=0.49\textwidth]{dspc_berger_50_ref_sld}
+ \includegraphics[width=0.49\textwidth]{dspc_martini_50_ref_sld}
  \caption{A comparison of the reflectometry and SLD profiles obtained from (a) the monolayer model, (b) the Slipid simulation, (c) the Berger force-force simulation, and (d) the MARTINI potential model simulation at a surface pressure of \SI{50}{\milli\newton\per\meter}. From top-to-bottom the contrasts are as follows; \ce{d_{83}}-\ce{D2O}, \ce{d_{83}}-ACMW, \ce{d_{70}}-\ce{D2O}, \ce{d_{70}}-ACMW, h-\ce{D2O}, \ce{d_{13}}-\ce{D2O}, \ce{d_{13}}-ACMW. The different contrast reflectometry profiles have been offset in the \emph{y}-axis by an order of magnitude and the SLD profiles offset in the \emph{y}-axis by \SI{1e-6}{\per\square\angstrom}, for clarity.}
  \label{fig:sp50}
 \end{figure*}
 %
+%
+\begin{table*}
+\small
+  \caption{\ The goodness-of-fit between the calculated and experimental
+  reflectometry profile at a surface pressure of
+  \SI{20}{\milli\newton\per\metre}.}
+  \label{tab:chi20}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllll}
+    \hline
+    Contrast & Monolayer model & Slipid & Berger & MARTINI \\
+    \hline
+    h-\ce{D2O} & \input{../output/traditional/dspc_20_20_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_hd2o_chi.txt} \\
+    \ce{d_{13}}-ACMW & \input{../output/traditional/dspc_20_20_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d13acmw_chi.txt} \\
+    \ce{d_{13}}-\ce{D2O} & \input{../output/traditional/dspc_20_20_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d13d2o_chi.txt} \\
+    \ce{d_{70}}-ACMW & \input{../output/traditional/dspc_20_20_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d70acmw_chi.txt} \\
+    \ce{d_{70}}-\ce{D2O} & \input{../output/traditional/dspc_20_20_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d70d2o_chi.txt} \\
+    \ce{d_{83}}-ACMW & \input{../output/traditional/dspc_20_20_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d83acmw_chi.txt} \\
+    \ce{d_{83}}-\ce{D2O} & \input{../output/traditional/dspc_20_20_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_d83d2o_chi.txt} \\
+    \hline
+    Average$\pm$Standard deviation &
+    \input{../output/traditional/dspc_20_20_all_chi.txt} &
+    \input{../output/simulation/dspc_slipids_20_all_chi.txt} &
+    \input{../output/simulation/dspc_berger_20_all_chi.txt} &
+    \input{../output/simulation/dspc_martini_20_all_chi.txt} \\
+    \hline
+  \end{tabular*}
+\end{table*}
+%
+%
+\begin{table*}
+\small
+  \caption{\ The goodness-of-fit between the calculated and experimental
+  reflectometry profile at a surface pressure of
+  \SI{40}{\milli\newton\per\metre}.}
+  \label{tab:chi40}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllll}
+    \hline
+    Contrast & Monolayer model & Slipid & Berger & MARTINI \\
+    \hline
+    h-\ce{D2O} & \input{../output/traditional/dspc_40_40_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_hd2o_chi.txt} \\
+    \ce{d_{13}}-ACMW & \input{../output/traditional/dspc_40_40_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d13acmw_chi.txt} \\
+    \ce{d_{13}}-\ce{D2O} & \input{../output/traditional/dspc_40_40_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d13d2o_chi.txt} \\
+    \ce{d_{70}}-ACMW & \input{../output/traditional/dspc_40_40_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d70acmw_chi.txt} \\
+    \ce{d_{70}}-\ce{D2O} & \input{../output/traditional/dspc_40_40_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d70d2o_chi.txt} \\
+    \ce{d_{83}}-ACMW & \input{../output/traditional/dspc_40_40_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d83acmw_chi.txt} \\
+    \ce{d_{83}}-\ce{D2O} & \input{../output/traditional/dspc_40_40_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_d83d2o_chi.txt} \\
+    \hline
+    Average$\pm$Standard deviation &
+    \input{../output/traditional/dspc_40_40_all_chi.txt} &
+    \input{../output/simulation/dspc_slipids_40_all_chi.txt} &
+    \input{../output/simulation/dspc_berger_40_all_chi.txt} &
+    \input{../output/simulation/dspc_martini_40_all_chi.txt} \\
+    \hline
+  \end{tabular*}
+\end{table*}
+%
+%
+\begin{table*}
+\small
+  \caption{\ The goodness-of-fit between the calculated and experimental
+  reflectometry profile at a surface pressure of
+  \SI{50}{\milli\newton\per\metre}.}
+  \label{tab:chi50}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllll}
+    \hline
+    Contrast & Monolayer model & Slipid & Berger & MARTINI \\
+    \hline
+    h-\ce{D2O} & \input{../output/traditional/dspc_50_50_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_hd2o_chi.txt} \\
+    \ce{d_{13}}-ACMW & \input{../output/traditional/dspc_50_50_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d13acmw_chi.txt} \\
+    \ce{d_{13}}-\ce{D2O} & \input{../output/traditional/dspc_50_50_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d13d2o_chi.txt} \\
+    \ce{d_{70}}-ACMW & \input{../output/traditional/dspc_50_50_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d70acmw_chi.txt} \\
+    \ce{d_{70}}-\ce{D2O} & \input{../output/traditional/dspc_50_50_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d70d2o_chi.txt} \\
+    \ce{d_{83}}-ACMW & \input{../output/traditional/dspc_50_50_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d83acmw_chi.txt} \\
+    \ce{d_{83}}-\ce{D2O} & \input{../output/traditional/dspc_50_50_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_d83d2o_chi.txt} \\
+    \hline
+    Average$\pm$Standard deviation &
+    \input{../output/traditional/dspc_50_50_all_chi.txt} &
+    \input{../output/simulation/dspc_slipids_50_all_chi.txt} &
+    \input{../output/simulation/dspc_berger_50_all_chi.txt} &
+    \input{../output/simulation/dspc_martini_50_all_chi.txt} \\
+    \hline
+  \end{tabular*}
+\end{table*}
+%
 
-\section{Probability distribution functions}
-Figures \ref{fig:sl20} to \ref{fig:ma50} show the probability distribution functions for each of the four parametric outcomes from the simulations.
+\section{Intrisic surface plots}
+
+Figures~\ref{fig:waters20} to \ref{fig:waters50} show the intrinsic density profiles for water at the air-water interface, for each of the surface pressures not covered in the paper; \SIlist{20;40;50}{\milli\newton\per\meter}.
 %
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{slipids_20_dh}
- \includegraphics[width=0.32\textwidth]{slipids_20_tt}
- \includegraphics[width=0.32\textwidth]{slipids_20_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
- \label{fig:sl20}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{slipids_30_dh}
- \includegraphics[width=0.32\textwidth]{slipids_30_tt}
- \includegraphics[width=0.32\textwidth]{slipids_30_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
- \label{fig:sl30}
-\end{figure*}
+\begin{figure}
+\centering
+  \includegraphics[width=0.48\textwidth]{water_20}
+  \caption{The simulation time-averaged intrinsic density profile of the water molecules at the interface, where the phosphorus atoms of the lipid heads create the intrinsic surface at $z=$\SI{0}{\angstrom} (blue dots), at an APM associated with a surface pressure of \SI{20}{\milli\newton\per\meter} and the equivalent scattering length density from the chemically-consistent model (orange line).}
+  \label{fig:waters20}
+\end{figure}
 %
 %
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{slipids_40_dh}
- \includegraphics[width=0.32\textwidth]{slipids_40_tt}
- \includegraphics[width=0.32\textwidth]{slipids_40_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
- \label{fig:sl40}
-\end{figure*}
+\begin{figure}
+\centering
+  \includegraphics[width=0.48\textwidth]{water_40}
+  \caption{The simulation time-averaged intrinsic density profile of the water molecules at the interface, where the phosphorus atoms of the lipid heads create the intrinsic surface at $z=$\SI{0}{\angstrom} (blue dots), at an APM associated with a surface pressure of \SI{40}{\milli\newton\per\meter} and the equivalent scattering length density from the chemically-consistent model (orange line).}
+  \label{fig:waters40}
+\end{figure}
 %
 %
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{slipids_50_dh}
- \includegraphics[width=0.32\textwidth]{slipids_50_tt}
- \includegraphics[width=0.32\textwidth]{slipids_50_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Slipid potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
- \label{fig:sl50}
-\end{figure*}
+\begin{figure}
+\centering
+  \includegraphics[width=0.48\textwidth]{water_50}
+  \caption{The simulation time-averaged intrinsic density profile of the water molecules at the interface, where the phosphorus atoms of the lipid heads create the intrinsic surface at $z=$\SI{0}{\angstrom} (blue dots), at an APM associated with a surface pressure of \SI{50}{\milli\newton\per\meter} and the equivalent scattering length density from the chemically-consistent model (orange line).}
+  \label{fig:waters50}
+\end{figure}
+%
+
+\section{Quantification of roughness}
+
+Tables~\ref{tab:spread1} to \ref{tab:spread3} show the mean, \SI{95}{\percent} quantile and spread for the positions of each part of the lipid for each of the surface pressures not covered in the paper; \SIlist{20;40;50}{\milli\newton\per\meter}.
+%
+\begin{table}[h]
+\small
+  \caption{\ The mean, \SI{95}{\percent} quantile, and their spread for the position of atoms representative of difference parts of the lipid, at a surface pressure of \SI{20}{\milli\newton\per\meter}.}
+  \label{tab:spread1}
+  \begin{tabular*}{0.48\textwidth}{@{\extracolsep{\fill}}llll}
+    \hline
+    Atom & Mean/\si{\angstrom} & \SI{95}{\percent} quantile/\si{\angstrom} & Spread/\si{\angstrom} \\
+    \hline
+    Start-Head & \input{../output/simulation/slipids_mean_N_20.txt} & \input{../output/simulation/slipids_uq_N_20.txt} & \input{../output/simulation/slipids_position_N_20.txt} \\
+    Mid-Head & \input{../output/simulation/slipids_mean_P_20.txt} & \input{../output/simulation/slipids_uq_P_20.txt} & \input{../output/simulation/slipids_position_P_20.txt} \\
+    End-Head & \input{../output/simulation/slipids_mean_C2_20.txt} & \input{../output/simulation/slipids_uq_C2_20.txt} & \input{../output/simulation/slipids_position_C2_20.txt} \\
+    \hline
+    Start-Tail 1 & \input{../output/simulation/slipids_mean_C21_20.txt} & \input{../output/simulation/slipids_uq_C21_20.txt} & \input{../output/simulation/slipids_position_C21_20.txt} \\
+    Start-Tail 2 & \input{../output/simulation/slipids_mean_C31_20.txt} & \input{../output/simulation/slipids_uq_C31_20.txt} & \input{../output/simulation/slipids_position_C31_20.txt} \\
+    Mid-Tail 1 & \input{../output/simulation/slipids_mean_C29_20.txt} & \input{../output/simulation/slipids_uq_C29_20.txt} & \input{../output/simulation/slipids_position_C29_20.txt} \\
+    Mid-Tail 2 & \input{../output/simulation/slipids_mean_C39_20.txt} & \input{../output/simulation/slipids_uq_C39_20.txt} & \input{../output/simulation/slipids_position_C39_20.txt} \\
+    End-Tail 1 & \input{../output/simulation/slipids_mean_8C21_20.txt} & \input{../output/simulation/slipids_uq_8C21_20.txt} & \input{../output/simulation/slipids_position_8C21_20.txt} \\
+    End-Tail 2 & \input{../output/simulation/slipids_mean_8C31_20.txt} & \input{../output/simulation/slipids_uq_8C31_20.txt} & \input{../output/simulation/slipids_position_8C31_20.txt} \\
+    \hline
+  \end{tabular*}
+\end{table}
 %
 %
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{berger_20_dh}
- \includegraphics[width=0.32\textwidth]{berger_20_tt}
- \includegraphics[width=0.32\textwidth]{berger_20_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
- \label{fig:be20}
-\end{figure*}
+\begin{table}[h]
+\small
+  \caption{\ The mean, \SI{95}{\percent} quantile, and their spread for the position of atoms representative of difference parts of the lipid, at a surface pressure of \SI{40}{\milli\newton\per\meter}.}
+  \label{tab:spread2}
+  \begin{tabular*}{0.48\textwidth}{@{\extracolsep{\fill}}llll}
+    \hline
+    Atom & Mean/\si{\angstrom} & \SI{95}{\percent} quantile/\si{\angstrom} & Spread/\si{\angstrom} \\
+    \hline
+    Start-Head & \input{../output/simulation/slipids_mean_N_40.txt} & \input{../output/simulation/slipids_uq_N_40.txt} & \input{../output/simulation/slipids_position_N_40.txt} \\
+    Mid-Head & \input{../output/simulation/slipids_mean_P_40.txt} & \input{../output/simulation/slipids_uq_P_40.txt} & \input{../output/simulation/slipids_position_P_40.txt} \\
+    End-Head & \input{../output/simulation/slipids_mean_C2_40.txt} & \input{../output/simulation/slipids_uq_C2_40.txt} & \input{../output/simulation/slipids_position_C2_40.txt} \\
+    \hline
+    Start-Tail 1 & \input{../output/simulation/slipids_mean_C21_40.txt} & \input{../output/simulation/slipids_uq_C21_40.txt} & \input{../output/simulation/slipids_position_C21_40.txt} \\
+    Start-Tail 2 & \input{../output/simulation/slipids_mean_C31_40.txt} & \input{../output/simulation/slipids_uq_C31_40.txt} & \input{../output/simulation/slipids_position_C31_40.txt} \\
+    Mid-Tail 1 & \input{../output/simulation/slipids_mean_C29_40.txt} & \input{../output/simulation/slipids_uq_C29_40.txt} & \input{../output/simulation/slipids_position_C29_40.txt} \\
+    Mid-Tail 2 & \input{../output/simulation/slipids_mean_C39_40.txt} & \input{../output/simulation/slipids_uq_C39_40.txt} & \input{../output/simulation/slipids_position_C39_40.txt} \\
+    End-Tail 1 & \input{../output/simulation/slipids_mean_8C21_40.txt} & \input{../output/simulation/slipids_uq_8C21_40.txt} & \input{../output/simulation/slipids_position_8C21_40.txt} \\
+    End-Tail 2 & \input{../output/simulation/slipids_mean_8C31_40.txt} & \input{../output/simulation/slipids_uq_8C31_40.txt} & \input{../output/simulation/slipids_position_8C31_40.txt} \\
+    \hline
+  \end{tabular*}
+\end{table}
 %
 %
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{berger_30_dh}
- \includegraphics[width=0.32\textwidth]{berger_30_tt}
- \includegraphics[width=0.32\textwidth]{berger_30_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
- \label{fig:be30}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{berger_40_dh}
- \includegraphics[width=0.32\textwidth]{berger_40_tt}
- \includegraphics[width=0.32\textwidth]{berger_40_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
- \label{fig:be40}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{berger_50_dh}
- \includegraphics[width=0.32\textwidth]{berger_50_tt}
- \includegraphics[width=0.32\textwidth]{berger_50_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the Berger potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
- \label{fig:be50}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{martini_20_dh}
- \includegraphics[width=0.32\textwidth]{martini_20_tt}
- \includegraphics[width=0.32\textwidth]{martini_20_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{20}{\milli\newton\per\meter}.}
- \label{fig:ma20}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{martini_30_dh}
- \includegraphics[width=0.32\textwidth]{martini_30_tt}
- \includegraphics[width=0.32\textwidth]{martini_30_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{30}{\milli\newton\per\meter}.}
- \label{fig:ma30}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{martini_40_dh}
- \includegraphics[width=0.32\textwidth]{martini_40_tt}
- \includegraphics[width=0.32\textwidth]{martini_40_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{40}{\milli\newton\per\meter}.}
- \label{fig:ma40}
-\end{figure*}
-%
-%
-\begin{figure*}
- \centering
- \includegraphics[width=0.32\textwidth]{martini_50_dh}
- \includegraphics[width=0.32\textwidth]{martini_50_tt}
- \includegraphics[width=0.32\textwidth]{martini_50_wph}
- \caption{The probability distribution functions for each of the parametric outcomes from the MARTINI potential model simulation with a effective surface pressure of \SI{50}{\milli\newton\per\meter}.}
- \label{fig:ma50}
-\end{figure*}
+\begin{table}[h]
+\small
+  \caption{\ The mean, \SI{95}{\percent} quantile, and their spread for the position of atoms representative of difference parts of the lipid, at a surface pressure of \SI{50}{\milli\newton\per\meter}.}
+  \label{tab:spread3}
+  \begin{tabular*}{0.48\textwidth}{@{\extracolsep{\fill}}llll}
+    \hline
+    Atom & Mean/\si{\angstrom} & \SI{95}{\percent} quantile/\si{\angstrom} & Spread/\si{\angstrom} \\
+    \hline
+    Start-Head & \input{../output/simulation/slipids_mean_N_50.txt} & \input{../output/simulation/slipids_uq_N_50.txt} & \input{../output/simulation/slipids_position_N_50.txt} \\
+    Mid-Head & \input{../output/simulation/slipids_mean_P_50.txt} & \input{../output/simulation/slipids_uq_P_50.txt} & \input{../output/simulation/slipids_position_P_50.txt} \\
+    End-Head & \input{../output/simulation/slipids_mean_C2_50.txt} & \input{../output/simulation/slipids_uq_C2_50.txt} & \input{../output/simulation/slipids_position_C2_50.txt} \\
+    \hline
+    Start-Tail 1 & \input{../output/simulation/slipids_mean_C21_50.txt} & \input{../output/simulation/slipids_uq_C21_50.txt} & \input{../output/simulation/slipids_position_C21_50.txt} \\
+    Start-Tail 2 & \input{../output/simulation/slipids_mean_C31_50.txt} & \input{../output/simulation/slipids_uq_C31_50.txt} & \input{../output/simulation/slipids_position_C31_50.txt} \\
+    Mid-Tail 1 & \input{../output/simulation/slipids_mean_C29_50.txt} & \input{../output/simulation/slipids_uq_C29_50.txt} & \input{../output/simulation/slipids_position_C29_50.txt} \\
+    Mid-Tail 2 & \input{../output/simulation/slipids_mean_C39_50.txt} & \input{../output/simulation/slipids_uq_C39_50.txt} & \input{../output/simulation/slipids_position_C39_50.txt} \\
+    End-Tail 1 & \input{../output/simulation/slipids_mean_8C21_50.txt} & \input{../output/simulation/slipids_uq_8C21_50.txt} & \input{../output/simulation/slipids_position_8C21_50.txt} \\
+    End-Tail 2 & \input{../output/simulation/slipids_mean_8C31_50.txt} & \input{../output/simulation/slipids_uq_8C31_50.txt} & \input{../output/simulation/slipids_position_8C31_50.txt} \\
+    \hline
+  \end{tabular*}
+\end{table}
 %
 
 \bibliography{paper.bib}
