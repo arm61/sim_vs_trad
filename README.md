@@ -1,6 +1,6 @@
 # ESI for "Applying molecular simulation to the analysis of lipid monolayer reflectometry"
 
-[![arXiv](https://img.shields.io/badge/arXiv-1901.05514-orange.svg)](https://arxiv.org/abs/1901.05514) [![DOI](https://zenodo.org/badge/156537189.svg)](https://zenodo.org/badge/latestdoi/156537189) [![License](https://img.shields.io/github/license/arm61/sim_vs_trad.svg?color=lightgrey)](https://github.com/arm61/sim_vs_trad/blob/master/LICENSE)
+[![DOI](https://zenodo.org/badge/156537189.svg)](https://zenodo.org/badge/latestdoi/156537189) [![arXiv](https://img.shields.io/badge/arXiv-1901.05514-orange.svg)](https://arxiv.org/abs/1901.05514) [![License](https://img.shields.io/github/license/arm61/sim_vs_trad.svg?color=lightgrey)](https://github.com/arm61/sim_vs_trad/blob/master/LICENSE)
 
 [Andrew R. McCluskey](https://orcid.org/0000-0003-3381-5911)&ast;, [James Grant](https://orcid.org/0000-0003-1362-2055), [Andrew J. Smith](https://orcid.org/0000-0003-3745-7082), [Jonathan L. Rawle](https://orcid.org/0000-0001-8767-4443), [David J. Barlow](https://orcid.org/0000-0002-0094-5122), [M. Jayne Lawrence](https://orcid.org/0000-0003-4738-4841), [Stephen C. Parker](https://orcid.org/0000-0003-3804-0975), [Karen J. Edler](https://orcid.org/0000-0001-5822-0127)&ast;.
 
