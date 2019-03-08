@@ -139,7 +139,6 @@ for ci, contrast in enumerate(contrasts):
     ax1.plot(dataset.x,
              np.average(refy, axis=0) * 10**(ci-1),
              color='k', zorder=10)
-    ax1.text(0.02, 0.98, abc[forcefield], transform=ax1.transAxes, va='top', ha='left')
     file_open = open('{}dspc_{}_{}_{}_chi_short.txt'.format(anal_dir, forcefield, surface_pressure, contrast), 'w')
     file_open.write('{:.2f}'.format(np.average(chi)))
     file_open.close()
