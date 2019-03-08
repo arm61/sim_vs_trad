@@ -8,6 +8,7 @@
 \usepackage{xr}
 \usepackage{color}
 \usepackage{mhchem}
+\graphicspath{{./figures/}}
 
 
 \begin{document}                  % DO NOT DELETE THIS LINE
@@ -60,7 +61,7 @@ The model layer structure gives the best agreement, however, the higher resoluti
 Finally, we use the atomistic simulation to advise on possible improvements that may be offered to the model layer structures, creating a more realistic monolayer model.
 \begin{description}
 \item[Usage]
-Electronic Supplementary Information (ESI) available: All analysis/plotting scripts and figure files, allowing for a fully reproducible, and automated, analysis workflow for the work presented is available at \url{https://github.com/arm61/sim_vs_trad} (DOI: 10.5281/zenodo.2541973) under a CC BY-SA 4.0 license.
+Electronic Supplementary Information (ESI) available: All analysis/plotting scripts and figure files, allowing for a fully reproducible, and automated, analysis workflow for the work presented is available at \url{https://github.com/arm61/sim_vs_trad} (DOI: 10.5281/zenodo.2587486) under a CC BY-SA 4.0 license.
 Reduced experimental datasets are available at \url{https://researchdata.bath.ac.uk/id/eprint/586}, under a CC-BY 4.0 license.
 \end{description}
 \end{abstract}
@@ -355,40 +356,40 @@ In addition, the $\chi^2$ for each contrast, average $\chi^2$, and standard devi
     \hline
     Contrast & Monolayer model & Slipid & Berger & MARTINI \\
     \hline
-    h-\ce{D2O} & \input{dspc_30_30_hd2o_chi.txt} &
-    \input{dspc_slipids_30_hd2o_chi.txt} &
-    \input{dspc_berger_30_hd2o_chi.txt} &
-    \input{dspc_martini_30_hd2o_chi.txt} \\
-    \ce{d_{13}}-ACMW & \input{dspc_30_30_d13acmw_chi.txt} &
-    \input{dspc_slipids_30_d13acmw_chi.txt} &
-    \input{dspc_berger_30_d13acmw_chi.txt} &
-    \input{dspc_martini_30_d13acmw_chi.txt} \\
-    \ce{d_{13}}-\ce{D2O} & \input{dspc_30_30_d13d2o_chi.txt} &
-    \input{dspc_slipids_30_d13d2o_chi.txt} &
-    \input{dspc_berger_30_d13d2o_chi.txt} &
-    \input{dspc_martini_30_d13d2o_chi.txt} \\
-    \ce{d_{70}}-ACMW & \input{dspc_30_30_d70acmw_chi.txt} &
-    \input{dspc_slipids_30_d70acmw_chi.txt} &
-    \input{dspc_berger_30_d70acmw_chi.txt} &
-    \input{dspc_martini_30_d70acmw_chi.txt} \\
-    \ce{d_{70}}-\ce{D2O} & \input{dspc_30_30_d70d2o_chi.txt} &
-    \input{dspc_slipids_30_d70d2o_chi.txt} &
-    \input{dspc_berger_30_d70d2o_chi.txt} &
-    \input{dspc_martini_30_d70d2o_chi.txt} \\
-    \ce{d_{83}}-ACMW & \input{dspc_30_30_d83acmw_chi.txt} &
-    \input{dspc_slipids_30_d83acmw_chi.txt} &
-    \input{dspc_berger_30_d83acmw_chi.txt} &
-    \input{dspc_martini_30_d83acmw_chi.txt} \\
-    \ce{d_{83}}-\ce{D2O} & \input{dspc_30_30_d83d2o_chi.txt} &
-    \input{dspc_slipids_30_d83d2o_chi.txt} &
-    \input{dspc_berger_30_d83d2o_chi.txt} &
-    \input{dspc_martini_30_d83d2o_chi.txt} \\
+    h-\ce{D2O} & \input{../output/traditional/dspc_30_30_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_hd2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_hd2o_chi.txt} \\
+    \ce{d_{13}}-ACMW & \input{../output/traditional/dspc_30_30_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d13acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d13acmw_chi.txt} \\
+    \ce{d_{13}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d13d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d13d2o_chi.txt} \\
+    \ce{d_{70}}-ACMW & \input{../output/traditional/dspc_30_30_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d70acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d70acmw_chi.txt} \\
+    \ce{d_{70}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d70d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d70d2o_chi.txt} \\
+    \ce{d_{83}}-ACMW & \input{../output/traditional/dspc_30_30_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d83acmw_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d83acmw_chi.txt} \\
+    \ce{d_{83}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_d83d2o_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_d83d2o_chi.txt} \\
     \hline
     Average$\pm$Standard deviation &
-    \input{dspc_30_30_all_chi.txt} &
-    \input{dspc_slipids_30_all_chi.txt} &
-    \input{dspc_berger_30_all_chi.txt} &
-    \input{dspc_martini_30_all_chi.txt} \\
+    \input{../output/traditional/dspc_30_30_all_chi.txt} &
+    \input{../output/simulation/dspc_slipids_30_all_chi.txt} &
+    \input{../output/simulation/dspc_berger_30_all_chi.txt} &
+    \input{../output/simulation/dspc_martini_30_all_chi.txt} \\
     \hline
   \end{tabular*}
 \end{table*}
@@ -406,10 +407,10 @@ The thickness increase for the lipid tails may be associated with the straighten
     \hline
     Surface Pressure/\si{\milli\newton\per\meter} & $d_h$/\si{\angstrom} & $d_t$/\si{\angstrom} & $\sigma_{t,h,s}$/\si{\angstrom} & $\phi_h$$\times10^{-2}$ & $V_t$/\si{\angstrom\cubed} \\
     \hline
-    20 & \input{dspc_20-d_h_20.tex} & \input{dspc_20-d_t_20.tex} & \input{dspc_20_rough_20.tex} & \input{dspc_20-phih_20.tex} & \input{dspc_20-V_t_20.tex} \\
-    30 & \input{dspc_30-d_h_30.tex} & \input{dspc_30-d_t_30.tex} & \input{dspc_30_rough_30.tex} & \input{dspc_30-phih_30.tex} & \input{dspc_30-V_t_30.tex} \\
-    40 & \input{dspc_40-d_h_40.tex} & \input{dspc_40-d_t_40.tex} & \input{dspc_40_rough_40.tex} & \input{dspc_40-phih_40.tex} & \input{dspc_40-V_t_40.tex} \\
-    50 & \input{dspc_50-d_h_50.tex} & \input{dspc_50-d_t_50.tex} & \input{dspc_50_rough_50.tex} & \input{dspc_50-phih_50.tex} & \input{dspc_50-V_t_50.tex} \\
+    20 & \input{../output/traditional/dspc_20-d_h_20.tex} & \input{../output/traditional/dspc_20-d_t_20.tex} & \input{../output/traditional/dspc_20_rough_20.tex} & \input{../output/traditional/dspc_20-phih_20.tex} & \input{../output/traditional/dspc_20-V_t_20.tex} \\
+    30 & \input{../output/traditional/dspc_30-d_h_30.tex} & \input{../output/traditional/dspc_30-d_t_30.tex} & \input{../output/traditional/dspc_30_rough_30.tex} & \input{../output/traditional/dspc_30-phih_30.tex} & \input{../output/traditional/dspc_30-V_t_30.tex} \\
+    40 & \input{../output/traditional/dspc_40-d_h_40.tex} & \input{../output/traditional/dspc_40-d_t_40.tex} & \input{../output/traditional/dspc_40_rough_40.tex} & \input{../output/traditional/dspc_40-phih_40.tex} & \input{../output/traditional/dspc_40-V_t_40.tex} \\
+    50 & \input{../output/traditional/dspc_50-d_h_50.tex} & \input{../output/traditional/dspc_50-d_t_50.tex} & \input{../output/traditional/dspc_50_rough_50.tex} & \input{../output/traditional/dspc_50-phih_50.tex} & \input{../output/traditional/dspc_50-V_t_50.tex} \\
     \hline
   \end{tabular*}
 \end{table*}
@@ -436,7 +437,7 @@ It is noted that this may be reduced through the use of a less-ordered wall stru
 Alternatively, it may be possible to completely remove the presence of this structuring through the inclusion of \SI{\sim10}{\percent} of antifreeze MARTINI beads alongside the normal MARTINI water.
 However, this method has been noted to also give structuring effects in the presence of ordered walls \cite{marrink_comment_2010}.
 
-Another artefact present in the MARTINI potential model simulations, particularly notable in the \ce{d_{83}}-ACMW and \ce{d_{70}}-ACMW contrasts where the reflectometry fringe at low-$q$ is substantially broader than represented in the data, is that the length of the hydrocarbon tail in the simulation was found to be \input{dspc_martini_30_dt.txt}~\si{\angstrom}.
+Another artefact present in the MARTINI potential model simulations, particularly notable in the \ce{d_{83}}-ACMW and \ce{d_{70}}-ACMW contrasts where the reflectometry fringe at low-$q$ is substantially broader than represented in the data, is that the length of the hydrocarbon tail in the simulation was found to be \input{../output/simulation/dspc_martini_30_dt.txt}~\si{\angstrom}.
 This is significantly less than the \SI{24.3}{\angstrom} estimated by the Tanford equation.
 The reduction in the tail length is due to the nature of the MARTINI's 4-to-1 beading process, as DSPC has a hydrocarbon tail consisting of 18 carbon atoms, and it is not possible to bead such a chain accurately with the MARTINI potential model.
 In this work, a MARTINI lipid molecule was used with 4 MARTINI beads making up the chain; corresponding to an all-atom hydrocarbon chain of 16 atoms.
@@ -457,12 +458,12 @@ While the model layer structure constrains the layer model to be chemically-cons
 The quality of the agreement from this multi-modal analysis technique is sufficient for such a method to be applied regularly in the analysis of neutron reflectometry.
 
 Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than the MARTINI simulation.
-For the Slipid simulation, the tail length was found to be \input{dspc_slipids_30_dt.txt}~\si{\angstrom}, while for the Berger simulations a value of \input{dspc_berger_30_dt.txt}~\si{\angstrom} was obtained.
+For the Slipid simulation, the tail length was found to be \input{../output/simulation/dspc_slipids_30_dt.txt}~\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/dspc_berger_30_dt.txt}~\si{\angstrom} was obtained.
 Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford equation, however, it should be noted that this value is considered a maximum for the \emph{fully extended} carbon tail.
 
 Using the molecular dynamics simulations, and the model layer structure it is possible to compare the number of water molecules per head group.
-From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{dspc_30_slipids_wph.txt} and \input{dspc_30_berger_wph.txt} respectively.
-These are in good agreement with the \input{dspc_30-wph_30.tex} found from the monolayer model method in conjunction with Equation \ref{equ:wph}.
+From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{../output/simulation/dspc_30_slipids_wph.txt} and \input{../output/simulation/dspc_30_berger_wph.txt} respectively.
+These are in good agreement with the \input{../output/traditional/dspc_30-wph_30.tex} found from the monolayer model method in conjunction with Equation \ref{equ:wph}.
 
 The \SI{50}{\nano\second} production run for the Slipids potential model simulation required 13 days of using 32 cores of the SCARF computing resource.
 This is non-trivial and therefore not necessarily applicable to all neutron reflectometry experiments.
@@ -502,7 +503,7 @@ However, from the investigation of the SLD profiles in Figure~\ref{fig:ref}(b) i
 In an effort to quantify the interfacial roughness in the simulations, we have used the method outlined in Section~\ref{sec:traj}.
 The values for the mean, \SI{95}{\percent} quantile, and the spread between these for the position for atoms representative of the start, middle, and end of each of the lipid head and tails are given in Table~\ref{tab:spread}, for an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} with the other surface pressures available in the ESI.
 From this table, it is clear that at the very start of the lipid molecule (at the head) the roughness is very large with a value of \SI{\sim10}{\angstrom} for the nitrogen atom.
-However this decreases slightly within the lipid head, reaching a value of \input{slipids_position_C2_30.txt}\si{\angstrom} for the end of the head group.
+However this decreases slightly within the lipid head, reaching a value of \input{../output/simulation/slipids_position_C2_30.txt}\si{\angstrom} for the end of the head group.
 There is then a substantial decrease noted in the lipid tail, going from \SI{\sim8.5}{\angstrom} at the start of the tail to \SI{\sim1.5}{\angstrom} at the end.
 We believe that this indicates the presence of a highly non-conformal roughness in the lipid monolayer of a single lipid type and therefore in future, it is important to consider this possibility in the use of model layer structure method.
 %
@@ -514,16 +515,16 @@ We believe that this indicates the presence of a highly non-conformal roughness 
     \hline
     Position & Mean/\si{\angstrom} & \SI{95}{\percent} quantile/\si{\angstrom} & Spread/\si{\angstrom} \\
     \hline
-    Start-Head & \input{slipids_mean_N_30.txt} & \input{slipids_uq_N_30.txt} & \input{slipids_position_N_30.txt} \\
-    Mid-Head & \input{slipids_mean_P_30.txt} & \input{slipids_uq_P_30.txt} & \input{slipids_position_P_30.txt} \\
-    End-Head & \input{slipids_mean_C2_30.txt} & \input{slipids_uq_C2_30.txt} & \input{slipids_position_C2_30.txt} \\
+    Start-Head & \input{../output/simulation/slipids_mean_N_30.txt} & \input{../output/simulation/slipids_uq_N_30.txt} & \input{../output/simulation/slipids_position_N_30.txt} \\
+    Mid-Head & \input{../output/simulation/slipids_mean_P_30.txt} & \input{../output/simulation/slipids_uq_P_30.txt} & \input{../output/simulation/slipids_position_P_30.txt} \\
+    End-Head & \input{../output/simulation/slipids_mean_C2_30.txt} & \input{../output/simulation/slipids_uq_C2_30.txt} & \input{../output/simulation/slipids_position_C2_30.txt} \\
     \hline
-    Start-Tail 1 & \input{slipids_mean_C21_30.txt} & \input{slipids_uq_C21_30.txt} & \input{slipids_position_C21_30.txt} \\
-    Start-Tail 2 & \input{slipids_mean_C31_30.txt} & \input{slipids_uq_C31_30.txt} & \input{slipids_position_C31_30.txt} \\
-    Mid-Tail 1 & \input{slipids_mean_C29_30.txt} & \input{slipids_uq_C29_30.txt} & \input{slipids_position_C29_30.txt} \\
-    Mid-Tail 2 & \input{slipids_mean_C39_30.txt} & \input{slipids_uq_C39_30.txt} & \input{slipids_position_C39_30.txt} \\
-    End-Tail 1 & \input{slipids_mean_8C21_30.txt} & \input{slipids_uq_8C21_30.txt} & \input{slipids_position_8C21_30.txt} \\
-    End-Tail 2 & \input{slipids_mean_8C31_30.txt} & \input{slipids_uq_8C31_30.txt} & \input{slipids_position_8C31_30.txt} \\
+    Start-Tail 1 & \input{../output/simulation/slipids_mean_C21_30.txt} & \input{../output/simulation/slipids_uq_C21_30.txt} & \input{../output/simulation/slipids_position_C21_30.txt} \\
+    Start-Tail 2 & \input{../output/simulation/slipids_mean_C31_30.txt} & \input{../output/simulation/slipids_uq_C31_30.txt} & \input{../output/simulation/slipids_position_C31_30.txt} \\
+    Mid-Tail 1 & \input{../output/simulation/slipids_mean_C29_30.txt} & \input{../output/simulation/slipids_uq_C29_30.txt} & \input{../output/simulation/slipids_position_C29_30.txt} \\
+    Mid-Tail 2 & \input{../output/simulation/slipids_mean_C39_30.txt} & \input{../output/simulation/slipids_uq_C39_30.txt} & \input{../output/simulation/slipids_position_C39_30.txt} \\
+    End-Tail 1 & \input{../output/simulation/slipids_mean_8C21_30.txt} & \input{../output/simulation/slipids_uq_8C21_30.txt} & \input{../output/simulation/slipids_position_8C21_30.txt} \\
+    End-Tail 2 & \input{../output/simulation/slipids_mean_8C31_30.txt} & \input{../output/simulation/slipids_uq_8C31_30.txt} & \input{../output/simulation/slipids_position_8C31_30.txt} \\
     \hline
   \end{tabular*}
 \end{table}
