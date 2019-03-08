@@ -16,7 +16,7 @@
 
 \begin{document}                  % DO NOT DELETE THIS LINE
 
-\title{SI for ``Applying molecular simulation to the analysis of lipid monolayer reflectometry''}
+\title{SI for ``Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry''}
 
 \author{A.~R. McCluskey}
 \email{a.r.mccluskey@bath.ac.uk}
@@ -79,47 +79,47 @@ In order to apply the Abel\`{e}s matrix formalism, the SLD for the layers, $N$, 
 This $\text{SLD}_N$ allows for the determination of the wavevector, $k_N$ at a particular $q$-vector in the $N$-th layer, by considering the difference in SLD between the layer $N$ and the semi-infinite layer 0 (Figure 1),
 %
 \begin{equation}
-	k_N^2 = k_0^2 - 4\pi(\text{SLD}_N - \text{SLD}_0)
+    k_N^2 = k_0^2 - 4\pi(\text{SLD}_N - \text{SLD}_0)
 \end{equation}
 %
 where $k_0 = q/2$ and $\text{SLD}_0$ is the SLD of the superphase.
-For each of the interfaces between two layers, it is possible to evaluate a Fresnel coefficient, $r_{N,N+1}$, which describes the refraction of the probing radiation occuring between the layers $N$ and $N+1$,
+For each of the interfaces between two layers, it is possible to evaluate a Fresnel coefficient, $r_{N,N+1}$, which describes the refraction of the probing radiation occurring between the layers $N$ and $N+1$,
 %
 \begin{equation}
-	r_{N,N+1} = \frac{k_N - k_{N+1}}{k_N + k_{N+1}}\exp{(-2k_Nk_{N+1}\sigma^2_{N, N+1})}.
+    r_{N,N+1} = \frac{k_N - k_{N+1}}{k_N + k_{N+1}}\exp{(-2k_Nk_{N+1}\sigma^2_{N, N+1})}.
 \end{equation}
 %
 The exponential factor is due to the fact that the layer is unlikely to be perfectly smooth and will therefore have some roughness, this is modelled as an error function with some width $\sigma_{N,N+1}$ \cite{nevot_caracterisation_1980}.
 A phase factor, $\beta_N$, which considers the layer thickness, $d_N$, and the wavevector can then be found,
 %
 \begin{equation}
-	\beta_N =
-	\begin{cases}
-		0 + 0i & N = 0, \\
-		k_N d_N & N > 0.
-	\end{cases}
+    \beta_N =
+    \begin{cases}
+        0 + 0i & N = 0, \\
+        k_N d_N & N > 0.
+    \end{cases}
 \end{equation}
 %
 These two parameters are then brought together in the characteristic matrix for the layer, $C_N$,
 %
 \begin{equation}
-	C_N =
-	\begin{bmatrix}
-		\exp{\beta_N} & r_{N,N+1} \exp{\beta_N} \\
-		r_{N,N+1}\exp{-\beta_N} & \exp{-\beta_N}
-	\end{bmatrix},
+    C_N =
+    \begin{bmatrix}
+        \exp{\beta_N} & r_{N,N+1} \exp{\beta_N} \\
+        r_{N,N+1}\exp{-\beta_N} & \exp{-\beta_N}
+    \end{bmatrix},
 \end{equation}
 %
 the product sum of which gives a resultant matrix for each value of $q$,
 %
 \begin{equation}
-	M(q) = \prod_{n=0}^{n_{\text{max}}} C_N.
+    M(q) = \prod_{n=0}^{n_{\text{max}}} C_N.
 \end{equation}
 %
 From this matrix, the reflected intensity, $R(q)$, can be determined,
 %
 \begin{equation}
-	R(q) = \frac{|M(q)_{21}|}{|M(q)_{11}|}.
+    R(q) = \frac{|M(q)_{21}|}{|M(q)_{11}|}.
 \end{equation}
 %
 
@@ -136,10 +136,10 @@ In an effort to reduce this effect, a larger layer thickness, or \SI{4}{\angstro
 \end{figure*}
 %
 
-A negative effect of this large layer thickness, was that the smoothness associated with the \SI{1}{\angstrom} layer was lost.
+A negative effect of this large layer thickness was that the smoothness associated with the \SI{1}{\angstrom} layer was lost.
 In an effort to reproduce this, an interfacial roughness of \SI{0.4}{\angstrom} was included in the model.
 We believe that this gave the MARTINI potential model a fair chance to reproduce the experimental data.
-However, as is noted in the main text of the paper, the systematic beading problem lead to more severe issues.
+However, as is noted in the main text of the paper, the systematic beading problem leads to more severe issues.
 
 \section{Reflectometry profiles}
 Figures \ref{fig:sp20} through \ref{fig:sp50} show the reflectometry profiles for each of the analysis methods that correspond to surface pressures of \SI{20}{\milli\newton\per\meter}, \SI{40}{\milli\newton\per\meter}, and \SI{50}{\milli\newton\per\meter}.

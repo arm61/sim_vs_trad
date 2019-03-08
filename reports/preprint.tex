@@ -8,13 +8,11 @@
 \usepackage{xr}
 \usepackage{color}
 \usepackage{mhchem}
-\graphicspath{{./figures/}}
 
 
 \begin{document}                  % DO NOT DELETE THIS LINE
 
-\title{Applying molecular simulation to the analysis of lipid monolayer
-reflectometry}
+\title{Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry}
 
 \author{A.~R. McCluskey}
 \email{a.r.mccluskey@bath.ac.uk}
@@ -58,7 +56,7 @@ However, reflectometry is a tool to probe large-scale structures, and therefore 
 This work presents the first direct comparison between the reflectometry profiles obtained from different all-atom and coarse-grained molecular dynamics simulations.
 These are compared with a traditional model layer structure analysis method to determine the minimum simulation resolution required to accurately reproduce experimental data.
 We find that systematic limits reduce the efficacy of the MARTINI potential model, while the Berger united-atom and Slipids all-atom potential models agree similarly well with the experimental data.
-The model layer structure gives the best agreement, however the higher resolution simulation-dependent methods produce an agreement that is comparable.
+The model layer structure gives the best agreement, however, the higher resolution simulation-dependent methods produce an agreement that is comparable.
 Finally, we use the atomistic simulation to advise on possible improvements that may be offered to the model layer structures, creating a more realistic monolayer model.
 \begin{description}
 \item[Usage]
@@ -92,13 +90,13 @@ The SLD profile from the MD simulations agreed well with that fitted to the refl
 The reflectometry profile was calculated explicitly from classical simulation in the works of Miller \emph{et al.} and Anderson and Wilson \cite{miller_monte_2003,anderson_molecular_2004}.
 In these, an amphiphilic polymer at the oil-water interface was simulated by Monte Carlo and MD respectively, and the neutron reflectometry profile found by splitting the simulation cell into a series of small layers and applying the Abel\`{e}s matrix formalism.
 There was good agreement between the experimental and calculated reflectometry, for low interface coverages of the polymer.
-Another study that has made a direct comparison between the atomistic simulation-derived reflectometry and those measured experimentally includes that of Darr\'{e} \emph{et al.} \cite{darre_molecular_2015}.
+Another study that has made a direct comparison between the atomistic simulation-derived reflectometry and those measured experimentally is that of Darr\'{e} \emph{et al.} \cite{darre_molecular_2015}.
 Darr\'{e} \emph{et al.}, NeutronRefTools was developed to produce the neutron reflectometry profile directly from an MD simulation.
 The particular system studied was a supported 1,2-dimyristoyl-\emph{sn}-glycero-3-phosphocholine (DMPC) lipid bilayer, again good agreement was found between the simulation-derived profile and the experimental measurement.
 However, the nature of the support required a correction for the head-group hydration to be imposed to achieve this agreement.
 
 Koutsioubas used the MARTINI coarse-grained representation of a 1,2-dipalmitoyl-\emph{sn}-glycero-3-phosphocholine (DPPC) lipid bilayer to compare with experimental reflectometry \cite{koutsioubas_combined_2016}.
-This work shows that the parameterisation of the MARTINI water beads was extremely important in the reproduction of the reflectometry data, as the non-polarisable water bead would freeze into crystalline sheets resulting in artefacts in the reflectometry profiles calculated.
+This work showed that the parameterisation of the MARTINI water beads was extremely important in the reproduction of the reflectometry data, as the non-polarisable water bead would freeze into crystalline sheets resulting in artefacts in the reflectometry profiles calculated.
 The work of Hughes \emph{et al.} studied again a DPPC lipid bilayer system \cite{hughes_interpretation_2016}, albeit an all-atom representation, that was compared with a supported DPPC lipid bilayer system measured with polarised neutron reflectometry.
 The SLD profile found from MD was varied to better fit the experimental measurement, resulting in good agreement.
 Additionally, the ability to vary the SLD profile was used to remove artefacts that arose when the MD simulations were merged with the Abel\`{e}s matrix formalism.
@@ -113,7 +111,7 @@ The previously mentioned work of Koutsioubas involved the use of the MARTINI coa
 The use of atomistic simulation for soft matter systems, such as a lipid bilayer, is undesirable as this requires a huge number of atoms to be simulated, due to the large lengths scales involved.
 The purpose of simulation coarse-graining is to reduce the number of particles over which the forces must be integrated, additionally by removing the higher frequency bond vibrations, the simulation timestep can also be increased \cite{pluhackova_biomembranes_2015}.
 Together, these two factors enable an increase in both simulation size and length.
-The use of the MARTINI 4-to-1 coarse-grained and the Berger united-atom, where hydrogen atoms are integrated into the heavier atoms to which they are bound, potential models are particularly pertinent for the application to lipid simulations as both were developed with this specific application in mind \cite{marrink_martini_2007,berger_molecular_1997}.
+The use of the MARTINI 4-to-1 coarse-grained and the Berger united-atom (where hydrogen atoms are integrated into the heavier atoms to which they are bound) potential models are particularly pertinent for application to lipid simulations as both were developed with this specific application in mind \cite{marrink_martini_2007,berger_molecular_1997}.
 
 The MARTINI potential model involves integrating the interactions of every four heavy atoms, i.e. those larger than hydrogen, into beads of different chemical nature.
 This potential model attempts to simplify the interactions of lipid and protein molecules significantly by allowing for only eighteen particle types, defined by their polarity, charge, and hydrogen-bond acceptor/donor character, which are discussed in detail in the work of Marrink \emph{et al.} \cite{marrink_martini_2007}.
@@ -123,7 +121,7 @@ Finally, the all-atom Slipid (Stockholm Lipids) lipid potential model was develo
 All three of these potential models were designed to model lipid bilayer systems.
 
 It is clear that there is substantial interest in the use of classical simulation, and coarse-graining for the analysis of neutron reflectometry data.
-However, there has been no work to investigate whether the use of atomistic simulations gives more detail than is required to reproduce the reflectometry profile accurately or to assess if the application of a coarse-grained representation is suitable to aid in analysis.
+However, there has been no work to investigate whether the use of atomistic simulations gives more detailed than is required to reproduce the reflectometry profile accurately or to assess whether the application of a coarse-grained representation is suitable to aid in analysis.
 In this work, three potential models, with different degrees of coarse-graining; namely the Slipid all-atom \cite{jambeck_derivation_2012}, Berger united-atom \cite{berger_molecular_1997}, and MARTINI coarse-grained potential models \cite{marrink_martini_2007}, are compared in terms of their ability to reproduce neutron reflectometry data.
 We consider that this work offers a fundamental insight into the potential model resolution that is necessary to accurately reproduce experimental neutron reflectometry measurements.
 Furthermore, we use the highest resolution simulations to suggest possible adjustments that may be made to the model layer structure analysis methods that are typically used for the rationalisation of neutron reflectometry.
@@ -169,7 +167,7 @@ This potential model was simulated with an increased timestep of \SI{1}{\femto\s
 It is noted that these timesteps are shorter than those typically used for both forcefields, and timesteps of up to \SI{2}{\femto\second} have been applied previously \cite{berger_molecular_1997,jambeck_derivation_2012}.
 Finally, the lowest resolution potential model used was the MARTINI \cite{marrink_martini_2007} alongside the polarisable MARTINI water model \cite{yesylevskyy_polarizable_2010}, to avoid the freezing issues observed previously \cite{koutsioubas_combined_2016}.
 The MARTINI 4-to-1 heavy atom beading allows for the use of a \SI{20}{\femto\second} timestep.
-For the Slipids and Berger potential model a short-range cut-off of \SI{10}{\angstrom} was used, while for the MARTINI potential model the cut-off was extened to \SI{15}{\angstrom}.
+For the Slipids and Berger potential model a short-range cut-off of \SI{10}{\angstrom} was used, while for the MARTINI potential model the cut-off was extended to \SI{15}{\angstrom}.
 All simulations were conducted with temperature coupling to a heat bath at \SI{300}{\kelvin} and a leap-frog integrator, and run using GROMACS 5.0.5 \cite{berendsen_gromacs_1995,lindahl_gromacs_2001,van_der_spoel_gromacs_2005,hess_gromacs_2008} on 32 cores of the STFC Scientific Computing resource SCARF.
 The simulation was of a monolayer, therefore the Ewald 3DC correction was applied to allow for the use of \emph{x}/\emph{y}-only periodic boundary conditions \cite{yeh_ewald_1999}.
 A close-packed ``wall'' of non-interacting dummy atoms was placed at each side of the simulation cell in the \emph{z}-direction to ensure that the atoms could not leave the simulation cell.
@@ -199,7 +197,7 @@ The equilibration period was \SI{1}{\nano\second}, following which the \SI{50}{\
 \begin{figure}[h]
 \centering
   \includegraphics[width=0.48\textwidth]{apm}
-  \caption{The experimental surface pressure isotherm for DSPC, taken from
+  \caption{The experimental surface pressure isotherm for DSPC on water, taken from
   the work of Kubo \emph{et al.}\cite{kubo_phosphatidylcholine_2001}.}
   \label{fig:iso}
 \end{figure}
@@ -226,7 +224,7 @@ The equilibration period was \SI{1}{\nano\second}, following which the \SI{50}{\
 %
 
 \subsection{Abel\`{e}s matrix formalism}
-To compare with the simulation-derived reflectometry profiles, a modified version of the chemically-consistent surfactant monolayer previously used in the group was applied \cite{mccluskey_bayesian_2019,mccluskey_lipids_at_airdes_2019}.
+To compare with the simulation-derived reflectometry profiles, a modified version of the chemically-consistent surfactant monolayer model previously used in the group was applied \cite{mccluskey_bayesian_2019,mccluskey_lipids_at_airdes_2019}.
 This model is implemented as a class that is compatible with the Python package \texttt{refnx} \cite{nelson_refnx_2019,nelson_refnx_2018} and is made up of two layers; the head-layer at the interface with the solvent and the tail-layer at the interface with the air.
 The head components have a calculated scattering length, $b_h$, (found as a summation of the neutron scattering lengths of the individual atoms, see Table S1 of the ESI) and a component volume, $V_h$.
 These make up a head-layer with a given thickness, $d_h$, and interfacial roughness, $\sigma_h$, and within this layer, some volume fraction of solvent may intercalate, $\phi_h$.
@@ -262,7 +260,7 @@ The modifications over the previous implementation were that the tail component 
 %
 resulting in the monolayer model and simulation-derived models being equally constrained by the calculated surface coverage.
 Additionally, the head component volume was constrained to a value of \SI{339.5}{\angstrom\cubed}, in agreement with the work of Ku\v{c}erka \emph{et al.}\cite{kucerka_determination_2004} and Balgav\'{y} \emph{et al.} \cite{balgavy_evaluation_2001}.
-A uniform background, limited to lay within \SI{10}{\percent} of the highest $q$-value reflected intensity, and scale factor were then determined using \texttt{refnx} to offer the best agreement between the calculated reflectometry profile and that measured experimentally.
+A uniform background, limited to lie within \SI{10}{\percent} of the highest $q$-value reflected intensity, and a scale factor were then determined using \texttt{refnx} to offer the best agreement between the calculated reflectometry profile and that measured experimentally.
 
 In this work, the experimental data from all seven contrasts were co-refined to a single monolayer model, where the head thickness, tail thickness, and interfacial roughness were allowed to vary.
 The values of the head and tail scattering lengths, along with the super and subphase SLDs are given in Table S1.
@@ -285,7 +283,7 @@ Each of the \SI{50}{\nano\second} production simulations were analysed with a fr
 \end{equation}
 %
 where, $V_n$ is the volume of the layer $n$, obtained from the simulation cell parameters in the plane of the interface and the defined layer thickness.
-Again a uniform background, limited to lay within \SI{10}{\percent} of the highest $q$-value reflected intensity, and scale factor were then determined using \texttt{refnx}.
+Again a uniform background, limited to lie within \SI{10}{\percent} of the highest $q$-value reflected intensity, and a scale factor were then determined using \texttt{refnx}.
 
 \subsection{Comparison between monolayer model and simulation-derived analysis}
 \label{sec:para}
@@ -343,7 +341,7 @@ All of these analyses used \texttt{MDAnalysis} package \cite{gowers_mdanalysis_2
  \label{fig:ref}
 \end{figure*}
 %
-Figure~\ref{fig:ref} presents the reflectometry and SLD profiles from each of the different methods, both traditional layer model and the three potential model simulations, at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter}.
+Figure~\ref{fig:ref} presents the reflectometry and SLD profiles from each of the different methods, both the traditional layer model and the three potential model simulations, at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter}.
 This work will focus discussions on the data at this surface pressure, however other surface pressures showed similar trends and can be found in the ESI.
 In addition, the $\chi^2$ for each contrast, average $\chi^2$, and standard deviation for each method are given in Table~\ref{tbl:chi} for each contrast.
 %
@@ -357,47 +355,47 @@ In addition, the $\chi^2$ for each contrast, average $\chi^2$, and standard devi
     \hline
     Contrast & Monolayer model & Slipid & Berger & MARTINI \\
     \hline
-    h-\ce{D2O} & \input{../output/traditional/dspc_30_30_hd2o_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_hd2o_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_hd2o_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_hd2o_chi.txt} \\
-    \ce{d_{13}}-ACMW & \input{../output/traditional/dspc_30_30_d13acmw_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d13acmw_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d13acmw_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d13acmw_chi.txt} \\
-    \ce{d_{13}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d13d2o_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d13d2o_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d13d2o_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d13d2o_chi.txt} \\
-    \ce{d_{70}}-ACMW & \input{../output/traditional/dspc_30_30_d70acmw_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d70acmw_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d70acmw_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d70acmw_chi.txt} \\
-    \ce{d_{70}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d70d2o_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d70d2o_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d70d2o_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d70d2o_chi.txt} \\
-    \ce{d_{83}}-ACMW & \input{../output/traditional/dspc_30_30_d83acmw_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d83acmw_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d83acmw_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d83acmw_chi.txt} \\
-    \ce{d_{83}}-\ce{D2O} & \input{../output/traditional/dspc_30_30_d83d2o_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_d83d2o_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_d83d2o_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_d83d2o_chi.txt} \\
+    h-\ce{D2O} & \input{dspc_30_30_hd2o_chi.txt} &
+    \input{dspc_slipids_30_hd2o_chi.txt} &
+    \input{dspc_berger_30_hd2o_chi.txt} &
+    \input{dspc_martini_30_hd2o_chi.txt} \\
+    \ce{d_{13}}-ACMW & \input{dspc_30_30_d13acmw_chi.txt} &
+    \input{dspc_slipids_30_d13acmw_chi.txt} &
+    \input{dspc_berger_30_d13acmw_chi.txt} &
+    \input{dspc_martini_30_d13acmw_chi.txt} \\
+    \ce{d_{13}}-\ce{D2O} & \input{dspc_30_30_d13d2o_chi.txt} &
+    \input{dspc_slipids_30_d13d2o_chi.txt} &
+    \input{dspc_berger_30_d13d2o_chi.txt} &
+    \input{dspc_martini_30_d13d2o_chi.txt} \\
+    \ce{d_{70}}-ACMW & \input{dspc_30_30_d70acmw_chi.txt} &
+    \input{dspc_slipids_30_d70acmw_chi.txt} &
+    \input{dspc_berger_30_d70acmw_chi.txt} &
+    \input{dspc_martini_30_d70acmw_chi.txt} \\
+    \ce{d_{70}}-\ce{D2O} & \input{dspc_30_30_d70d2o_chi.txt} &
+    \input{dspc_slipids_30_d70d2o_chi.txt} &
+    \input{dspc_berger_30_d70d2o_chi.txt} &
+    \input{dspc_martini_30_d70d2o_chi.txt} \\
+    \ce{d_{83}}-ACMW & \input{dspc_30_30_d83acmw_chi.txt} &
+    \input{dspc_slipids_30_d83acmw_chi.txt} &
+    \input{dspc_berger_30_d83acmw_chi.txt} &
+    \input{dspc_martini_30_d83acmw_chi.txt} \\
+    \ce{d_{83}}-\ce{D2O} & \input{dspc_30_30_d83d2o_chi.txt} &
+    \input{dspc_slipids_30_d83d2o_chi.txt} &
+    \input{dspc_berger_30_d83d2o_chi.txt} &
+    \input{dspc_martini_30_d83d2o_chi.txt} \\
     \hline
     Average$\pm$Standard deviation &
-    \input{../output/traditional/dspc_30_30_all_chi.txt} &
-    \input{../output/simulation/dspc_slipids_30_all_chi.txt} &
-    \input{../output/simulation/dspc_berger_30_all_chi.txt} &
-    \input{../output/simulation/dspc_martini_30_all_chi.txt} \\
+    \input{dspc_30_30_all_chi.txt} &
+    \input{dspc_slipids_30_all_chi.txt} &
+    \input{dspc_berger_30_all_chi.txt} &
+    \input{dspc_martini_30_all_chi.txt} \\
     \hline
   \end{tabular*}
 \end{table*}
 %
 \subsection{Traditional analysis}
 The chemically-consistent model was used to determine the structure of the lipid monolayer, Table~\ref{tab:cc} gives the optimum values for the parameters that were varied in the model.
-It is clear from this Table, that as the surface pressure is increased, as expected as found previously \cite{mohwald_phospholipid_1990,vaknin_structural_1991}, the overall thickness of the monolayer increases.
+It is clear from this Table, that as the surface pressure is increased, as expected (and as found previously \cite{mohwald_phospholipid_1990,vaknin_structural_1991}), the overall thickness of the monolayer increases.
 The thickness increase for the lipid tails may be associated with the straightening of the tails with respect to the interface normal, while the thickness increase of the head groups has been noted previously for DSPC \cite{hollinshead_effects_2009}.
 %
 \begin{table*}
@@ -408,17 +406,17 @@ The thickness increase for the lipid tails may be associated with the straighten
     \hline
     Surface Pressure/\si{\milli\newton\per\meter} & $d_h$/\si{\angstrom} & $d_t$/\si{\angstrom} & $\sigma_{t,h,s}$/\si{\angstrom} & $\phi_h$$\times10^{-2}$ & $V_t$/\si{\angstrom\cubed} \\
     \hline
-    20 & \input{../output/traditional/dspc_20-d_h_20.tex} & \input{../output/traditional/dspc_20-d_t_20.tex} & \input{../output/traditional/dspc_20_rough_20.tex} & \input{../output/traditional/dspc_20-phih_20.tex} & \input{../output/traditional/dspc_20-V_t_20.tex} \\
-    30 & \input{../output/traditional/dspc_30-d_h_30.tex} & \input{../output/traditional/dspc_30-d_t_30.tex} & \input{../output/traditional/dspc_30_rough_30.tex} & \input{../output/traditional/dspc_30-phih_30.tex} & \input{../output/traditional/dspc_30-V_t_30.tex} \\
-    40 & \input{../output/traditional/dspc_40-d_h_40.tex} & \input{../output/traditional/dspc_40-d_t_40.tex} & \input{../output/traditional/dspc_40_rough_40.tex} & \input{../output/traditional/dspc_40-phih_40.tex} & \input{../output/traditional/dspc_40-V_t_40.tex} \\
-    50 & \input{../output/traditional/dspc_50-d_h_50.tex} & \input{../output/traditional/dspc_50-d_t_50.tex} & \input{../output/traditional/dspc_50_rough_50.tex} & \input{../output/traditional/dspc_50-phih_50.tex} & \input{../output/traditional/dspc_50-V_t_50.tex} \\
+    20 & \input{dspc_20-d_h_20.tex} & \input{dspc_20-d_t_20.tex} & \input{dspc_20_rough_20.tex} & \input{dspc_20-phih_20.tex} & \input{dspc_20-V_t_20.tex} \\
+    30 & \input{dspc_30-d_h_30.tex} & \input{dspc_30-d_t_30.tex} & \input{dspc_30_rough_30.tex} & \input{dspc_30-phih_30.tex} & \input{dspc_30-V_t_30.tex} \\
+    40 & \input{dspc_40-d_h_40.tex} & \input{dspc_40-d_t_40.tex} & \input{dspc_40_rough_40.tex} & \input{dspc_40-phih_40.tex} & \input{dspc_40-V_t_40.tex} \\
+    50 & \input{dspc_50-d_h_50.tex} & \input{dspc_50-d_t_50.tex} & \input{dspc_50_rough_50.tex} & \input{dspc_50-phih_50.tex} & \input{dspc_50-V_t_50.tex} \\
     \hline
   \end{tabular*}
 \end{table*}
 %
 
 It would be anticipated that as the surface pressure increases, there would be a corresponding decrease in the volume fraction of solvent in the head group \cite{bayerl_specular_1990}.
-However, for DSPC, the volume fraction of solvent appears to be constant (or even increase slightly) with increasing surface pressure.
+However, for DSPC, the volume fraction of the solvent appears to be constant (or even increase slightly) with increasing surface pressure.
 We believe that this is due to the decision to constrain the volume of the lipid head, which may decrease with increasing surface pressure.
 It has been noted previously that the interfacial roughness will increase with increasing surface pressure \cite{lu_aspects_1994}, this can be observed with the slight increase between \SIrange{20}{50}{\milli\newton\per\meter}.
 
@@ -432,13 +430,13 @@ However, the use of an MD-driven analysis method may provide greater insight int
 It is clear from Figure~\ref{fig:ref} and Table~\ref{tbl:chi}, that the MARTINI potential model simulations do not effectively reproduce the reflectometry profile, with a clear difference between the model and data.
 The SLD profiles derived from the MARTINI simulations contain significant dislocations, which lead to artefacts in the resulting reflectometry profile, and therefore the poor agreement with the data.
 
-It is noted that the agreement with the contrasts containing \ce{D2O} are particularly poor.
+It is noted that the agreement with the contrasts containing \ce{D2O} is particularly poor.
 This is most likely an artefact of the structuring effect from the wall at the bottom of the simulation cell on the polarisable MARTINI water.
 It is noted that this may be reduced through the use of a less-ordered wall structure \cite{koutsioubas_combined_2016}.
 Alternatively, it may be possible to completely remove the presence of this structuring through the inclusion of \SI{\sim10}{\percent} of antifreeze MARTINI beads alongside the normal MARTINI water.
-However, this method has been noted to also give structuring effects with the presence of ordered walls \cite{marrink_comment_2010}.
+However, this method has been noted to also give structuring effects in the presence of ordered walls \cite{marrink_comment_2010}.
 
-Another artefact present in the MARTINI potential model simulations, particularly notable in the \ce{d_{83}}-ACMW and \ce{d_{70}}-ACMW contrasts where the reflectometry fringe at low-$q$ is substantially broader than represented in the data, is that the length of the hydrocarbon tail in the simulation was found to be \input{../output/simulation/dspc_martini_30_dt.txt}~\si{\angstrom}.
+Another artefact present in the MARTINI potential model simulations, particularly notable in the \ce{d_{83}}-ACMW and \ce{d_{70}}-ACMW contrasts where the reflectometry fringe at low-$q$ is substantially broader than represented in the data, is that the length of the hydrocarbon tail in the simulation was found to be \input{dspc_martini_30_dt.txt}~\si{\angstrom}.
 This is significantly less than the \SI{24.3}{\angstrom} estimated by the Tanford equation.
 The reduction in the tail length is due to the nature of the MARTINI's 4-to-1 beading process, as DSPC has a hydrocarbon tail consisting of 18 carbon atoms, and it is not possible to bead such a chain accurately with the MARTINI potential model.
 In this work, a MARTINI lipid molecule was used with 4 MARTINI beads making up the chain; corresponding to an all-atom hydrocarbon chain of 16 atoms.
@@ -459,12 +457,12 @@ While the model layer structure constrains the layer model to be chemically-cons
 The quality of the agreement from this multi-modal analysis technique is sufficient for such a method to be applied regularly in the analysis of neutron reflectometry.
 
 Both the Slipid and Berger simulations produced values for the tail length that were in better agreement with the Tanford equation than the MARTINI simulation.
-For the Slipid simulation, the tail length was found to be \input{../output/simulation/dspc_slipids_30_dt.txt}~\si{\angstrom}, while for the Berger simulations a value of \input{../output/simulation/dspc_berger_30_dt.txt}~\si{\angstrom} was obtained.
+For the Slipid simulation, the tail length was found to be \input{dspc_slipids_30_dt.txt}~\si{\angstrom}, while for the Berger simulations a value of \input{dspc_berger_30_dt.txt}~\si{\angstrom} was obtained.
 Neither is quite as large as the \SI{24.3}{\angstrom} from the Tanford equation, however, it should be noted that this value is considered a maximum for the \emph{fully extended} carbon tail.
 
 Using the molecular dynamics simulations, and the model layer structure it is possible to compare the number of water molecules per head group.
-From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{../output/simulation/dspc_30_slipids_wph.txt} and \input{../output/simulation/dspc_30_berger_wph.txt} respectively.
-These are in good agreement with the \input{../output/traditional/dspc_30-wph_30.tex} found from the monolayer model method in conjunction with Equation \ref{equ:wph}.
+From the Slipids and Berger simulations, the number of water molecules per head group was found to be \input{dspc_30_slipids_wph.txt} and \input{dspc_30_berger_wph.txt} respectively.
+These are in good agreement with the \input{dspc_30-wph_30.tex} found from the monolayer model method in conjunction with Equation \ref{equ:wph}.
 
 The \SI{50}{\nano\second} production run for the Slipids potential model simulation required 13 days of using 32 cores of the SCARF computing resource.
 This is non-trivial and therefore not necessarily applicable to all neutron reflectometry experiments.
@@ -504,7 +502,7 @@ However, from the investigation of the SLD profiles in Figure~\ref{fig:ref}(b) i
 In an effort to quantify the interfacial roughness in the simulations, we have used the method outlined in Section~\ref{sec:traj}.
 The values for the mean, \SI{95}{\percent} quantile, and the spread between these for the position for atoms representative of the start, middle, and end of each of the lipid head and tails are given in Table~\ref{tab:spread}, for an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} with the other surface pressures available in the ESI.
 From this table, it is clear that at the very start of the lipid molecule (at the head) the roughness is very large with a value of \SI{\sim10}{\angstrom} for the nitrogen atom.
-However this decreases slightly within the lipid head, reaching a value of \input{../output/simulation/slipids_position_C2_30.txt}\si{\angstrom} for the end of the head group.
+However this decreases slightly within the lipid head, reaching a value of \input{slipids_position_C2_30.txt}\si{\angstrom} for the end of the head group.
 There is then a substantial decrease noted in the lipid tail, going from \SI{\sim8.5}{\angstrom} at the start of the tail to \SI{\sim1.5}{\angstrom} at the end.
 We believe that this indicates the presence of a highly non-conformal roughness in the lipid monolayer of a single lipid type and therefore in future, it is important to consider this possibility in the use of model layer structure method.
 %
@@ -516,16 +514,16 @@ We believe that this indicates the presence of a highly non-conformal roughness 
     \hline
     Position & Mean/\si{\angstrom} & \SI{95}{\percent} quantile/\si{\angstrom} & Spread/\si{\angstrom} \\
     \hline
-    Start-Head & \input{../output/simulation/slipids_mean_N_30.txt} & \input{../output/simulation/slipids_uq_N_30.txt} & \input{../output/simulation/slipids_position_N_30.txt} \\
-    Mid-Head & \input{../output/simulation/slipids_mean_P_30.txt} & \input{../output/simulation/slipids_uq_P_30.txt} & \input{../output/simulation/slipids_position_P_30.txt} \\
-    End-Head & \input{../output/simulation/slipids_mean_C2_30.txt} & \input{../output/simulation/slipids_uq_C2_30.txt} & \input{../output/simulation/slipids_position_C2_30.txt} \\
+    Start-Head & \input{slipids_mean_N_30.txt} & \input{slipids_uq_N_30.txt} & \input{slipids_position_N_30.txt} \\
+    Mid-Head & \input{slipids_mean_P_30.txt} & \input{slipids_uq_P_30.txt} & \input{slipids_position_P_30.txt} \\
+    End-Head & \input{slipids_mean_C2_30.txt} & \input{slipids_uq_C2_30.txt} & \input{slipids_position_C2_30.txt} \\
     \hline
-    Start-Tail 1 & \input{../output/simulation/slipids_mean_C21_30.txt} & \input{../output/simulation/slipids_uq_C21_30.txt} & \input{../output/simulation/slipids_position_C21_30.txt} \\
-    Start-Tail 2 & \input{../output/simulation/slipids_mean_C31_30.txt} & \input{../output/simulation/slipids_uq_C31_30.txt} & \input{../output/simulation/slipids_position_C31_30.txt} \\
-    Mid-Tail 1 & \input{../output/simulation/slipids_mean_C29_30.txt} & \input{../output/simulation/slipids_uq_C29_30.txt} & \input{../output/simulation/slipids_position_C29_30.txt} \\
-    Mid-Tail 2 & \input{../output/simulation/slipids_mean_C39_30.txt} & \input{../output/simulation/slipids_uq_C39_30.txt} & \input{../output/simulation/slipids_position_C39_30.txt} \\
-    End-Tail 1 & \input{../output/simulation/slipids_mean_8C21_30.txt} & \input{../output/simulation/slipids_uq_8C21_30.txt} & \input{../output/simulation/slipids_position_8C21_30.txt} \\
-    End-Tail 2 & \input{../output/simulation/slipids_mean_8C31_30.txt} & \input{../output/simulation/slipids_uq_8C31_30.txt} & \input{../output/simulation/slipids_position_8C31_30.txt} \\
+    Start-Tail 1 & \input{slipids_mean_C21_30.txt} & \input{slipids_uq_C21_30.txt} & \input{slipids_position_C21_30.txt} \\
+    Start-Tail 2 & \input{slipids_mean_C31_30.txt} & \input{slipids_uq_C31_30.txt} & \input{slipids_position_C31_30.txt} \\
+    Mid-Tail 1 & \input{slipids_mean_C29_30.txt} & \input{slipids_uq_C29_30.txt} & \input{slipids_position_C29_30.txt} \\
+    Mid-Tail 2 & \input{slipids_mean_C39_30.txt} & \input{slipids_uq_C39_30.txt} & \input{slipids_position_C39_30.txt} \\
+    End-Tail 1 & \input{slipids_mean_8C21_30.txt} & \input{slipids_uq_8C21_30.txt} & \input{slipids_position_8C21_30.txt} \\
+    End-Tail 2 & \input{slipids_mean_8C31_30.txt} & \input{slipids_uq_8C31_30.txt} & \input{slipids_position_8C31_30.txt} \\
     \hline
   \end{tabular*}
 \end{table}
