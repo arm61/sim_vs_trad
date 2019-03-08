@@ -4,7 +4,7 @@ Credits
 Project Lead
 ----------------
 
-* Andrew R. McCluskey <arm61@bath.ac.uk>
+* Andrew R. McCluskey <a.r.mccluskey@bath.ac.uk>/<andrew.mccluskey@diamond.ac.uk>
 * Karen J. Edler <k.edler@bath.ac.uk>
 
 Project Contributors
