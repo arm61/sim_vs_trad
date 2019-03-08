@@ -61,14 +61,10 @@ A. R. M. is grateful to the University of Bath and Diamond Light Source for co-f
     ├── LICENSE         # CC BY-SA-4.0
     ├── README.md       # You are here
     ├── Snakefile       # Makefile to outline workflow
-    ├── bin             # Some python scripts
     ├── output          # Files and data output by analysis scripts
     │   ├── simulation
     │   └── traditional
     ├── config          # requirements.txt file
-    ├── notebooks       # Notebooks for analysis
-    │   ├── simulation
-    │   └── traditional
     ├── reports         # Paper and ESI
     │   └── figures
-    └── models          # mol_vol.py and mdsimulation.py custom models for refnx
+    └── scripts       # Python scripts for analysis
