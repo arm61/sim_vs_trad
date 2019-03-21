@@ -15,7 +15,7 @@ For more information about reproducible workflows in Python, check out [Tania Al
 
 The reduced neutron reflectometry data and simulation inputs and trajectories can be obtained from the University of Bath Research Data Archive.
 
-[https://researchdata.bath.ac.uk/id/eprint/586](https://researchdata.bath.ac.uk/id/eprint/586)
+DOI: [10.15125/BATH-00586](https://doi.org/10.15125/BATH-00586)
 
 ## Analysis
 
