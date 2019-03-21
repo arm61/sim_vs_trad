@@ -1,4 +1,4 @@
-# ESI for "Applying molecular simulation to the analysis of lipid monolayer reflectometry"
+# ESI for "Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry"
 
 [![DOI](https://zenodo.org/badge/156537189.svg)](https://zenodo.org/badge/latestdoi/156537189) [![arXiv](https://img.shields.io/badge/arXiv-1901.05514-orange.svg)](https://arxiv.org/abs/1901.05514) [![License](https://img.shields.io/github/license/arm61/sim_vs_trad.svg?color=lightgrey)](https://github.com/arm61/sim_vs_trad/blob/master/LICENSE)
 
@@ -6,7 +6,7 @@
 
 &ast;[a.r.mccluskey@bath.ac.uk](mailto:a.r.mccluskey@bath.ac.uk) & [k.edler@bath.ac.uk](mailto:k.edler@bath.ac.uk)
 
-This is the electronic supplementary information (ESI) associated with the publication "Applying molecular simulation to the analysis of lipid monolayer reflectometry".
+This is the electronic supplementary information (ESI) associated with the publication "Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry".
 This ESI provides full details of the analyses performed in the work and access to an automated analysis workflow, through this we aim to provide better access to analysis reproduciblility.
 The [Supplementary Information document](reports/si.pdf) can be found in the [reports](/reports) folder, alongside a preprint copy of the publication.
 For more information about reproducible workflows in Python, check out [Tania Allard's talk from Pycon2018](http://bitsandchips.me/Talks/PyCon.html#/title).
