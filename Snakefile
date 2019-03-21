@@ -639,7 +639,9 @@ rule waters_30:
         SLI_DATA_30,
         'scripts/simulation/waters.py'
     output:
-        'output/simulation/waters_slipids_30.txt'
+        'output/simulation/waters_slipids_30.txt',
+        'output/simulation/heads_slipids_30.txt',
+        'output/simulation/tails_slipids_30.txt'
     run:
         shell("cd scripts/simulation && ipython waters.py slipids 30")
         shell("cd ../")
@@ -648,6 +650,8 @@ rule waters_plot_30:
     input:
         SLI_DATA_30,
         'output/simulation/waters_slipids_30.txt',
+        'output/simulation/heads_slipids_30.txt',
+        'output/simulation/tails_slipids_30.txt',
         'scripts/simulation/water_plot.py',
         'output/traditional/dspc_30-d_h_30.tex',
         'output/traditional/dspc_30-phih_30.tex'
@@ -662,7 +666,9 @@ rule waters_20:
         SLI_DATA_20,
         'scripts/simulation/waters.py'
     output:
-        'output/simulation/waters_slipids_20.txt'
+        'output/simulation/waters_slipids_20.txt',
+        'output/simulation/heads_slipids_20.txt',
+        'output/simulation/tails_slipids_20.txt'
     run:
         shell("cd scripts/simulation && ipython waters.py slipids 20")
         shell("cd ../")
@@ -671,6 +677,8 @@ rule waters_plot_20:
     input:
         SLI_DATA_20,
         'output/simulation/waters_slipids_20.txt',
+        'output/simulation/heads_slipids_20.txt',
+        'output/simulation/tails_slipids_20.txt',
         'scripts/simulation/water_plot.py',
         'output/traditional/dspc_20-d_h_20.tex',
         'output/traditional/dspc_20-phih_20.tex'
@@ -685,7 +693,9 @@ rule waters_40:
         SLI_DATA_40,
         'scripts/simulation/waters.py'
     output:
-        'output/simulation/waters_slipids_40.txt'
+        'output/simulation/waters_slipids_40.txt',
+        'output/simulation/heads_slipids_40.txt',
+        'output/simulation/tails_slipids_40.txt'
     run:
         shell("cd scripts/simulation && ipython waters.py slipids 40")
         shell("cd ../")
@@ -694,6 +704,8 @@ rule waters_plot_40:
     input:
         SLI_DATA_40,
         'output/simulation/waters_slipids_40.txt',
+        'output/simulation/heads_slipids_40.txt',
+        'output/simulation/tails_slipids_40.txt',
         'scripts/simulation/water_plot.py',
         'output/traditional/dspc_40-d_h_40.tex',
         'output/traditional/dspc_40-phih_40.tex'
@@ -708,7 +720,9 @@ rule waters_50:
         SLI_DATA_50,
         'scripts/simulation/waters.py'
     output:
-        'output/simulation/waters_slipids_50.txt'
+        'output/simulation/waters_slipids_50.txt',
+        'output/simulation/heads_slipids_50.txt',
+        'output/simulation/tails_slipids_50.txt'
     run:
         shell("cd scripts/simulation && ipython waters.py slipids 50")
         shell("cd ../")
@@ -717,6 +731,8 @@ rule waters_plot_50:
     input:
         SLI_DATA_50,
         'output/simulation/waters_slipids_50.txt',
+        'output/simulation/heads_slipids_50.txt',
+        'output/simulation/tails_slipids_50.txt',
         'scripts/simulation/water_plot.py',
         'output/traditional/dspc_50-d_h_50.tex',
         'output/traditional/dspc_50-phih_50.tex'

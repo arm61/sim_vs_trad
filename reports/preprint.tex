@@ -13,7 +13,7 @@
 
 \begin{document}                  % DO NOT DELETE THIS LINE
 
-\title{Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry}
+\title{Assessing molecular simulation for the analysis of lipid monolayer reflectometry}
 
 \author{A.~R. McCluskey}
 \email{a.r.mccluskey@bath.ac.uk}
@@ -493,15 +493,19 @@ Regardless of the mechanism, this suggests that a different solvation model shou
 \begin{figure}
 \centering
   \includegraphics[width=0.48\textwidth]{water_30}
-  \caption{The simulation time-averaged intrinsic density profile of the water molecules at the interface, where the phosphorus atoms of the lipid heads create the intrinsic surface at $z=$\SI{0}{\angstrom} (blue dots), at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} and the equivalent scattering length density from the chemically-consistent model (orange line); similar data for the other surface pressures can be found in the ESI.}
+  \caption{The simulation time-averaged intrinsic density profile of the water molecules (blue dots) and lipid components (head groups: green dots, tail groups: red dots), where the phosphorus atoms of the lipid heads create the intrinsic surface at $z=$\SI{0}{\angstrom}, at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} and the equivalent scattering length density from the chemically-consistent model (orange line); similar data for the other surface pressures can be found in the ESI.}
   \label{fig:waters}
 \end{figure}
 %
 
+Figure~\ref{fig:waters} also shows that, without the presence of the roughness, the distribution of the head groups is relatively normal.
+This agrees well with the method used previously to fit the experimental data by Hollinshead \emph{et al.} \cite{hollinshead_effects_2009}, where Gaussian functions were used to describe the lipids head and tail groups.
+However, the tail group distribution is not distributed in a Gaussian fashion, and this previous method failed to account for any roughness in the interface.
+
 Previous work has suggested that when only a single lipid type is present, the roughness between the layers should be conformal in nature, that is it should be carried uniformly through the layers \cite{kozhevnikov_general_2012,campbell_structure_2018}.
 However, from the investigation of the SLD profiles in Figure~\ref{fig:ref}(b) it appears that the roughness between the lipid tails and the air is dramatically different from that at the lipid head-water interface.
 In an effort to quantify the interfacial roughness in the simulations, we have used the method outlined in Section~\ref{sec:traj}.
-The values for the mean, \SI{95}{\percent} quantile, and the spread between these for the position for atoms representative of the start, middle, and end of each of the lipid head and tails are given in Table~\ref{tab:spread}, for an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} with the other surface pressures available in the ESI.
+The values for the mean, \SI{95}{\percent} quantile, and the spread between these for the \emph{z}-dimension position for atoms representative of the start, middle, and end of each of the lipid head and tails are given in Table~\ref{tab:spread}, for an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter} with the other surface pressures available in the ESI.
 From this table, it is clear that at the very start of the lipid molecule (at the head) the roughness is very large with a value of \SI{\sim10}{\angstrom} for the nitrogen atom.
 However this decreases slightly within the lipid head, reaching a value of \input{../output/simulation/slipids_position_C2_30.txt}\si{\angstrom} for the end of the head group.
 There is then a substantial decrease noted in the lipid tail, going from \SI{\sim8.5}{\angstrom} at the start of the tail to \SI{\sim1.5}{\angstrom} at the end.
@@ -509,7 +513,7 @@ We believe that this indicates the presence of a highly non-conformal roughness 
 %
 \begin{table}[h]
 \small
-  \caption{\ The mean, \SI{95}{\percent} quantile, and their spread for the position of atoms representative of difference parts of the lipid, at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter}.}
+  \caption{\ The mean, \SI{95}{\percent} quantile, and their spread for the \emph{z}-dimension position of atoms representative of difference parts of the lipid, at an APM associated with a surface pressure of \SI{30}{\milli\newton\per\meter}.}
   \label{tab:spread}
   \begin{tabular*}{0.48\textwidth}{@{\extracolsep{\fill}}llll}
     \hline

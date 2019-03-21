@@ -12,7 +12,7 @@ mpl.rcParams["lines.linewidth"] = 2
 mpl.rcParams["xtick.top"] = False
 mpl.rcParams["xtick.bottom"] = True
 mpl.rcParams["ytick.left"] = True
-mpl.rcParams["grid.linestyle"] = "--"
+mpl.rcParams["grid.linestyle"] = ""
 mpl.rcParams["legend.fontsize"] = 8
 mpl.rcParams["legend.facecolor"] = [1, 1, 1]
 mpl.rcParams["legend.framealpha"] = 0.75
@@ -26,6 +26,8 @@ import sys
 sp = sys.argv[1]
 
 data = np.loadtxt('../../output/simulation/waters_slipids_{}.txt'.format(sp))
+data_h = np.loadtxt('../../output/simulation/heads_slipids_{}.txt'.format(sp))
+data_t = np.loadtxt('../../output/simulation/tails_slipids_{}.txt'.format(sp))
 def get_value(file):
     f = open(file, "r")
     for line in f:
@@ -61,13 +63,18 @@ def rough(x, a):
 
 dd, ss = curve_fit(rough, data[0], data[1], bounds=((-25), (15)))
 
-fig = plt.figure(figsize=(5, 25/8))
-plt.errorbar(data[0], data[1], yerr=data[2], marker='o')
+fig, ax2 = plt.subplots(figsize=(5, 25/8))
+ax2.errorbar(data_h[0], data_h[1], yerr=data_h[2], marker='o', color=sns.color_palette()[2])
+ax2.errorbar(data_t[0], data_t[1], yerr=data_t[2], marker='o', color=sns.color_palette()[3])
+ax = ax2.twinx()
+ax.errorbar(data[0], data[1], yerr=data[2], marker='o', color=sns.color_palette()[0])
 x = np.linspace(data[0][0], data[0][-1], 10000)
-plt.plot(x, rough(x, dd[0]))
-plt.xlim([-20, 20])
+ax.plot(x, rough(x, dd[0]), color=sns.color_palette()[1])
+plt.xlim([-50, 50])
 plt.xlabel('$z$/Å')
-plt.ylabel('Intrinsic density of water/Å$^{-3}$')
-plt.ylim([0, 0.04])
+ax.set_ylabel('Intrinsic density of water/Å$^{-3}$')
+ax2.set_ylabel('Intrinsic density of lipid/Å$^{-3}$')
+ax.set_ylim([0, 0.04])
+ax2.set_ylim([0, 0.0025])
 plt.tight_layout()
 plt.savefig('../../reports/figures/water_{}.pdf'.format(sp))
