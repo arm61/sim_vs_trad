@@ -1,4 +1,4 @@
-# ESI for "Assessing coarse-grained simulation for the analysis of lipid monolayer reflectometry"
+# ESI for "Assessing molecular simulation for the analysis of lipid monolayer reflectometry"
 
 [![DOI](https://zenodo.org/badge/156537189.svg)](https://zenodo.org/badge/latestdoi/156537189) [![arXiv](https://img.shields.io/badge/arXiv-1901.05514-orange.svg)](https://arxiv.org/abs/1901.05514) [![License](https://img.shields.io/github/license/arm61/sim_vs_trad.svg?color=lightgrey)](https://github.com/arm61/sim_vs_trad/blob/master/LICENSE)
 
