@@ -4,7 +4,7 @@
 
 [Andrew R. McCluskey](https://orcid.org/0000-0003-3381-5911)&ast;, [James Grant](https://orcid.org/0000-0003-1362-2055), [Andrew J. Smith](https://orcid.org/0000-0003-3745-7082), [Jonathan L. Rawle](https://orcid.org/0000-0001-8767-4443), [David J. Barlow](https://orcid.org/0000-0002-0094-5122), [M. Jayne Lawrence](https://orcid.org/0000-0003-4738-4841), [Stephen C. Parker](https://orcid.org/0000-0003-3804-0975), [Karen J. Edler](https://orcid.org/0000-0001-5822-0127)&ast;.
 
-&ast;[a.r.mccluskey@bath.ac.uk](mailto:a.r.mccluskey@bath.ac.uk) & [k.edler@bath.ac.uk](mailto:k.edler@bath.ac.uk)
+&ast;[a.r.mccluskey@bath.ac.uk](mailto:a.r.mccluskey@bath.ac.uk)/[andrew.mccluskey@diamond.ac.uk](mailto:andrew.mccluskey@diamond.ac.uk) & [k.edler@bath.ac.uk](mailto:k.edler@bath.ac.uk)
 
 This is the electronic supplementary information (ESI) associated with the publication "Assessing molecular simulation for the analysis of lipid monolayer reflectometry".
 This ESI provides full details of the analyses performed in the work and access to an automated analysis workflow, through this we aim to provide better access to analysis reproduciblility.
