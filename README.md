@@ -7,6 +7,8 @@
 
 &ast;[a.r.mccluskey@bath.ac.uk](mailto:a.r.mccluskey@bath.ac.uk)/[andrew.mccluskey@diamond.ac.uk](mailto:andrew.mccluskey@diamond.ac.uk) & [k.edler@bath.ac.uk](mailto:k.edler@bath.ac.uk)
 
+*Comparing different molecular dynamics potential models to improve reflectometry analysis.*
+
 This is the electronic supplementary information (ESI) associated with the publication "Assessing molecular simulation for the analysis of lipid monolayer reflectometry".
 This ESI provides full details of the analyses performed in the work and access to an automated analysis workflow, through this we aim to provide better access to analysis reproduciblility.
 The [Supplementary Information document](reports/si.pdf) can be found in the [reports](/reports) folder, alongside a preprint copy of the publication.
