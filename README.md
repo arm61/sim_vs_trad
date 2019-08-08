@@ -54,6 +54,43 @@ snakemake
 
 PDF versions of the figures, can be found in the `reports/figures` directory.
 
+## Citations
+
+**Paper**: A. R. McCluskey, J. Grant, A. J. Smith, J. L. Rawle, D. J. Barlow, M. J. Lawrence, S. C. Parker and K. J. Edler, *J. Phys. Comm.*, 2019, **3**(7), 075001.
+
+**ESI**: A. R. McCluskey, J. Grant, A. J. Smith, J. L. Rawle, D. J. Barlow, M. J. Lawrence, S. C. Parker and K. J. Edler, sim_vs_trad (Version 1.0), http://doi.org/10.5281/zenodo.3254719.
+
+**Data**: A. R. McCluskey, J. Grant, A. J. Smith, J. L. Rawle, D. J. Barlow, M. J. Lawrence, S. C. Parker and K. J. Edler, Dataset for ‘Assessing molecular simulation for the analysis of lipid monolayer reflectometry’, https://doi.org/10.15125/BATH-00586.
+
+### BibTeX
+
+```
+@article{sim_vs_trad_paper, 
+    title={Assessing molecular simulation for the analysis of lipid monolayer reflectometry}, 
+    volume={3}, 
+    DOI={10.1088/2399-6528/ab12a9}, 
+    number={7}, 
+    journal={Phys. Chem. Chem. Phys.}, 
+    author={McCluskey, A. R. and Grant, J. and Smith, A. J. and Rawle, J. L. and Barlow, D. J. and Lawrence, M. J. and Parker, S. C. and Edler, K. J.}, 
+    year={2019}, 
+    pages={075001} 
+}
+
+@misc{sim_vs_trad_esi, 
+    title={sim_vs_trad (Version 1.0)}, 
+    url={http://doi.org/10.5281/zenodo.3254719}, 
+    author={McCluskey, A. R. and Grant, J. and Smith, A. J. and Rawle, J. L. and Barlow, D. J. and Lawrence, M. J. and Parker, S. C. and Edler, K. J.}, 
+    year={2019} 
+}
+
+@misc{sim_vs_trad_data, 
+    title={Dataset for “Assessing molecular simulation for the analysis of lipid monolayer reflectometry”}, 
+    url={https://doi.org/10.15125/BATH-00586}, 
+    author={McCluskey, A. R. and Grant, J. and Smith, A. J. and Rawle, J. L. and Barlow, D. J. and Lawrence, M. J. and Parker, S. C. and Edler, K. J.}, 
+    year={2019} 
+}
+```
+
 ## Acknowledgements
 
 A. R. M. is grateful to the University of Bath and Diamond Light Source for co-funding a studentship (Studentship Number STU0149).
